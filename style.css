@@ -1,0 +1,40 @@
+.carousel-inner {
+  background: url("assets/img/29.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 50% 85%;
+}
+
+.carousel-item {
+  height: 740px;
+  padding: 180px 0;
+}
+.nav-link:hover {
+  color: #81f3fe !important;
+}
+
+.fs-h3 {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.fs-small {
+  font-size: 0.8rem;
+}
+
+.fs-bigger {
+  font-size: 1.2rem;
+}
+
+.footer-line1 {
+  height: 5px;
+}
+.footer-line2 {
+  height: 10px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
