@@ -229,13 +229,6 @@
   background-color: #f1f1f1;
 }
 
-.category-element:hover .categories-count {
-  background-color: #55b1ba;
-}
-
-.category-element .categories-count {
-  background-color: #373a3c;
-}
 
 .dropdown-item:hover {
   color: #55b1ba;

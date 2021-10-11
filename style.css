@@ -49,6 +49,7 @@ p {
 .menu:hover {
   cursor: pointer;
 }
+
 .cartCounter {
   background-color: #55b1bc;
   border-radius: 100%;
@@ -67,6 +68,72 @@ p {
 
 .cartButton:hover{
   filter: invert(13%) sepia(97%) saturate(6072%) hue-rotate(359deg) brightness(110%) contrast(110%);
+}
+
+.pagination-item{
+  color: #494949;
+}
+
+.pagination-item:hover{
+  color: #55b1ba;
+  border-color:#55b1ba;
+  background-color: transparent;
+}
+
+.dropdown-head, .dropdown-body{
+  cursor: pointer;
+}
+
+.category-element:hover .categories-count {
+  background-color: #55b1ba;
+}
+
+.category-element .categories-count {
+  background-color: #646464;
+}
+
+.category-element:hover{
+  border-color:#55b1ba !important;
+  color:#55b1ba !important;
+  
+}
+
+#filtersDropdownBody h6{
+  margin-top:5vh
+}
+
+input[type="checkbox"]{
+  appearance: none;
+  /* -webkit-appearance: none; */
+  width: 15px;
+  height: 15px;
+  background-color:#cecece ;
+  border-radius: 3px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:after{
+  content: "\f00c";
+  font-family:"Font Awesome 5 Free" ;
+  font-weight: 900;
+  font-size: 10px;
+  display: none;
+  
+}
+
+input[type="checkbox"]:hover{
+  background-color: #55b1bc;
+}
+
+input[type="chceckbox"]:checked{
+  background-color: #55b1bc;
+}
+
+input[type="chceckbox"]:checked:after{
+  display: block;
 }
 
 @media screen and (max-width: 992px) {

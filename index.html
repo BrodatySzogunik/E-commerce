@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="custom.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="fonts/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Hello, world!</title>
 </head>
 <body>
@@ -163,64 +164,89 @@
                     </div>
                     <div class="col-12 mx-0 px-3 container-fluid">
                         <div class="row w-100">
-                            <div class="col-3 pl-0 pr-5">
-                                <div class="dropdown container-fluid">
-                                    <div class="dropdown-head row w-100 d-flex align-items-center text-dark">
-                                        <h3>Categories</h3>
-                                        <svg class="ml-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="dropdown-body">
-                                        <div class="category-element container-fluid row border py-2">
-                                            <div class="col-8">Category 1</div>
-                                            <div class="col-4">
-                                                <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
-                                            </div> 
+                            <div class="col-3 pl-0 pr-5 container-fluid">
+                                <div class="row w-100">
+                                    <div class="col-12 container-fluid">
+                                        <div id="categoriesDropdown" class="dropdown-head row w-100 d-flex align-items-center text-dark">
+                                            <h3>Categories</h3>
+                                            <svg id="categoryChewronUp" class="ml-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                            </svg>
+                                            <svg id="categoryChewronDown" class="ml-auto d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                                <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                            </svg>
+                                        </div>
+                                        <div id="categoriesDropdownBody" class="dropdown-body d-none">
+                                            <div class="category-element container-fluid row border py-2 rounded-top">
+                                                <div class="col-8">Category 1</div>
+                                                <div class="col-4">
+                                                    <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
+                                                </div> 
+                                            </div>
+                                            <div class="category-element container-fluid row border py-2 ">
+                                                <div class="col-8">Category 2</div>
+                                                <div class="col-4">
+                                                    <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
+                                                </div> 
+                                            </div>
+                                            <div class="category-element container-fluid row border py-2 rounded-bottom">
+                                                <div class="col-8">Very long cat...</div>
+                                                <div class="col-4">
+                                                    <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
+                                                </div> 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle bg-transparent text-dark w-100 text-left  border-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="fs-h3 mr-auto">Filters</span>
-                                    </button>
-                                    <div class="dropdown-menu  w-100 border-0" aria-labelledby="dropdownMenuButton">
-                                        <div class="dropdown-item  border-0"></div>
-                                        <h6>Price range</h5>
-                                        <input id="price-from" type="text" placeholder="from"><input id="price-to" type="text" placeholder="To">
-                                        <h6>Producer</h6>
-                                        <input id="customCheckbox1" type="checkbox">
-                                        <label for="customCheckbox1">Custom Checkbox</label>
-                                        <br>
-                                        <input id="customCheckbox2" type="checkbox">
-                                        <label for="customCheckbox2">Custom Checkbox</label>
-                                        <br>
-                                        <input id="customCheckbox3" type="checkbox">
-                                        <label for="customCheckbox3">Custom Checkbox</label>
-                                        <h6>Avaible in saloon</h6>
-                                        <select name="availible" id="">
-                                            <option value="selectSaoon">Select saloon</option>
-                                            <option value="selectSaoon">Select saloon</option>
-                                            <option value="selectSaoon">Select saloon</option>
-                                            <option value="selectSaoon">Select saloon</option>
-                                            <option value="selectSaoon">Select saloon</option>
-                                        </select>
-                                        <h6>Other options</h6>
-                                        <input id="customCheckbox3" type="checkbox">
-                                        <label for="customCheckbox3">Custom Checkbox</label>
-                                        <br>
-                                        <input id="customCheckbox3" type="checkbox">
-                                        <label for="customCheckbox3">Custom Checkbox</label>
-                                        <br>
-                                        <input id="customCheckbox3" type="checkbox">
-                                        <label for="customCheckbox3">Custom Checkbox</label>
-                                        <br>
-                                        <input id="customCheckbox3" type="checkbox">
-                                        <label for="customCheckbox3">Custom Checkbox</label>
-                                        <br>
-                                        <input id="customCheckbox3" type="checkbox">
-                                        <label for="customCheckbox3">Custom Checkbox</label>
 
+                                    <div class="col-12 container-fluid">
+                                        
+                                            <div id="filtersDropdown" class="dropdown-head row w-100 d-flex align-items-center text-dark">
+                                                <h3>Filters</h3>
+                                                <svg id="filterChewronUp" class="ml-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                                </svg>
+                                                <svg id="filterChewronDown" class="ml-auto d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                                </svg>
+                                            </div>
+                                            <div id="filtersDropdownBody" class=" text-dark dropdown-body d-none">
+                                                <div class="dropdown-item  border-0"></div>
+                                                <h6>Price range</h5>
+                                                <input id="price-from" type="text" placeholder="from"><input id="price-to" type="text" placeholder="To">
+                                                <h6>Producer</h6>
+                                                <input id="customCheckbox1" type="checkbox">
+                                                <label for="customCheckbox1">Custom Checkbox</label>
+                                                <br>
+                                                <input id="customCheckbox2" type="checkbox">
+                                                <label for="customCheckbox2">Custom Checkbox</label>
+                                                <br>
+                                                <input id="customCheckbox3" type="checkbox">
+                                                <label for="customCheckbox3">Custom Checkbox</label>
+                                                <h6>Avaible in saloon</h6>
+                                                <select name="availible" id="">
+                                                    <option value="selectSaoon">Select saloon</option>
+                                                    <option value="selectSaoon">Select saloon</option>
+                                                    <option value="selectSaoon">Select saloon</option>
+                                                    <option value="selectSaoon">Select saloon</option>
+                                                    <option value="selectSaoon">Select saloon</option>
+                                                </select>
+                                                <h6>Other options</h6>
+                                                <input id="customCheckbox4" type="checkbox">
+                                                <label for="customCheckbox4">Custom Checkbox</label>
+                                                <br>
+                                                <input id="customCheckbox5" type="checkbox">
+                                                <label for="customCheckbox5">Custom Checkbox</label>
+                                                <br>
+                                                <input id="customCheckbox6" type="checkbox">
+                                                <label for="customCheckbox6">Custom Checkbox</label>
+                                                <br>
+                                                <input id="customCheckbox7" type="checkbox">
+                                                <label for="customCheckbox7">Custom Checkbox</label>
+                                                <br>
+                                                <input id="customCheckbox7" type="checkbox">
+                                                <label for="customCheckbox7">Custom Checkbox</label>
+                                            </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -440,16 +466,16 @@
                                                 <nav class="d-flex justify-content-end" aria-label="Page navigation example">
                                                     <ul class="pagination">
                                                     <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Previous">
+                                                        <a class="page-link pagination-item" href="#" aria-label="Previous">
                                                         <span aria-hidden="true">&laquo;</span>
                                                         </a>
                                                     </li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                                    <li class="page-item"><a class="page-link pagination-item" href="#">1</a></li>
+                                                    <li class="page-item"><a class="page-link pagination-item" href="#">2</a></li>
+                                                    <li class="page-item"><a class="page-link pagination-item" href="#">3</a></li>
+                                                    <li class="page-item"><a class="page-link pagination-item" href="#">...</a></li>
                                                     <li class="page-item">
-                                                        <a class="page-link" href="#" aria-label="Next">
+                                                        <a class="page-link pagination-item" href="#" aria-label="Next">
                                                         <span aria-hidden="true">&raquo;</span>
                                                         </a>
                                                     </li>
