@@ -241,3 +241,9 @@
   color: #55b1ba;
   border: 1px solid #55b1ba !important;
 }
+
+.dropdown-menu {
+  position: absolute;
+  top: 46px;
+  left: -31px;
+}

@@ -38,3 +38,44 @@ p {
   padding: 0;
   margin: 0;
 }
+
+.location {
+  line-height: 70%;
+}
+.contact {
+  width: 100%;
+}
+
+.menu:hover {
+  cursor: pointer;
+}
+.cartCounter {
+  background-color: #55b1bc;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+
+.hidden{
+  display:none
+}
+@media screen and (max-width: 992px) {
+  .footer-item {
+    display: flex;
+    justify-content: left;
+    margin-left: 20vh;
+    margin-bottom: 20px;
+  }
+  .contact {
+    width: 75%;
+  }
+}
