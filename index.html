@@ -80,6 +80,7 @@
             <div class="row container-fluid cart-item my-2">
                 <div class="col-7 text-right">Total:</div>
                 <div class="col-3">299.97</div>
+                <!-- link do checkout -->
                 
             </div>  
         </div>
@@ -163,35 +164,20 @@
                     <div class="col-12 mx-0 px-3 container-fluid">
                         <div class="row w-100">
                             <div class="col-3 pl-0 pr-5">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle bg-transparent text-dark w-100 text-left  border-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="fs-h3 mr-auto">Categories</span>
-                                    </button>
-                                    <div class="dropdown-menu  w-100 border-0" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item rounded-top border-left border-right border-top" href="#">
-                                            <div class="row">
-                                                <div class="col-10 m-0">Category 1</div>
-                                                <div class="col-2 m-0 d-flex align-items-center justify-content-center">
-                                                    <span class="categories-count rounded-pill px-2 py-1 text-white fs-small font-weight-bold ">14</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item border-top border-left border-right border-bottom" href="#">
-                                            <div class="row">
-                                                <div class="col-10 m-0">Category 2</div>
-                                                <div class="col-2 m-0 d-flex align-items-center justify-content-center">
-                                                    <span class="categories-count rounded-pill px-2 py-1 text-white fs-small font-weight-bold ">4</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item rounded-bottom border-left border-right border-bottom" href="#">
-                                            <div class="row">
-                                                <div class="col-10 m-0">very long category 3 dfddddddddddddddddddddddddddd</div>
-                                                <div class="col-2 m-0 d-flex align-items-center justify-content-center">
-                                                    <span class="categories-count rounded-pill px-2 py-1 text-white fs-small font-weight-bold ">1</span>
-                                                </div>
-                                            </div>
-                                        </a>
+                                <div class="dropdown container-fluid">
+                                    <div class="dropdown-head row w-100 d-flex align-items-center text-dark">
+                                        <h3>Categories</h3>
+                                        <svg class="ml-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                            <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="dropdown-body">
+                                        <div class="category-element container-fluid row border py-2">
+                                            <div class="col-8">Category 1</div>
+                                            <div class="col-4">
+                                                <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
+                                            </div> 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="dropdown">
