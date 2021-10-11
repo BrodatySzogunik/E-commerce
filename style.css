@@ -65,9 +65,10 @@ p {
   font-weight: bolder;
 }
 
-.hidden{
-  display:none
+.cartButton:hover{
+  filter: invert(13%) sepia(97%) saturate(6072%) hue-rotate(359deg) brightness(110%) contrast(110%);
 }
+
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;
