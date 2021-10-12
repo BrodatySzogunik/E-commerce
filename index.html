@@ -58,32 +58,44 @@
                 </div>
             </div>
         </div>
-        <div id="cartBox" class=" ml-auto col-sm-12 col-md-5 col-lg-4 col-xl-3 bg-white py-3 px-2 cart-box  d-none">
-            <div class="row container-fluid cart-item my-2">
-
-                <div class="col-7">Motorcycle helmet</div>
-                <div class="col-3">99.99</div>
-                <div class="col-2"><img class="mx-auto cartButton" src="svg/delete.svg" height="25px" alt=""></div>
+        <div id="cartBox" class=" ml-auto col-sm-12 col-md-5 col-lg-4 col-xl-3 bg-white py-3  d-none">
+            <div class="row container-fluid w-100 cart-item  ml-auto">
+                <div class="col-2 p-0 m-0">
+                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                </div>
+                <div class="col-6 text-left p-0 m-0">Motorcycle helmet</div>
+                <div class="col-2 p-0 m-0">99.99</div>
+                <div class="col-2 p-0 m-0"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
             </div>
             <hr>
-            <div class="row container-fluid cart-item my-2">
-                <div class="col-7">Motorcycle helmet</div>
-                <div class="col-3">99.99</div>
-                <div class="col-2"><img class="mx-auto cartButton" src="svg/delete.svg" height="25px" alt=""></div>
+            <div class="row container-fluid w-100 cart-item  ml-auto">
+                <div class="col-2 p-0 m-0">
+                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                </div>
+                <div class="col-6 text-left p-0 m-0">Motorcycle helmet</div>
+                <div class="col-2 p-0 m-0">99.99</div>
+                <div class="col-2 p-0 m-0"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
             </div>
             <hr>
-            <div class="row container-fluid cart-item my-2">
-                <div class="col-7">Motorcycle helmet</div>
-                <div class="col-3">99.99</div>
-                <div class="col-2"><img class="mx-auto cartButton" src="svg/delete.svg" height="25px" alt=""></div>
+            <div class="row container-fluid w-100 cart-item  ml-auto">
+                <div class="col-2 p-0 m-0">
+                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                </div>
+                <div class="col-6 text-left p-0 m-0">Motorcycle helmet</div>
+                <div class="col-2 p-0 m-0">99.99</div>
+                <div class="col-2 p-0 m-0"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
             </div>
             <hr>
-            <div class="row container-fluid cart-item my-2">
-                <div class="col-7 text-right">Total:</div>
-                <div class="col-3">299.97</div>
+            <div class="row container-fluid w-100 cart-item  ml-auto">
+                <div class="col-8 text-right pr-4 m-0">Total:</div>
+                <div class="col-2 p-0 m-0 ">299.97</div>
+                <div class="col-2"></div>
                 <!-- link do checkout -->
                 
-            </div>  
+            </div>
+            <a class="col-2 p-0 m-0 bg-light2 d-flex justify-content-center align-items-center mr-1 w-100" href="#">
+                Buy
+            </a>  
         </div>
     </div>
 </div>
@@ -209,44 +221,96 @@
                                                     <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
                                                 </svg>
                                             </div>
-                                            <div id="filtersDropdownBody" class=" text-dark dropdown-body d-none">
-                                                <div class="dropdown-item  border-0"></div>
-                                                <h6>Price range</h5>
-                                                <input id="price-from" type="text" placeholder="from"><input id="price-to" type="text" placeholder="To">
-                                                <h6>Producer</h6>
-                                                <input id="customCheckbox1" type="checkbox">
-                                                <label for="customCheckbox1">Custom Checkbox</label>
-                                                <br>
-                                                <input id="customCheckbox2" type="checkbox">
-                                                <label for="customCheckbox2">Custom Checkbox</label>
-                                                <br>
-                                                <input id="customCheckbox3" type="checkbox">
-                                                <label for="customCheckbox3">Custom Checkbox</label>
-                                                <h6>Avaible in saloon</h6>
-                                                <select name="availible" id="">
-                                                    <option value="selectSaoon">Select saloon</option>
-                                                    <option value="selectSaoon">Select saloon</option>
-                                                    <option value="selectSaoon">Select saloon</option>
-                                                    <option value="selectSaoon">Select saloon</option>
-                                                    <option value="selectSaoon">Select saloon</option>
-                                                </select>
-                                                <h6>Other options</h6>
-                                                <input id="customCheckbox4" type="checkbox">
-                                                <label for="customCheckbox4">Custom Checkbox</label>
-                                                <br>
-                                                <input id="customCheckbox5" type="checkbox">
-                                                <label for="customCheckbox5">Custom Checkbox</label>
-                                                <br>
-                                                <input id="customCheckbox6" type="checkbox">
-                                                <label for="customCheckbox6">Custom Checkbox</label>
-                                                <br>
-                                                <input id="customCheckbox7" type="checkbox">
-                                                <label for="customCheckbox7">Custom Checkbox</label>
-                                                <br>
-                                                <input id="customCheckbox7" type="checkbox">
-                                                <label for="customCheckbox7">Custom Checkbox</label>
+                                            <div id="filtersDropdownBody" class=" text-dark dropdown-body d-none container-fluid">
+                                                <div class="row w-100">
+                                                    <div class="col-12 p-0 m-0">
+                                                        <h6>Price range</h5>
+                                                    </div>
+                                                    <div class="col-5 p-0 m-0">
+                                                        <input id="price-from" class="w-100" type="text" placeholder="from">
+                                                    </div>
+                                                    <div class="col-2  p-0 m-0 d-flex justify-content-center align-items-center">-</div>
+                                                    <div class="col-5  p-0 m-0">
+                                                        <input id="price-to" class="w-100" type="text" placeholder="To">
+                                                    </div>
+                                                    <div class="col-12 p-0 m-0">
+                                                        <h6>Producer</h6>
+                                                    </div>
+                                                    <div class="col-1  p-0 m-0 mb-2 d-flex align-items-center" >
+                                                        <input id="customCheckbox1" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0  mb-2 d-flex align-items-center">
+                                                        <label for="customCheckbox1">Custom Checkbox</label>
+                                                    </div>
+                                                    
+                                                    <div class="col-1  p-0 m-0">
+                                                        <input id="customCheckbox2" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0  mb-2">
+                                                        <label for="customCheckbox2">Custom Checkbox</label>
+                                                    </div>
+                                                    
+                                                    <div class="col-1  p-0 m-0">
+                                                        <input id="customCheckbox3" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0  mb-2">
+                                                        <label for="customCheckbox3">Custom Checkbox</label>
+                                                    </div>
+
+                                                    <div class="col-12 p-0 m-0">
+                                                        <h6>Avaible in saloon</h6>
+                                                    </div>
+
+                                                    <div class="col-12 p-0 m-0">
+                                                        <select name="availible" id="">
+                                                            <option value="selectSaoon">Select saloon</option>
+                                                            <option value="selectSaoon">Select saloon</option>
+                                                            <option value="selectSaoon">Select saloon</option>
+                                                            <option value="selectSaoon">Select saloon</option>
+                                                            <option value="selectSaoon">Select saloon</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-12 p-0 m-0">
+                                                        <h6>Other options</h6>
+                                                    </div>
+
+                                                    <div class="col-1  p-0 m-0p-0 m-0">
+                                                        <input id="customCheckbox4" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
+                                                        <label for="customCheckbox4">Custom Checkbox</label>
+                                                    </div>
+
+                                                    <div class="col-1  p-0 m-0p-0 m-0">
+                                                        <input id="customCheckbox5" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
+                                                        <label for="customCheckbox5">Custom Checkbox</label>
+                                                    </div>
+
+                                                    <div class="col-1  p-0 m-0p-0 m-0">
+                                                        <input id="customCheckbox6" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
+                                                        <label for="customCheckbox6">Custom Checkbox</label>
+                                                    </div>
+
+                                                    <div class="col-1  p-0 m-0p-0 m-0">
+                                                        <input id="customCheckbox7" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
+                                                        <label for="customCheckbox7">Custom Checkbox</label>
+                                                    </div>
+
+                                                    <div class="col-1  p-0 m-0p-0 m-0">
+                                                        <input id="customCheckbox8" type="checkbox">
+                                                    </div>
+                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
+                                                        <label for="customCheckbox8">Custom Checkbox</label>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        
                                     </div>
                                 </div>
                             </div>

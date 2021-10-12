@@ -16,6 +16,7 @@ cart.addEventListener("click",()=>{
     if(cartBox.classList.contains("d-none"))
     {
         cartBox.classList.remove("d-none")
+        
     }else
     {
         cartBox.classList.add("d-none")    
