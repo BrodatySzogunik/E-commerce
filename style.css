@@ -19,6 +19,11 @@
   font-size: 1.5em;
   font-weight: 500;
 }
+
+.fs-h2{
+  font-size:1.2rem;
+  font-weight: 100;
+}
 .fs-small {
   font-size: 0.8rem;
 }
