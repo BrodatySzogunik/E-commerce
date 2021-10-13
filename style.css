@@ -7,10 +7,42 @@
   background-position: 50% 85%;
 }
 
+#item-carousel .carousel-inner{
+  background: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 450px;
+  display:flex;
+  align-items: center;
+ 
+}
+#item-carousel .carousel-control-next-icon,
+#item-carousel .carousel-control-prev-icon{
+ 
+  margin:2px;
+  background-color:#373a3c  ;
+  border-radius: 5px;
+}
+
+.carousel-indicator{
+  background-color: #639297 !important;
+}
+
+
+
+#item-carousel .carousel-item{
+  height: auto;
+  padding:0;
+  
+}
+
 .carousel-item {
   height: 740px;
   padding: 180px 0;
 }
+
 .nav-link:hover {
   color: #81f3fe !important;
 }
@@ -105,6 +137,18 @@ p {
 
 #filtersDropdownBody h6{
   margin-top:5vh
+}
+
+.spec-item{
+  border-color:#b1b1b1
+}
+
+select{
+  background-color: transparent;
+  border-radius: 5px;
+  border:1px solid #b1b1b1;
+  color:#494949;
+
 }
 
 input[type="checkbox"]{
