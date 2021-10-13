@@ -43,6 +43,10 @@
   padding: 180px 0;
 }
 
+#chevron-right{
+  transform:rotate(180deg)
+}
+
 .nav-link:hover {
   color: #81f3fe !important;
 }
@@ -184,6 +188,10 @@ input[type="chceckbox"]:checked{
 input[type="chceckbox"]:checked:after{
   display: block;
 }
+label{
+
+  margin:0 5px;
+}
 
 @media screen and (max-width: 992px) {
   .footer-item {
@@ -195,4 +203,14 @@ input[type="chceckbox"]:checked:after{
   .contact {
     width: 75%;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-item {
+    display: flex;
+    justify-content: left;
+    margin-left: 5vh;
+    margin-bottom: 20px;
+  }
+  
 }
