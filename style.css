@@ -199,6 +199,28 @@ label{
   margin:0 5px;
 }
 
+#main-hero{
+  background-image: url('assets/img/2713.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#main-hero-cover{
+  position: absolute;
+  content:"";
+  background-color: rgba(0,0,0,0.7);
+  width: 100%;
+ 
+}
+
+
+
+.hero{
+  height: 500px;
+}
+
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;
