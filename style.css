@@ -43,6 +43,22 @@
   padding: 180px 0;
 }
 
+#video-carousel .carousel-inner{
+  background: transparent;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: auto;
+  
+
+}
+#video-carousel .carousel-item{
+  height: auto;
+  padding:0;
+  
+}
+
 #chevron-right{
   transform:rotate(180deg)
 }
@@ -217,6 +233,43 @@ label{
 
 .hero{
   height: 500px;
+}
+
+.card-heart{
+  position: absolute;
+  top:15px;
+  right: 15px;
+  filter: invert(100%) sepia(0%) saturate(1777%) hue-rotate(234deg) brightness(86%) contrast(74%);
+  display: none;
+  cursor: pointer;
+
+}
+
+
+
+.card-cart{
+  position: absolute;
+  bottom:15px;
+  right: 15px;
+  padding:7px;
+  border:1px solid black;
+  filter: invert(70%) sepia(14%) saturate(1239%) hue-rotate(137deg) brightness(87%) contrast(94%);
+  border-radius: 5px;
+  display: none;
+  cursor: pointer;
+}
+
+.card:hover .card-cart,
+.card:hover .card-heart{
+  display: block;
+}
+.card{
+  border:1px solid transparent;
+  border-radius: 5px;
+}
+
+.card:hover{
+  border:1px solid #c4c4c4
 }
 
 @media screen and (max-width: 992px) {
