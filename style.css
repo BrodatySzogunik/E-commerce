@@ -111,6 +111,10 @@ p {
   filter: invert(13%) sepia(97%) saturate(6072%) hue-rotate(359deg) brightness(110%) contrast(110%);
 }
 
+.cart-box{
+  width:30px ;
+}
+
 .pagination-item{
   color: #494949;
 }
@@ -127,10 +131,12 @@ p {
 
 .category-element:hover .categories-count {
   background-color: #55b1ba;
+  
 }
 
 .category-element .categories-count {
   background-color: #646464;
+  max-width: 35px !important;
 }
 
 .category-element:hover{
