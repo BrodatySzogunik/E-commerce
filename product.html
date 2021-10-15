@@ -14,94 +14,92 @@
     <title>Hello, world!</title>
 </head>
 <body>
-<div class="container-fluid fixed-top d-flex justify-content-center p-0 m-0">
-    <div class="row w-100 m-0">
-        <nav class="navbar navbar-expand-lg navbar-light  bg-primary col-sm-12 col-lg-10 col-xl-11 d-flex ">
-            <a class="navbar-brand font-weight-bold text-white" href="#">BOOTCAMP</a>
-            <a class="text-light align-bottom text-decoration-none" href="#">RESPONSIVE ATOS E-COMMERCE TEMPLATE</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto ">
-                    <li class="nav-item active">
-                        <a class="nav-link text-light" href="#">HOME <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">SHOP</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            PRODUCTS
-                        </a>
-                        <div class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-grey" href="#">CATEGORY 1</a>
-                            <a class="dropdown-item text-grey" href="#">CATEGORY 2</a>
-                            <a class="dropdown-item text-grey" href="#">CATEGORY 3</a>
+    <div class="container-fluid fixed-top d-flex justify-content-center p-0 m-0">
+        <div class="row w-100 m-0">
+            <nav class="navbar navbar-expand-lg navbar-light  bg-primary col-sm-12 col-lg-10 col-xl-11 d-flex ">
+                <a class="navbar-brand font-weight-bold text-white" href="#">BOOTCAMP</a>
+                <a class="text-light align-bottom text-decoration-none" href="#">RESPONSIVE ATOS E-COMMERCE TEMPLATE</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item active">
+                            <a class="nav-link text-light" href="#">HOME <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">SHOP</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                PRODUCTS
+                            </a>
+                            <div class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-grey" href="#">CATEGORY 1</a>
+                                <a class="dropdown-item text-grey" href="#">CATEGORY 2</a>
+                                <a class="dropdown-item text-grey" href="#">CATEGORY 3</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid col-sm-12 col-lg-2 col-xl-1 p-0 m-0 d-flex hidden">
+                <div class="row w-100 m-0">
+                    <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                        <div class="cart-box d-flex align-items-center justify-content-center">
+                            <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
+                            <div class="cartCounter">5</div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container-fluid col-sm-12 col-lg-2 col-xl-1 p-0 m-0 d-flex hidden">
-            <div class="row w-100 m-0">
-                <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                    <div class="cart-box d-flex align-items-center justify-content-center">
-                        <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
-                        <div class="cartCounter">5</div>
+                    </div>
+                    <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                        <img class="mx-auto" src="svg/user.svg" height="30px" alt="">
+                    </div>
+                    <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                        <img class="mx-auto" src="svg/search.svg" height="30px" alt="">
                     </div>
                 </div>
-                <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                    <img class="mx-auto" src="svg/user.svg" height="30px" alt="">
-                </div>
-                <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                    <img class="mx-auto" src="svg/search.svg" height="30px" alt="">
-                </div>
             </div>
-        </div>
-        <div id="cartBox" class=" ml-auto col-md-12 col-lg-4 col-xl-3 bg-white py-3  d-none">
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+            <div id="cartBox" class=" ml-auto col-md-12 col-lg-4 col-xl-3 bg-white py-3  d-none">
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-2 p-0 m-0">
+                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                    </div>
+                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
+                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
                 </div>
-                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                <hr>
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-2 p-0 m-0">
+                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                    </div>
+                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
+                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
                 </div>
-                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                <hr>
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-2 p-0 m-0">
+                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                    </div>
+                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
+                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
                 </div>
-                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-4 col-sm-3 col-lg-2 p-0 m-0 d-flex justify-content-center text-white">
-                    <button type="button" class="btn btn-primary w-100">Buy</button> 
+                <hr>
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-4 col-sm-3 col-lg-2 p-0 m-0 d-flex justify-content-center text-white">
+                        <button type="button" class="btn btn-primary w-100">Buy</button> 
+                    </div>
+                    <div class="col-4 col-sm-6 col-lg-7 text-right pr-4 m-0 d-flex align-items-center">Total:</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center ">299.97</div>
+                    <div class="col-2 col-sm-1"></div>            
                 </div>
-                <div class="col-4 col-sm-6 col-lg-7 text-right pr-4 m-0">Total:</div>
-                <div class="col-2 p-0 m-0 ">299.97</div>
-                <div class="col-2 col-sm-1"></div>
-                <!-- link do checkout -->
                 
             </div>
-            
         </div>
     </div>
-</div>
 
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -462,97 +460,97 @@
 <div class="bg-light2 footer-line1"></div>
 <div class="bg-primary footer-line2"></div>
 
-    <div class="bg-light2 container-fluid pt-5">
-        <div class="row w-100 m-0">
-            <div class="col-lg-0 col-xl-2"></div>
-            <div class="col-12 col-lg-3 col-xl-2  text-dark footer-item">
-                
-                <span class="text-grey">
-                    <h5 class="text-dark">Orders</h5>
-                    <p>Shipment</p>
-                    <p>Installment</p>
-                    <p>Leasing</p>
-                    <p>Insurance</p>
-                    <p>Returns</p>
-                </span>
-            </div>
-            <div class="col-sm-12 col-lg-3 col-xl-2  footer-item">
-                
-                <span class="text-grey">
-                <h5 class="text-dark">Shortcuts</h5>
-                <p>Recommended</p>
-                <p>Gift cards</p>
-                <p>Tutorials</p>
-                <p>News &articles</p>
-                <p>Videos</p>
-                </span>
-            </div>
-            <div class="col-sm-12 col-lg-3 col-xl-2 footer-item   ">
-                
-                <span class="text-grey ">
-                <h5 class="text-dark">About</h5>
-                <p>About us</p>
-                <p>Terms & conditions</p>
-                <p>Privacy policy</p>
-                <p>Press room</p>
-                <p>Career</p>
-                <p>Contact</p>
-                </span>
-            </div>
-            <div class="col-sm-12 col-lg-3 col-xl-2 container-fluid footer-item">
-                <div class="container-fluid contact w-100 p-0">
-                    <div class="row w-100 m-0">
-                        <h5 class="col-12 p-0">Contact</h5>
-                        <div class="col-2 d-flex  justify-content-center">
-                            <img  src="svg/phone-call.svg" height="25px" alt="" >
-                        </div>
-                        <div class="col-10 container-fluid mb-3 text-grey">
-                            <div class="row w-100 m-0">   
-                                <h5 class="col-12 p-0">12 345 67 89</h5>
-                                <div class="col-md-3 col-lg-9 fs-small p-0">
-                                    <p>mon.-fr.</p>
-                                    <p>sat.-sun.</p>
-                                </div>
-                                <div class="col-md-4 col-lg-3 fs-small p-0">
-                                    <p>8:00-20:00</p>
-                                    <p>8:00-17:00</p>
-                                </div>
+<div class="bg-light2 container-fluid pt-5">
+    <div class="row w-100 m-0">
+        <div class="col-lg-0 col-xl-2"></div>
+        <div class="col-12 col-lg-3 col-xl-2  text-dark footer-item">
+            
+            <span class="text-grey">
+                <h5 class="text-dark">Orders</h5>
+                <p>Shipment</p>
+                <p>Installment</p>
+                <p>Leasing</p>
+                <p>Insurance</p>
+                <p>Returns</p>
+            </span>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-xl-2  footer-item">
+            
+            <span class="text-grey">
+            <h5 class="text-dark">Shortcuts</h5>
+            <p>Recommended</p>
+            <p>Gift cards</p>
+            <p>Tutorials</p>
+            <p>News &articles</p>
+            <p>Videos</p>
+            </span>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-xl-2 footer-item   ">
+            
+            <span class="text-grey ">
+            <h5 class="text-dark">About</h5>
+            <p>About us</p>
+            <p>Terms & conditions</p>
+            <p>Privacy policy</p>
+            <p>Press room</p>
+            <p>Career</p>
+            <p>Contact</p>
+            </span>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-xl-2 container-fluid footer-item">
+            <div class="container-fluid contact w-100 p-0">
+                <div class="row w-100 m-0">
+                    <h5 class="col-12 p-0">Contact</h5>
+                    <div class="col-2 d-flex  justify-content-center">
+                        <img  src="svg/phone-call.svg" height="25px" alt="" >
+                    </div>
+                    <div class="col-10 container-fluid mb-3 text-grey">
+                        <div class="row w-100 m-0">   
+                            <h5 class="col-12 p-0">12 345 67 89</h5>
+                            <div class="col-md-3 col-lg-9 fs-small p-0">
+                                <p>mon.-fr.</p>
+                                <p>sat.-sun.</p>
+                            </div>
+                            <div class="col-md-4 col-lg-3 fs-small p-0">
+                                <p>8:00-20:00</p>
+                                <p>8:00-17:00</p>
                             </div>
                         </div>
-                        <div class="col-2 d-flex justify-content-center ">
-                            <img  class="" src="svg/email.svg" height="25px" alt="" >
-                        </div>
-                        <div class="col-10  d-flex  align-items-center mb-3 text-grey">
+                    </div>
+                    <div class="col-2 d-flex justify-content-center ">
+                        <img  class="" src="svg/email.svg" height="25px" alt="" >
+                    </div>
+                    <div class="col-10  d-flex  align-items-center mb-3 text-grey">
+                    
+                        <p class="">bootcamp@atos.net</p>
                         
-                            <p class="">bootcamp@atos.net</p>
-                            
-                        </div>
-                        <div class="col-2 d-flex justify-content-center">
-                            <img  class="" src="svg/maps-and-flags.svg" height="25px" alt="" >
-                        </div>
-                        <div class="col-10 row mx-0 location text-grey mb-4">
-                            <h5 class="col-12 mb-0 p-0">Manhattan Storehouse</h5>
-                            <p class="col-12 mt-0 fs-small p-0">1st Amenue, New York</p>
-                        </div>
-                        <div class="col-12 container-fluid mb-5">
-                            <div class="row w-100 m-0">
-                                <div class="col-3 d-flex-justify-content-center">
-                                    <img  class="" src="svg/facebook-circular-logo.svg" height="30px" alt="" >
-                                </div>
-                                <div class="col-3 d-flex-justify-content-center">
-                                    <img  class="" src="svg/instagram.svg" height="30px" alt="" >
-                                </div>
-                                <div class="col-3 d-flex-justify-content-center">
-                                    <img  class="" src="svg/youtube.svg" height="30px" alt="" >
-                                </div>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center">
+                        <img  class="" src="svg/maps-and-flags.svg" height="25px" alt="" >
+                    </div>
+                    <div class="col-10 row mx-0 location text-grey mb-4">
+                        <h5 class="col-12 mb-0 p-0">Manhattan Storehouse</h5>
+                        <p class="col-12 mt-0 fs-small p-0">1st Amenue, New York</p>
+                    </div>
+                    <div class="col-12 container-fluid mb-5">
+                        <div class="row w-100 m-0">
+                            <div class="col-3 d-flex-justify-content-center">
+                                <img  class="" src="svg/facebook-circular-logo.svg" height="30px" alt="" >
+                            </div>
+                            <div class="col-3 d-flex-justify-content-center">
+                                <img  class="" src="svg/instagram.svg" height="30px" alt="" >
+                            </div>
+                            <div class="col-3 d-flex-justify-content-center">
+                                <img  class="" src="svg/youtube.svg" height="30px" alt="" >
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-0 col-xl-2"></div>
         </div>
+        <div class="col-lg-0 col-xl-2"></div>
     </div>
+</div>>
 
 
 

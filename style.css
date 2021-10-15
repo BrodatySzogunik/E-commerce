@@ -252,6 +252,7 @@ label{
   bottom:15px;
   right: 15px;
   padding:7px;
+  width: 20%;
   border:1px solid black;
   filter: invert(70%) sepia(14%) saturate(1239%) hue-rotate(137deg) brightness(87%) contrast(94%);
   border-radius: 5px;
@@ -272,6 +273,20 @@ label{
   border:1px solid #c4c4c4
 }
 
+.carousel-left{
+  position: absolute;
+  left:-7px
+}
+
+.carousel-right{
+  position: absolute;
+  right: -7px;
+}
+
+a{
+  color:#55b1ba
+}
+ 
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;

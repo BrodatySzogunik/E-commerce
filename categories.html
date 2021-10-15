@@ -14,91 +14,92 @@
     <title>Hello, world!</title>
 </head>
 <body>
-<div class="container-fluid fixed-top d-flex justify-content-center p-0 m-0">
-    <div class="row w-100">
-        <nav class="navbar navbar-expand-lg navbar-light  bg-primary col-sm-12 col-lg-10 col-xl-11 d-flex ">
-            <a class="navbar-brand font-weight-bold text-white" href="#">BOOTCAMP</a>
-            <a class="text-light align-bottom text-decoration-none" href="#">RESPONSIVE ATOS E-COMMERCE TEMPLATE</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto ">
-                    <li class="nav-item active">
-                        <a class="nav-link text-light" href="#">HOME <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="#">SHOP</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            PRODUCTS
-                        </a>
-                        <div class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item text-grey" href="#">CATEGORY 1</a>
-                            <a class="dropdown-item text-grey" href="#">CATEGORY 2</a>
-                            <a class="dropdown-item text-grey" href="#">CATEGORY 3</a>
+    <div class="container-fluid fixed-top d-flex justify-content-center p-0 m-0">
+        <div class="row w-100 m-0">
+            <nav class="navbar navbar-expand-lg navbar-light  bg-primary col-sm-12 col-lg-10 col-xl-11 d-flex ">
+                <a class="navbar-brand font-weight-bold text-white" href="#">BOOTCAMP</a>
+                <a class="text-light align-bottom text-decoration-none" href="#">RESPONSIVE ATOS E-COMMERCE TEMPLATE</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto ">
+                        <li class="nav-item active">
+                            <a class="nav-link text-light" href="#">HOME <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">SHOP</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                PRODUCTS
+                            </a>
+                            <div class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-grey" href="#">CATEGORY 1</a>
+                                <a class="dropdown-item text-grey" href="#">CATEGORY 2</a>
+                                <a class="dropdown-item text-grey" href="#">CATEGORY 3</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid col-sm-12 col-lg-2 col-xl-1 p-0 m-0 d-flex hidden">
+                <div class="row w-100 m-0">
+                    <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                        <div class="cart-box d-flex align-items-center justify-content-center">
+                            <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
+                            <div class="cartCounter">5</div>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <div class="container-fluid col-sm-12 col-lg-2 col-xl-1 p-0 m-0 d-flex hidden">
-            <div class="row w-100 m-0">
-                <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                    <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
-                    <div class="cartCounter">5</div>
-                </div>
-                <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                    <img class="mx-auto" src="svg/user.svg" height="30px" alt="">
-                </div>
-                <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                    <img class="mx-auto" src="svg/search.svg" height="30px" alt="">
+                    </div>
+                    <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                        <img class="mx-auto" src="svg/user.svg" height="30px" alt="">
+                    </div>
+                    <div class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                        <img class="mx-auto" src="svg/search.svg" height="30px" alt="">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="cartBox" class=" ml-auto col-sm-12 col-md-5 col-lg-4 col-xl-3 bg-white py-3  d-none">
-            <div class="row container-fluid w-100 cart-item  ml-auto">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+            <div id="cartBox" class=" ml-auto col-md-12 col-lg-4 col-xl-3 bg-white py-3  d-none">
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-2 p-0 m-0">
+                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                    </div>
+                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
+                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
                 </div>
-                <div class="col-6 text-left p-0 m-0">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0">99.99</div>
-                <div class="col-2 p-0 m-0"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                <hr>
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-2 p-0 m-0">
+                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                    </div>
+                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
+                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
                 </div>
-                <div class="col-6 text-left p-0 m-0">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0">99.99</div>
-                <div class="col-2 p-0 m-0"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                <hr>
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-2 p-0 m-0">
+                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
+                    </div>
+                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
+                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
                 </div>
-                <div class="col-6 text-left p-0 m-0">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0">99.99</div>
-                <div class="col-2 p-0 m-0"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto">
-                <div class="col-8 text-right pr-4 m-0">Total:</div>
-                <div class="col-2 p-0 m-0 ">299.97</div>
-                <div class="col-2"></div>
-                <!-- link do checkout -->
+                <hr>
+                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+                    <div class="col-4 col-sm-3 col-lg-2 p-0 m-0 d-flex justify-content-center text-white">
+                        <button type="button" class="btn btn-primary w-100">Buy</button> 
+                    </div>
+                    <div class="col-4 col-sm-6 col-lg-7 text-right pr-4 m-0 d-flex align-items-center">Total:</div>
+                    <div class="col-2 p-0 m-0 d-flex align-items-center ">299.97</div>
+                    <div class="col-2 col-sm-1"></div>              
+                </div>
                 
             </div>
-            <a class="col-2 p-0 m-0 bg-light2 d-flex justify-content-center align-items-center mr-1 w-100" href="#">
-                Buy
-            </a>  
         </div>
     </div>
-</div>
 
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -110,7 +111,7 @@
     <div id="main-carousel" class="carousel-inner">
         <div class="carousel-item active">
             <div class="container">
-                <div class="row">
+                <div class="row m-0">
                     <div class="col-lg-6">
                         <h1>Motorcycle helmet</h1>
                         <h3 class="text-secondary">Sample subtitle</h3>
@@ -125,7 +126,7 @@
         </div>
         <div class="carousel-item">
             <div class="container">
-                <div class="row">
+                <div class="row m-0">
                     <div class="col-lg-6">
                         <h1>Motorcycle helmet</h1>
                         <h3 class="text-secondary">Sample subtitle</h3>
@@ -140,7 +141,7 @@
         </div>
         <div class="carousel-item">
             <div class="container">
-                <div class="row">
+                <div class="row m-0">
                     <div class="col-lg-6">
                         <h1>Motorcycle helmet</h1>
                         <h3 class="text-secondary">Sample subtitle</h3>
@@ -167,19 +168,19 @@
 
     
     <div class="container-fluid w-100">
-        <div class="row">
+        <div class="row m-0">
             <div class="col-lg-0 col-xl-2 m-0 p-0"></div>
             <div class="col-lg-12 col-xl-8 m-0 p-0 container-fluid">
                 <div class="row w-100 m-0 p-0">
                     <div class="col-12 bg-light2 my-3 p-3">
                         <p class="p-0 m-0 text-primary">Home / Products / <span class="text-dark">Category 1</span></p>
                     </div>
-                    <div class="col-12 mx-0 px-3 container-fluid">
-                        <div class="row w-100">
-                            <div class="col-3 pl-0 pr-5 container-fluid">
-                                <div class="row w-100">
-                                    <div class="col-12 container-fluid">
-                                        <div id="categoriesDropdown" class="dropdown-head row w-100 d-flex align-items-center text-dark">
+                    <div class="col-12 mx-0 px-3 container-fluid p-0">
+                        <div class="row w-100 m-0">
+                            <div class="col-12 col-lg-3 pl-0 p-0 container-fluid">
+                                <div class="row w-100 m-0">
+                                    <div class="col-12 container-fluid p-0">
+                                        <div id="categoriesDropdown" class="dropdown-head row m-0 w-100 d-flex align-items-center text-dark">
                                             <h3>Categories</h3>
                                             <svg id="categoryChewronUp" class="ml-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                                 <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -189,19 +190,19 @@
                                             </svg>
                                         </div>
                                         <div id="categoriesDropdownBody" class="dropdown-body d-none">
-                                            <div class="category-element container-fluid row border py-2 rounded-top">
-                                                <div class="col-8">Category 1</div>
+                                            <div class="category-element container-fluid row m-0 border py-2 rounded-top">
+                                                <div class="col-8 ">Category 1</div>
                                                 <div class="col-4">
                                                     <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
                                                 </div> 
                                             </div>
-                                            <div class="category-element container-fluid row border py-2 ">
+                                            <div class="category-element container-fluid row m-0 border py-2 ">
                                                 <div class="col-8">Category 2</div>
                                                 <div class="col-4">
                                                     <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
                                                 </div> 
                                             </div>
-                                            <div class="category-element container-fluid row border py-2 rounded-bottom">
+                                            <div class="category-element container-fluid row m-0 border py-2 rounded-bottom">
                                                 <div class="col-8">Very long cat...</div>
                                                 <div class="col-4">
                                                     <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
@@ -210,9 +211,9 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 container-fluid">
+                                    <div class="col-12 container-fluid p-0">
                                         
-                                            <div id="filtersDropdown" class="dropdown-head row w-100 d-flex align-items-center text-dark">
+                                            <div id="filtersDropdown" class="dropdown-head row m-0 w-100 d-flex align-items-center text-dark">
                                                 <h3>Filters</h3>
                                                 <svg id="filterChewronUp" class="ml-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
                                                     <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -222,7 +223,7 @@
                                                 </svg>
                                             </div>
                                             <div id="filtersDropdownBody" class=" text-dark dropdown-body d-none container-fluid">
-                                                <div class="row w-100">
+                                                <div class="row w-100 m-0">
                                                     <div class="col-12 p-0 m-0">
                                                         <h6>Price range</h5>
                                                     </div>
@@ -233,89 +234,84 @@
                                                     <div class="col-5  p-0 m-0">
                                                         <input id="price-to" class="w-100" type="text" placeholder="To">
                                                     </div>
-                                                    <div class="col-12 p-0 m-0">
-                                                        <h6>Producer</h6>
-                                                    </div>
-                                                    <div class="col-1  p-0 m-0 mb-2 d-flex align-items-center" >
-                                                        <input id="customCheckbox1" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0  mb-2 d-flex align-items-center">
-                                                        <label for="customCheckbox1">Custom Checkbox</label>
-                                                    </div>
-                                                    
-                                                    <div class="col-1  p-0 m-0">
-                                                        <input id="customCheckbox2" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0  mb-2">
-                                                        <label for="customCheckbox2">Custom Checkbox</label>
-                                                    </div>
-                                                    
-                                                    <div class="col-1  p-0 m-0">
-                                                        <input id="customCheckbox3" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0  mb-2">
-                                                        <label for="customCheckbox3">Custom Checkbox</label>
+
+                                                    <div class="container-fluid col-6 col-md-4 p-0 col-lg-12">
+                                                        <div class="p-0 m-0">
+                                                            <h6>Producer</h6>
+                                                        </div>
+                                                        <div class="p-0 m-0 mb-2 d-flex align-items-center" >
+                                                            <input id="customCheckbox1" type="checkbox">
+                                                            <label for="customCheckbox1">Custom Checkbox</label>
+                                                        </div>
+                                                        
+                                                        <div class="p-0 m-0 mb-2 d-flex align-items-center">
+                                                            <input id="customCheckbox2" type="checkbox">
+                                                            <label for="customCheckbox2">Custom Checkbox</label>
+                                                        </div>
+                                                        
+                                                        <div class="p-0 m-0 mb-2 d-flex align-items-center">
+                                                            <input id="customCheckbox3" type="checkbox">
+                                                            <label for="customCheckbox3">Custom Checkbox</label>
+                                                        </div>
                                                     </div>
 
-                                                    <div class="col-12 p-0 m-0">
-                                                        <h6>Avaible in saloon</h6>
+                                                    <div class="container-fluid col-6 col-md-4 p-0 col-lg-12">
+                                                        <div class="row w-100 m-0">
+                                                            <div class="col-12 p-0 m-0">
+                                                                <h6>Avaible in saloon</h6>
+                                                            </div>
+
+                                                            <div class="col-12 p-0 m-0">
+                                                                <select name="availible" id="">
+                                                                    <option value="selectSaoon">Select saloon</option>
+                                                                    <option value="selectSaoon">Select saloon</option>
+                                                                    <option value="selectSaoon">Select saloon</option>
+                                                                    <option value="selectSaoon">Select saloon</option>
+                                                                    <option value="selectSaoon">Select saloon</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
-                                                    <div class="col-12 p-0 m-0">
-                                                        <select name="availible" id="">
-                                                            <option value="selectSaoon">Select saloon</option>
-                                                            <option value="selectSaoon">Select saloon</option>
-                                                            <option value="selectSaoon">Select saloon</option>
-                                                            <option value="selectSaoon">Select saloon</option>
-                                                            <option value="selectSaoon">Select saloon</option>
-                                                        </select>
-                                                    </div>
+                                                    <div class="container-fluid col-6 col-md-4 p-0 col-lg-12">
+                                                        
+                                                            <div class=" p-0 m-0 d-flex align-items-center">
+                                                                <h6>Other options</h6>
+                                                            </div>
 
-                                                    <div class="col-12 p-0 m-0">
-                                                        <h6>Other options</h6>
-                                                    </div>
+                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                                                                <input id="customCheckbox4" type="checkbox">
+                                                                <label for="customCheckbox4">Custom Checkbox</label>
+                                                            </div>
 
-                                                    <div class="col-1  p-0 m-0p-0 m-0">
-                                                        <input id="customCheckbox4" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
-                                                        <label for="customCheckbox4">Custom Checkbox</label>
-                                                    </div>
+                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                                                                <input id="customCheckbox5" type="checkbox">
+                                                                <label for="customCheckbox5">Custom Checkbox</label>
+                                                            </div>
 
-                                                    <div class="col-1  p-0 m-0p-0 m-0">
-                                                        <input id="customCheckbox5" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
-                                                        <label for="customCheckbox5">Custom Checkbox</label>
-                                                    </div>
+                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                                                                <input id="customCheckbox6" type="checkbox">
+                                                                <label for="customCheckbox6">Custom Checkbox</label>
+                                                            </div>
 
-                                                    <div class="col-1  p-0 m-0p-0 m-0">
-                                                        <input id="customCheckbox6" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
-                                                        <label for="customCheckbox6">Custom Checkbox</label>
-                                                    </div>
+                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                                                                <input id="customCheckbox7" type="checkbox">
+                                                                <label for="customCheckbox7">Custom Checkbox</label>
+                                                            </div>
 
-                                                    <div class="col-1  p-0 m-0p-0 m-0">
-                                                        <input id="customCheckbox7" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
-                                                        <label for="customCheckbox7">Custom Checkbox</label>
-                                                    </div>
-
-                                                    <div class="col-1  p-0 m-0p-0 m-0">
-                                                        <input id="customCheckbox8" type="checkbox">
-                                                    </div>
-                                                    <div class="col-11 p-0 m-0 p-0 m-0 mb-2">
-                                                        <label for="customCheckbox8">Custom Checkbox</label>
+                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                                                                <input id="customCheckbox8" type="checkbox">
+                                                                <label for="customCheckbox8">Custom Checkbox</label>
+                                                            </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-9 m-0 p-0 container-fluid">
-                                    <div class="row w-100">
+                            <div class=" col-12 col-lg-9 m-0 p-0 container-fluid">
+                                    <div class="row w-100  m-0">
                                         <div class="col-6">
                                             <select  name="Products per page" id="products-per-page" >
                                                 <option class="fs-small" value="test" selected disabled >Products per page</option>
@@ -344,184 +340,76 @@
                                                 </ul>
                                             </nav> 
                                         </div>
-                                        <div class="col-12 row">
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
+                                        <div class="col-12 row m-0">
+                                            <div class="col-12 col-md-6  col-lg-4">
+                                                <div class="card w-100" >
                                                     <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
+                                                    <img src="svg\heart.svg" height="25px" class="card-heart" alt="">
                                                     <div class="card-body">
                                                     <h5 class="card-title">Card title</h5>
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
+                                                    <p class="fs-bigger">99.99 PLN <img src="svg\add-to-cart.svg" class="card-cart" alt=""></p>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
+                                            <div class="col-12 col-md-6  col-lg-4">
+                                                <div class="card w-100" >
                                                     <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
+                                                    <img src="svg\heart.svg" height="25px" class="card-heart" alt="">
                                                     <div class="card-body">
                                                     <h5 class="card-title">Card title</h5>
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
+                                                    <p class="fs-bigger">99.99 PLN <img src="svg\add-to-cart.svg" class="card-cart" alt=""></p>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
+                                            <div class="col-12 col-md-6  col-lg-4">
+                                                <div class="card w-100" >
                                                     <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
+                                                    <img src="svg\heart.svg" height="25px" class="card-heart" alt="">
                                                     <div class="card-body">
                                                     <h5 class="card-title">Card title</h5>
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
+                                                    <p class="fs-bigger">99.99 PLN <img src="svg\add-to-cart.svg" class="card-cart" alt=""></p>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
+                                            <div class="col-12 col-md-6  col-lg-4">
+                                                <div class="card w-100" >
                                                     <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
+                                                    <img src="svg\heart.svg" height="25px" class="card-heart" alt="">
                                                     <div class="card-body">
                                                     <h5 class="card-title">Card title</h5>
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
+                                                    <p class="fs-bigger">99.99 PLN <img src="svg\add-to-cart.svg" class="card-cart" alt=""></p>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
+                                            <div class="col-12 col-md-6  col-lg-4">
+                                                <div class="card w-100" >
                                                     <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
+                                                    <img src="svg\heart.svg" height="25px" class="card-heart" alt="">
                                                     <div class="card-body">
                                                     <h5 class="card-title">Card title</h5>
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
+                                                    <p class="fs-bigger">99.99 PLN <img src="svg\add-to-cart.svg" class="card-cart" alt=""></p>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
+                                            <div class="col-12 col-md-6  col-lg-4">
+                                                <div class="card w-100" >
                                                     <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
+                                                    <img src="svg\heart.svg" height="25px" class="card-heart" alt="">
                                                     <div class="card-body">
                                                     <h5 class="card-title">Card title</h5>
                                                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-lg-4">
-                                                <div class="card border-0" style="width: 18rem;">
-                                                    <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
-                                                    <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <p class="fs-bigger">99.99 PLN</p>
+                                                    <p class="fs-bigger">99.99 PLN <img src="svg\add-to-cart.svg" class="card-cart" alt=""></p>
+                                                    
                                                     </div>
                                                 </div>
                                             </div>
@@ -570,97 +458,97 @@
 <div class="bg-light2 footer-line1"></div>
 <div class="bg-primary footer-line2"></div>
 
-    <div class="bg-light2 container-fluid pt-5">
-        <div class="row">
-            <div class="col-lg-0 col-xl-2"></div>
-            <div class="col-sm-12 col-lg-3 col-xl-2  text-dark footer-item">
-                
-                <span class="text-grey">
-                    <h5 class="text-dark">Orders</h5>
-                    <p>Shipment</p>
-                    <p>Installment</p>
-                    <p>Leasing</p>
-                    <p>Insurance</p>
-                    <p>Returns</p>
-                </span>
-            </div>
-            <div class="col-sm-12 col-lg-3 col-xl-2 footer-item">
-                
-                <span class="text-grey">
-                <h5 class="text-dark">Shortcuts</h5>
-                <p>Recommended</p>
-                <p>Gift cards</p>
-                <p>Tutorials</p>
-                <p>News &articles</p>
-                <p>Videos</p>
-                </span>
-            </div>
-            <div class="col-sm-12 col-lg-3 col-xl-2 footer-item   ">
-                
-                <span class="text-grey ">
-                <h5 class="text-dark">About</h5>
-                <p>About us</p>
-                <p>Terms & conditions</p>
-                <p>Privacy policy</p>
-                <p>Press room</p>
-                <p>Career</p>
-                <p>Contact</p>
-                </span>
-            </div>
-            <div class="col-sm-12 col-lg-3 col-xl-2 container-fluid footer-item">
-                <div class="container-fluid contact w-100">
-                    <div class="row w-100">
-                        <h5 class="col-12 p-0">Contact</h5>
-                        <div class="col-2 d-flex  justify-content-center">
-                            <img  src="svg/phone-call.svg" height="25px" alt="" >
-                        </div>
-                        <div class="col-10 container-fluid mb-3 text-grey">
-                            <div class="row w-100">   
-                                <h5 class="col-12">12 345 67 89</h5>
-                                <div class="col-md-3 col-lg-9 fs-small">
-                                    <p>mon.-fr.</p>
-                                    <p>sat.-sun.</p>
-                                </div>
-                                <div class="col-md-4 col-lg-3 fs-small">
-                                    <p>8:00-20:00</p>
-                                    <p>8:00-17:00</p>
-                                </div>
+<div class="bg-light2 container-fluid pt-5">
+    <div class="row w-100 m-0">
+        <div class="col-lg-0 col-xl-2"></div>
+        <div class="col-12 col-lg-3 col-xl-2  text-dark footer-item">
+            
+            <span class="text-grey">
+                <h5 class="text-dark">Orders</h5>
+                <p>Shipment</p>
+                <p>Installment</p>
+                <p>Leasing</p>
+                <p>Insurance</p>
+                <p>Returns</p>
+            </span>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-xl-2  footer-item">
+            
+            <span class="text-grey">
+            <h5 class="text-dark">Shortcuts</h5>
+            <p>Recommended</p>
+            <p>Gift cards</p>
+            <p>Tutorials</p>
+            <p>News &articles</p>
+            <p>Videos</p>
+            </span>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-xl-2 footer-item   ">
+            
+            <span class="text-grey ">
+            <h5 class="text-dark">About</h5>
+            <p>About us</p>
+            <p>Terms & conditions</p>
+            <p>Privacy policy</p>
+            <p>Press room</p>
+            <p>Career</p>
+            <p>Contact</p>
+            </span>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-xl-2 container-fluid footer-item">
+            <div class="container-fluid contact w-100 p-0">
+                <div class="row w-100 m-0">
+                    <h5 class="col-12 p-0">Contact</h5>
+                    <div class="col-2 d-flex  justify-content-center">
+                        <img  src="svg/phone-call.svg" height="25px" alt="" >
+                    </div>
+                    <div class="col-10 container-fluid mb-3 text-grey">
+                        <div class="row w-100 m-0">   
+                            <h5 class="col-12 p-0">12 345 67 89</h5>
+                            <div class="col-md-3 col-lg-9 fs-small p-0">
+                                <p>mon.-fr.</p>
+                                <p>sat.-sun.</p>
+                            </div>
+                            <div class="col-md-4 col-lg-3 fs-small p-0">
+                                <p>8:00-20:00</p>
+                                <p>8:00-17:00</p>
                             </div>
                         </div>
-                        <div class="col-2 d-flex justify-content-center ">
-                            <img  class="" src="svg/email.svg" height="25px" alt="" >
-                        </div>
-                        <div class="col-10  d-flex  align-items-center mb-3 text-grey">
+                    </div>
+                    <div class="col-2 d-flex justify-content-center ">
+                        <img  class="" src="svg/email.svg" height="25px" alt="" >
+                    </div>
+                    <div class="col-10  d-flex  align-items-center mb-3 text-grey">
+                    
+                        <p class="">bootcamp@atos.net</p>
                         
-                            <p class="">bootcamp@atos.net</p>
-                            
-                        </div>
-                        <div class="col-2 d-flex justify-content-center">
-                            <img  class="" src="svg/maps-and-flags.svg" height="25px" alt="" >
-                        </div>
-                        <div class="col-10 row location text-grey mb-4">
-                            <h5 class="col-12 mb-0">Manhattan Storehouse</h5>
-                            <p class="col-12 mt-0 fs-small">1st Amenue, New York</p>
-                        </div>
-                        <div class="col-12 container-fluid mb-5">
-                            <div class="row w-100">
-                                <div class="col-3 d-flex-justify-content-center">
-                                    <img  class="" src="svg/facebook-circular-logo.svg" height="30px" alt="" >
-                                </div>
-                                <div class="col-3 d-flex-justify-content-center">
-                                    <img  class="" src="svg/instagram.svg" height="30px" alt="" >
-                                </div>
-                                <div class="col-3 d-flex-justify-content-center">
-                                    <img  class="" src="svg/youtube.svg" height="30px" alt="" >
-                                </div>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center">
+                        <img  class="" src="svg/maps-and-flags.svg" height="25px" alt="" >
+                    </div>
+                    <div class="col-10 row mx-0 location text-grey mb-4">
+                        <h5 class="col-12 mb-0 p-0">Manhattan Storehouse</h5>
+                        <p class="col-12 mt-0 fs-small p-0">1st Amenue, New York</p>
+                    </div>
+                    <div class="col-12 container-fluid mb-5">
+                        <div class="row w-100 m-0">
+                            <div class="col-3 d-flex-justify-content-center">
+                                <img  class="" src="svg/facebook-circular-logo.svg" height="30px" alt="" >
+                            </div>
+                            <div class="col-3 d-flex-justify-content-center">
+                                <img  class="" src="svg/instagram.svg" height="30px" alt="" >
+                            </div>
+                            <div class="col-3 d-flex-justify-content-center">
+                                <img  class="" src="svg/youtube.svg" height="30px" alt="" >
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-0 col-xl-2"></div>
         </div>
+        <div class="col-lg-0 col-xl-2"></div>
     </div>
+</div>
 
 
 
