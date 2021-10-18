@@ -258,6 +258,7 @@ label{
   border-radius: 5px;
   display: none;
   cursor: pointer;
+  max-width: 55px;
 }
 
 .card:hover .card-cart,
@@ -286,6 +287,8 @@ label{
 a{
   color:#55b1ba
 }
+
+
  
 @media screen and (max-width: 992px) {
   .footer-item {
@@ -299,7 +302,14 @@ a{
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  .card:hover .card-cart,
+  .card:hover .card-heart{
+   display: none;
+  }
+  .caorusel-video{
+    display: none;
+  }
   .footer-item {
     display: flex;
     justify-content: left;
