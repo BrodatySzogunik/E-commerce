@@ -279,11 +279,6 @@ a {
   color: #55b1ba;
 }
 
-<<<<<<< HEAD
-=======
-
- 
->>>>>>> e0720cc7ae617dc709e7d10a5c7522b808457041
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;
@@ -298,10 +293,10 @@ a {
 
 @media screen and (max-width: 767px) {
   .card:hover .card-cart,
-  .card:hover .card-heart{
-   display: none;
+  .card:hover .card-heart {
+    display: none;
   }
-  .caorusel-video{
+  .caorusel-video {
     display: none;
   }
   .footer-item {
