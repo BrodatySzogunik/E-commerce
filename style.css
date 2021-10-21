@@ -96,6 +96,7 @@ p {
 }
 
 .menu {
+  position: relative;
   cursor: pointer;
   height: 56px !important;
 }
@@ -282,6 +283,8 @@ a {
 .overflow-ellipsis {
   text-overflow: ellipsis;
 }
+
+
 
 @media screen and (max-width: 992px) {
   .footer-item {

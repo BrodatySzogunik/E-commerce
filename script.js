@@ -2,6 +2,9 @@
 let cart = document.getElementById('cart')
 let cartBox = document.getElementById("cartBox")
 
+let search = document.getElementById('search')
+let searchBox = document.getElementById("searchBox")
+
 let categoriesDropdown= document.getElementById("categoriesDropdown")
 let categoriesDropdownBody = document.getElementById("categoriesDropdownBody")
 let categoryChewronUp = document.getElementById("categoryChewronUp")
@@ -16,6 +19,8 @@ cart.addEventListener("click",()=>{
     if(cartBox.classList.contains("d-none"))
     {
         cartBox.classList.remove("d-none")
+        searchBox.classList.add('d-none')
+        
         
     }else
     {
@@ -23,6 +28,18 @@ cart.addEventListener("click",()=>{
     }
     
 })
+
+search.addEventListener('click', ()=>{
+    if(searchBox.classList.contains("d-none"))
+    {
+        searchBox.classList.remove("d-none")
+        cartBox.classList.add('d-none')
+    }else
+    {
+        searchBox.classList.add("d-none")    
+    }
+})
+
 
 
 categoriesDropdown.addEventListener("click",()=>{
