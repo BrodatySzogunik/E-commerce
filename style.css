@@ -95,8 +95,9 @@ p {
   width: 100%;
 }
 
-.menu:hover {
+.menu {
   cursor: pointer;
+  height: 56px !important;
 }
 
 .cartCounter {
@@ -108,8 +109,8 @@ p {
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 7px;
-  right: 5px;
+  top: -7px;
+  right: -5px;
   color: white;
   font-size: 0.9rem;
   font-weight: bolder;
@@ -122,6 +123,7 @@ p {
 
 .cart-box {
   width: 30px;
+  position: relative;
 }
 
 .pagination-item {
@@ -181,7 +183,6 @@ input[type="checkbox"] {
   color: white;
 }
 
-
 input[type="chceckbox"]:checked {
   background-color: #55b1bc;
 }
@@ -202,8 +203,6 @@ input[type="checkbox"]:checked:after {
 input[type="checkbox"]:hover {
   background-color: #55b1bc;
 }
-
-
 
 label {
   margin: 0 5px;
@@ -278,6 +277,10 @@ label {
 
 a {
   color: #55b1ba;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 992px) {
