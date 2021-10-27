@@ -280,6 +280,36 @@ a {
   color: #55b1ba;
 }
 
+.card-img-top{
+
+  position: absolute;
+  top:0px;
+  left:0px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  padding: 2rem;
+}
+
+.image-container{
+  position: relative;
+  padding-bottom: 100% ;
+}
+
+.price-striked{
+  color:tomato;
+  text-decoration:line-through;
+  font-size: 0.8rem;
+}
+
+.normal-price{
+  margin-top: 1.2rem;
+}
+
+.card-title{
+  height: 64.8px;
+}
+
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;

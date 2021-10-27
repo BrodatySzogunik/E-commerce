@@ -1,4 +1,9 @@
 'use strict'
+
+const round =(number,decimalPlaces)=>{
+    const factorOfTen = Math.pow(10,decimalPlaces)
+    return Math.round(number*factorOfTen)/factorOfTen
+}
 let cart = document.getElementById('cart')
 let cartBox = document.getElementById("cartBox")
 
@@ -14,6 +19,12 @@ let filtersDropdown = document.getElementById("filtersDropdown")
 let filtersDropdownBody= document.getElementById("filtersDropdownBody")
 let filterChewronUp = document.getElementById("filterChewronUp")
 let filterChewronDown = document.getElementById("filterChewronDown")
+let filtersProducerBox = document.getElementById("filtersProducerBox")
+let selectSaloon = document.getElementById("selectSaloon")
+
+let otherOptions = document.getElementById("otherOptions")
+
+const truncate = (str, max, suffix) => (str.length < max ? str : `${str.substr(0, str.substr(0, max - suffix.length).lastIndexOf(' '))}${suffix}`);
  
 cart.addEventListener("click",()=>{
     if(cartBox.classList.contains("d-none"))
@@ -78,26 +89,39 @@ let categoriesItems = document.getElementById("categories-items");
 
 
 let productId
-let output="";
 let chosenCategory=0
 
 
 const generateProducts=()=> {
-    output=""
+    let price=""
+    let discountedPrice=""
+    let photo = ""
+    let description=""
+    let output=""
     if(chosenCategory==0){
         fetch("http://localhost:3000/products")
         .then(res=> res.json())
         .then(data=> {
             data.forEach(item=>{
+                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
+                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
+                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
+                
+                photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
+                description=truncate(item.description,100,'...')
                 output+=`
                 <div class="col-12 col-md-6  col-lg-4">
                     <div class="card w-100" >
-                        <img src="assets\\img\\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
+                        <div class="w-100">    
+                            <div class="image-container">
+                                <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
+                            </div>
+                        </div>
                         <img src="svg\\heart.svg" height="25px" class="card-heart" alt="">
                         <div class="card-body">
                         <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text text-truncate">${item.description}</p>
-                        <p class="fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
+                        <p class="card-text ">${description}</p>
+                        ${price}
                         
                         </div>
                     </div>
@@ -111,8 +135,6 @@ const generateProducts=()=> {
     }
     
 }
-
-generateProducts()
 
 async function generateCategories(){
     let categoriesCount=0
@@ -138,8 +160,101 @@ async function generateCategories(){
     
 }
 
-generateCategories()
+async function generateProducents(){
+    filtersProducerBox.innerHTML=`<div class="p-0 m-0">
+    <h6>Producer</h6>
+</div>`;
+    fetch('http://localhost:3000/producers')
+    .then(res=>res.json())
+    .then(data=>{
+        data.forEach(item=>{
+            filtersProducerBox.innerHTML+=
+            `
+            <div class="p-0 m-0 mb-2 d-flex align-items-center">
+                <input id="${item.alias}" type="checkbox">
+                <label for="${item.alias}">${item.name}</label>
+            </div>
+            `
+        })
+    })
+}
 
+async function generateSaloons(){
+    
+    fetch("http://localhost:3000/saloons")
+    .then(res => res.json())
+    .then(data=>{
+        data.forEach(item=>{
+            selectSaloon.innerHTML+=`<option value="${item.name}">${item.name}</option>`
+        })
+    })
+
+}
+
+async function generateOtherCategories(){
+    otherOptions.innerHTML=` <div class=" p-0 m-0 d-flex align-items-center">
+                                <h6>Other options</h6>
+                            </div>`
+
+    fetch("http://localhost:3000/options")
+    .then(res => res.json())
+    .then(data=>{
+        data.forEach(item=>{
+            if(item.type==="single"){
+                otherOptions.innerHTML+=
+                `
+                <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                    <input id="${item.label}" type="checkbox">
+                    <label for="${item.label}">${item.label}</label>
+                </div>
+                `
+            }
+
+        })
+    })
+}
+
+async function generateCart(){
+    let total=0;
+    cartBox.innerHTML=""
+    fetch("http://localhost:3000/cart")
+    .then(res=>res.json())
+    .then(data=>{
+        data.forEach(item=>{
+            total+=item.price
+            cartBox.innerHTML+=`<div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+            <div class="col-2 p-0 m-0">
+                <div class="w-100">    
+                    <div class="image-container">
+                        <img src="assets\\img\\${item.thumbnail}" class="card-img-top w-100 h-100" alt="...">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">${item.name}</div>
+            <div class="col-2 p-0 m-0 d-flex align-items-center">${item.price}</div>
+            <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
+            </div>
+            <hr>
+            `
+        })
+        cartBox.innerHTML+=`<div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+        <div class="col-4 col-sm-4 col-lg-3 p-0 m-0 d-flex justify-content-center text-white">
+            <button type="button" class="btn btn-primary w-100">Buy</button> 
+        </div>
+        <div class="col-4 col-sm-5 col-lg-6 text-right pr-4 m-0 d-flex align-items-center">Total:</div>
+        <div class="col-2 p-0 m-0 d-flex align-items-center ">${round(total,2)}</div>
+        <div class="col-2 col-sm-1"></div>              
+        </div>`
+    })
+}
+
+
+generateProducts()
+generateCategories()
+generateProducents()
+generateSaloons()
+generateOtherCategories()
+generateCart()
 //  async function getCategoriesCount(){
 //      let promises=[]
 //     await fetch("http://localhost:3000/categories")
