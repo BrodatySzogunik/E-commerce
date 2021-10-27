@@ -280,12 +280,6 @@ a {
   color: #55b1ba;
 }
 
-.overflow-ellipsis {
-  text-overflow: ellipsis;
-}
-
-
-
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;
