@@ -222,11 +222,11 @@ async function generateCart(){
     .then(data=>{
         data.forEach(item=>{
             total+=item.price
-            cartBox.innerHTML+=`<div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+            cartBox.innerHTML+=`<div class="row container-fluid w-100 cart-item  px-0 ml-auto mr-0">
             <div class="col-2 p-0 m-0">
                 <div class="w-100">    
                     <div class="image-container">
-                        <img src="assets\\img\\${item.thumbnail}" class="card-img-top w-100 h-100" alt="...">
+                        <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
                     </div>
                 </div>
             </div>
