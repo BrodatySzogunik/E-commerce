@@ -92,7 +92,7 @@ let categoriesItems = document.getElementById("categories-items");
 
 
 let productId
-let chosenCategory=2
+let chosenCategory=0
 
 
 const generateProducts=()=> {
@@ -201,8 +201,9 @@ let productSpec = document.getElementById("productSpec")
 
 
 
+
 async function generateProduct(id){
-    fetch(`http://localhost:3000/products/${id}`)
+    await fetch(`http://localhost:3000/products/${id}`)
     .then(res=>res.json())
     .then(data=>{
         data.photos.forEach((item,index)=>{
@@ -229,38 +230,19 @@ async function generateProduct(id){
             `
             ${data.new?`<div class="col-4 col-sm-3 col-md-2 col-xl-2 bg-success d-flex align-items-center justify-content-center px-3 py-2  m-0 text-white rounded "><h5 class="p-0 m-0">NEW</h5></div>
             `:``}
-            <h3 class="col-12 p-0 m-0 mt-5">${data.name}</h3>
+            <h3 class="col-12 p-0 m-0 mt-5">Helmet with googles</h3>
             <p class="col-12 fs-h2 font-weight-light p-0 m-0 mb-2">99.99 PLN</p>
-            <p class="col-12 p-0 m-0 mb-4">${data.description}</p>
+            <p class="col-12 p-0 m-0 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula viverra rhoncus. Cras convallis ante sit amet lorem fringilla, eu ornare diam efficitur. Phasellus enim diam, dictum elementum varius eget, imperdiet id felis.</p>
+            <p class="col-12 p-0 m-0 mb-4">Fusce aliquet mi tristique dui elementum, eget ornare arcu dictum. Curabitur justo libero, porta vulputate dolor dapibus, mattis blandit nulla.</p>
             <h6 class="col-6   col-xl-4 p-0 m-0 mb-1">Size</h6>
             <h6 class="col-6   col-xl-4 m-0 pl-2 mb-1">Color</h6>
             <div class="col-0  col-xl-4"></div>
             <h6 class="col-6   col-xl-4 p-0 m-0 ">
-                <select id="ProductSize" name="size" >
-            `
-            data.option[1].values.forEach(item=>{
-                console.log(item)
-                productBody.innerHtml+=
-                `
-                <option value="${item}">${item}</option>
-                `
-            })
-            productBody.innerHTML+=
-            `
+                <select id="productSizes" name="size">
                 </select>
             </h6>
-            <h6 class="col-6  col-xl-4 p-0 m-0 pl-2">
-                <select id="product" name="color" >
-            `
-            data.option[0].values.forEach(item=>{
-                
-                productBody.innerHtml+=
-                `
-                <option value="${item}">${item}</option>
-                `
-            })
-            productBody.innerHTML+=
-            `
+            <h6  class="col-6  col-xl-4 p-0 m-0 pl-2">
+                <select id="productColours" name="color">
                 </select>
             </h6>
             <div class="col-0 col-xl-4"></div>
@@ -273,10 +255,12 @@ async function generateProduct(id){
             <div class="col-2 col-lg-2 col-xl-1 p-0 m-0  d-flex align-items-center"> <input class="w-100  rounded border-1" type="number" value="1"></div>
 
             `
+            
+
             data.specification.forEach(item=>{
                 productSpec.innerHTML+=
                 `
-                <div class="col-12 container-fluid   spec-item  ">
+                <div class="col-12 container-fluid   spec-item  productSpec">
                     <div class="row m-0 p-0 w-100 ">
                         <div class="col-0 col-md-2"></div>
                         <div class="col-4 d-flex align-items-center p-0 "><h6 class="py-2 m-0">${item.name}</h6></div>
@@ -286,9 +270,32 @@ async function generateProduct(id){
                 `
             })
     })
+    generateOptionsForProduct(id)
 }
 
-generateProduct(1)
+function generateOptionsForProduct(id){
+    let productColours = document.getElementById("productColours")
+    let productSizes = document.getElementById("productSizes")
+    fetch(`http://localhost:3000/products/${id}`)
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data)
+        data.option[1].values.forEach(item=>{
+            console.log(item)
+            productSizes.innerHtml+=
+            `
+            <option value="${item}">${item}</option>
+            `
+        })
+        data.option[0].values.forEach(item=>{
+            
+            console.log(productColours)
+          
+        })
+    })
+}
+
+
 
 
 
@@ -396,6 +403,7 @@ async function generateCart(){
 
 
 
+generateProduct(1)
 
 // generateProducts()
 // generateCategories()
@@ -403,6 +411,9 @@ async function generateCart(){
 // generateSaloons()
 // generateOtherCategories()
 // generateCart()
+
+
+
 //  async function getCategoriesCount(){
 //      let promises=[]
 //     await fetch("http://localhost:3000/categories")

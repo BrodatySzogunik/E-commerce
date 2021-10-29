@@ -315,14 +315,13 @@ a {
   height: 64.8px;
 }
 
-#productSpec:nth-child(odd) {
-  background-color: #d5fbff;
-  border-color: #b1b1b1;
-  border-top: 1px;
-  border-bottom: 1px;
+.productSpec:nth-child(odd) {
+  background-color: #f1f1f1;
+  border-top: 1px solid #b1b1b1;
+  border-bottom: 1px solid #b1b1b1;
 }
 
-#productSpec:nth-child(even) {
+.productSpec:nth-child(even) {
   background-color: white;
   border: none;
 }
