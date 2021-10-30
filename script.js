@@ -4,100 +4,93 @@ const round =(number,decimalPlaces)=>{
     const factorOfTen = Math.pow(10,decimalPlaces)
     return Math.round(number*factorOfTen)/factorOfTen
 }
-let cart = document.getElementById('cart')
-let cartBox = document.getElementById("cartBox")
 
-let search = document.getElementById('search')
-let searchBox = document.getElementById("searchBox")
-
-let categoriesDropdown= document.getElementById("categoriesDropdown")
-let categoriesDropdownBody = document.getElementById("categoriesDropdownBody")
-let categoryChewronUp = document.getElementById("categoryChewronUp")
-let categoryChewronDown = document.getElementById("categoryChewronDown")
-
-let filtersDropdown = document.getElementById("filtersDropdown")
-let filtersDropdownBody= document.getElementById("filtersDropdownBody")
-let filterChewronUp = document.getElementById("filterChewronUp")
-let filterChewronDown = document.getElementById("filterChewronDown")
-let filtersProducerBox = document.getElementById("filtersProducerBox")
-let selectSaloon = document.getElementById("selectSaloon")
-
-let otherOptions = document.getElementById("otherOptions")
-let menuCategories = document.getElementById("menuCategories")
-
-
+export()
 
 const truncate = (str, max, suffix) => (str.length < max ? str : `${str.substr(0, str.substr(0, max - suffix.length).lastIndexOf(' '))}${suffix}`);
  
-cart.addEventListener("click",()=>{
-    if(cartBox.classList.contains("d-none"))
-    {
-        cartBox.classList.remove("d-none")
-        searchBox.classList.add('d-none')
-        
-        
-    }else
-    {
-        cartBox.classList.add("d-none")    
+
+const addNavBarLiteners =()=>{
+    let search = document.getElementById('search')
+    let searchBox = document.getElementById("searchBox")
+    let cartBox = document.getElementById("cartBox")
+    let cart = document.getElementById('cart')
+        cart.addEventListener("click",()=>{
+            if(cartBox.classList.contains("d-none"))
+            {
+                cartBox.classList.remove("d-none")
+                searchBox.classList.add('d-none')
+                
+                
+            }else
+            {
+                cartBox.classList.add("d-none")    
+            }
+            
+        })
+
+        search.addEventListener('click', ()=>{
+            if(searchBox.classList.contains("d-none"))
+            {
+                searchBox.classList.remove("d-none")
+                cartBox.classList.add('d-none')
+            }else
+            {
+                searchBox.classList.add("d-none")    
+            }
+        })
     }
-    
-})
 
-search.addEventListener('click', ()=>{
-    if(searchBox.classList.contains("d-none"))
-    {
-        searchBox.classList.remove("d-none")
-        cartBox.classList.add('d-none')
-    }else
-    {
-        searchBox.classList.add("d-none")    
-    }
-})
+const addCategoriesListeners = ()=>{
+    let categoryChewronUp = document.getElementById("categoryChewronUp")
+    let categoryChewronDown = document.getElementById("categoryChewronDown")
+    let categoriesDropdown= document.getElementById("categoriesDropdown")
+    let categoriesDropdownBody = document.getElementById("categoriesDropdownBody")
+    let filtersDropdown = document.getElementById("filtersDropdown")
+    let filtersDropdownBody= document.getElementById("filtersDropdownBody") 
+    let filterChewronUp = document.getElementById("filterChewronUp")
+    let filterChewronDown = document.getElementById("filterChewronDown")
 
+    categoriesDropdown.addEventListener("click",()=>{
+            if(categoriesDropdownBody.classList.contains("d-none"))
+            {
+                categoriesDropdownBody.classList.remove("d-none")
+                categoryChewronUp.classList.add("d-none")
+                categoryChewronDown.classList.remove("d-none")
+            }else
+            {
+                categoriesDropdownBody.classList.add("d-none")  
+                categoryChewronUp.classList.remove("d-none")
+                categoryChewronDown.classList.add("d-none")  
+            }
+            
+        })
 
+        filtersDropdown.addEventListener("click",()=>{
+            if(filtersDropdownBody.classList.contains("d-none"))
+            {
+                filtersDropdownBody.classList.remove("d-none")
+                filterChewronUp.classList.add("d-none")
+                filterChewronDown.classList.remove("d-none")
+            }else
+            {
+                filtersDropdownBody.classList.add("d-none")  
+                filterChewronUp.classList.remove("d-none")
+                filterChewronDown.classList.add("d-none")  
+            }
+            
+        })
+}
 
-categoriesDropdown.addEventListener("click",()=>{
-    if(categoriesDropdownBody.classList.contains("d-none"))
-    {
-        categoriesDropdownBody.classList.remove("d-none")
-        categoryChewronUp.classList.add("d-none")
-        categoryChewronDown.classList.remove("d-none")
-    }else
-    {
-        categoriesDropdownBody.classList.add("d-none")  
-        categoryChewronUp.classList.remove("d-none")
-        categoryChewronDown.classList.add("d-none")  
-    }
-    
-})
-
-filtersDropdown.addEventListener("click",()=>{
-    if(filtersDropdownBody.classList.contains("d-none"))
-    {
-        filtersDropdownBody.classList.remove("d-none")
-        filterChewronUp.classList.add("d-none")
-        filterChewronDown.classList.remove("d-none")
-    }else
-    {
-        filtersDropdownBody.classList.add("d-none")  
-        filterChewronUp.classList.remove("d-none")
-        filterChewronDown.classList.add("d-none")  
-    }
-    
-})
 
 
 let categoriesItems = document.getElementById("categories-items");
-
-
-
 let productId
 let chosenCategory=0
 
 
 const generateProducts=()=> {
     let price=""
-    let discountedPrice=""
     let photo = ""
     let description=""
     let output=""
@@ -170,9 +163,13 @@ const generateProducts=()=> {
 }
 
 async function generateCategories(){
+    let categoriesDropdownBody = document.getElementById("categoriesDropdownBody")
     let categoriesCount=0
+    let menuCategories = document.getElementById("menuCategories")
+
     categoriesDropdownBody.innerHTML=""
     menuCategories.innerHTML=""
+
     await fetch("http://localhost:3000/categories")
     .then(res=> res.json())
     .then(data=>{
@@ -203,46 +200,84 @@ let productSpec = document.getElementById("productSpec")
 
 
 async function generateProduct(id){
+    let sizesTemplate=""
+    let optionsTemplate=""
+    let productSpecTemplate=""
+    let productCarouselIndicatorTemplate=""
+    let productCarouselInnerTemplate=""
+    
     await fetch(`http://localhost:3000/products/${id}`)
     .then(res=>res.json())
     .then(data=>{
+        data.option[1].values.forEach(item=>{
+           sizesTemplate+=
+            `
+            <option value="${item}">${item}</option>
+            `
+        })
+        data.option[0].values.forEach(item=>{
+            optionsTemplate+=
+            `
+            <option value="${item}">${item}</option>
+            `
+          
+        })
+        data.specification.forEach(item=>{
+            productSpecTemplate+=
+            `
+            <div class="col-12 container-fluid   spec-item  productSpec">
+                <div class="row m-0 p-0 w-100 ">
+                    <div class="col-0 col-md-2"></div>
+                    <div class="col-4 d-flex align-items-center p-0 "><h6 class="py-2 m-0">${item.name}</h6></div>
+                    <div class="col-8 col-md-6 d-flex align-items-center  p-0"><p>${item.value}</p></div>
+                </div>
+            </div>
+            `
+        })
         data.photos.forEach((item,index)=>{
             console.log(item)
+            
             if(index===0){
-                productCarouselIndicator.innerHTML+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>`
-                productCarouselInner.innerHtml+=
+                productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>`
+                productCarouselInnerTemplate+=
                 `
                 <div class="carousel-item active ">
                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
                 </div>
                 `
             }else{
-                productCarouselIndicator.innerHTML+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class=""></li>`
-                productCarouselInner.innerHtml+=
+                productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class=""></li>`
+                productCarouselInnerTemplate+=
                 `
                 <div class="carousel-item">
                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
                 </div>
                 `
             }
-            })
-            productBody.innerHTML=
+        })
+        
+        
+        productCarouselIndicator.innerHTML=productCarouselIndicatorTemplate
+        productCarouselInner.innerHTML=productCarouselInnerTemplate
+        productSpec.innerHTML=productSpecTemplate
+        productBody.innerHTML=
             `
             ${data.new?`<div class="col-4 col-sm-3 col-md-2 col-xl-2 bg-success d-flex align-items-center justify-content-center px-3 py-2  m-0 text-white rounded "><h5 class="p-0 m-0">NEW</h5></div>
             `:``}
-            <h3 class="col-12 p-0 m-0 mt-5">Helmet with googles</h3>
-            <p class="col-12 fs-h2 font-weight-light p-0 m-0 mb-2">99.99 PLN</p>
-            <p class="col-12 p-0 m-0 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula viverra rhoncus. Cras convallis ante sit amet lorem fringilla, eu ornare diam efficitur. Phasellus enim diam, dictum elementum varius eget, imperdiet id felis.</p>
-            <p class="col-12 p-0 m-0 mb-4">Fusce aliquet mi tristique dui elementum, eget ornare arcu dictum. Curabitur justo libero, porta vulputate dolor dapibus, mattis blandit nulla.</p>
+            <h3 class="col-12 p-0 m-0 mt-5">${data.name}</h3>
+            <p class="col-12 fs-h2 font-weight-light p-0 m-0 mb-2">${data.price} PLN</p>
+            <p class="col-12 p-0 m-0 mb-4">${data.description}</p>
             <h6 class="col-6   col-xl-4 p-0 m-0 mb-1">Size</h6>
             <h6 class="col-6   col-xl-4 m-0 pl-2 mb-1">Color</h6>
             <div class="col-0  col-xl-4"></div>
             <h6 class="col-6   col-xl-4 p-0 m-0 ">
                 <select id="productSizes" name="size">
+                ${sizesTemplate}
                 </select>
             </h6>
             <h6  class="col-6  col-xl-4 p-0 m-0 pl-2">
                 <select id="productColours" name="color">
+                ${optionsTemplate}
                 </select>
             </h6>
             <div class="col-0 col-xl-4"></div>
@@ -254,46 +289,10 @@ async function generateProduct(id){
             </div>
             <div class="col-2 col-lg-2 col-xl-1 p-0 m-0  d-flex align-items-center"> <input class="w-100  rounded border-1" type="number" value="1"></div>
 
-            `
-            
-
-            data.specification.forEach(item=>{
-                productSpec.innerHTML+=
-                `
-                <div class="col-12 container-fluid   spec-item  productSpec">
-                    <div class="row m-0 p-0 w-100 ">
-                        <div class="col-0 col-md-2"></div>
-                        <div class="col-4 d-flex align-items-center p-0 "><h6 class="py-2 m-0">${item.name}</h6></div>
-                        <div class="col-8 col-md-6 d-flex align-items-center  p-0"><p>${item.value}</p></div>
-                    </div>
-                </div>
-                `
-            })
-    })
-    generateOptionsForProduct(id)
-}
-
-function generateOptionsForProduct(id){
-    let productColours = document.getElementById("productColours")
-    let productSizes = document.getElementById("productSizes")
-    fetch(`http://localhost:3000/products/${id}`)
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data)
-        data.option[1].values.forEach(item=>{
-            console.log(item)
-            productSizes.innerHtml+=
-            `
-            <option value="${item}">${item}</option>
-            `
-        })
-        data.option[0].values.forEach(item=>{
-            
-            console.log(productColours)
-          
-        })
+            `   
     })
 }
+
 
 
 
@@ -314,9 +313,12 @@ function generateOptionsForProduct(id){
 // addCategoriesEventListener()
 
 async function generateProducents(){
+    
+
+let filtersProducerBox = document.getElementById("filtersProducerBox")
     filtersProducerBox.innerHTML=`<div class="p-0 m-0">
-    <h6>Producer</h6>
-</div>`;
+                                    <h6>Producer</h6>
+                                </div>`;
     fetch('http://localhost:3000/producers')
     .then(res=>res.json())
     .then(data=>{
@@ -334,6 +336,7 @@ async function generateProducents(){
 
 async function generateSaloons(){
     
+    let selectSaloon = document.getElementById("selectSaloon")
     fetch("http://localhost:3000/saloons")
     .then(res => res.json())
     .then(data=>{
@@ -345,6 +348,8 @@ async function generateSaloons(){
 }
 
 async function generateOtherCategories(){
+    
+    let otherOptions = document.getElementById("otherOptions")
     otherOptions.innerHTML=` <div class=" p-0 m-0 d-flex align-items-center">
                                 <h6>Other options</h6>
                             </div>`
@@ -368,6 +373,7 @@ async function generateOtherCategories(){
 }
 
 async function generateCart(){
+    let cartBox = document.getElementById("cartBox")
     let total=0;
     cartBox.innerHTML=""
     fetch("http://localhost:3000/cart")
@@ -403,14 +409,14 @@ async function generateCart(){
 
 
 
-generateProduct(1)
+// generateProduct(1)
 
-// generateProducts()
-// generateCategories()
-// generateProducents()
-// generateSaloons()
-// generateOtherCategories()
-// generateCart()
+generateProducts()
+generateCategories()
+generateProducents()
+generateSaloons()
+generateOtherCategories()
+generateCart()
 
 
 

@@ -326,6 +326,18 @@ a {
   border: none;
 }
 
+.carousel-next-product{
+  background-image: url("svg\\chevron-pointing-to-the-left.svg");
+  background-color:transparent !important;
+  transform: rotate(180deg);
+
+}
+
+.carousel-prev-product{
+  background-image: url("svg\\chevron-pointing-to-the-left.svg");
+  background-color:transparent !important;
+
+}
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;
