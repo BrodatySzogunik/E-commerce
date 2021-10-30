@@ -338,6 +338,8 @@ a {
   background-color:transparent !important;
 
 }
+
+
 @media screen and (max-width: 992px) {
   .footer-item {
     display: flex;

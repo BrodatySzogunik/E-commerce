@@ -34,8 +34,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 PRODUCTS
-                            </a>
-                            <div class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
+                            </a> 
+                            <div id="menuCategories" class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item text-grey" href="#">CATEGORY 1</a>
                                 <a class="dropdown-item text-grey" href="#">CATEGORY 2</a>
                                 <a class="dropdown-item text-grey" href="#">CATEGORY 3</a>
@@ -46,8 +46,8 @@
             </nav>
             <div class="container-fluid col-sm-12 col-lg-2 col-xl-1 p-0 m-0 d-flex hidden">
                 <div class="row w-100 m-0">
-                    <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                        <div class="cart-box d-flex align-items-center justify-content-center">
+                    <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100  border menu">
+                        <div  class="cart-box d-flex align-items-center justify-content-center">
                             <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
                             <div class="cartCounter">5</div>
                         </div>
@@ -56,46 +56,14 @@
                         <img class="mx-auto" src="svg/user.svg" height="30px" alt="">
                     </div>
                     <div id="search" class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                        
                         <img class="mx-auto" src="svg/search.svg" height="30px" alt="">
+
                     </div>
                 </div>
             </div>
             <div id="cartBox" class=" ml-auto col-md-12 col-lg-4 col-xl-3 bg-white py-3  d-none">
-                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                    <div class="col-2 p-0 m-0">
-                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
-                    </div>
-                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-                </div>
-                <hr>
-                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                    <div class="col-2 p-0 m-0">
-                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
-                    </div>
-                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-                </div>
-                <hr>
-                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                    <div class="col-2 p-0 m-0">
-                        <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
-                    </div>
-                    <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                    <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                    <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-                </div>
-                <hr>
-                <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                    <div class="col-4 col-sm-4 col-lg-3 p-0 m-0 d-flex justify-content-center text-white">
-                        <button type="button" class="btn btn-primary w-100">Buy</button> 
-                    </div>
-                    <div class="col-4 col-sm-5 col-lg-6 text-right pr-4 m-0 d-flex align-items-center">Total:</div>
-                    <div class="col-2 p-0 m-0 d-flex align-items-center ">299.97</div>
-                    <div class="col-2 col-sm-1"></div>                          
-                </div>
+                
                 
             </div>
             <div id="searchBox" class=" ml-auto mr-0 col-md-12 col-lg-4 col-xl-3 bg-white py-3 d-none container-fluid">
@@ -208,111 +176,13 @@
                                                     <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
                                                 </div> 
                                             </div>
-                                            <div class="category-element container-fluid row m-0 border py-2 rounded-bottom">
-                                                <div class="col-10  col-lg-8 p-0 text-truncate">Very long category aaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                                            <div class="category-element container-fluid row m-0 border py-2 rounded-bottom" height="10px">
+                                                <div class="col-10  col-lg-8 p-0 w-100 text-truncate">Very long category aaaaaaaaaaaaaaaaaaaaaaaaa</div>
                                                 <div class="col-2  col-lg-4 p-0">
                                                     <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">14</p>
                                                 </div> 
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="col-12 container-fluid p-0">
-                                        
-                                            <div id="filtersDropdown" class="dropdown-head row m-0 w-100 d-flex align-items-center text-dark">
-                                                <h3>Filters</h3>
-                                                <svg id="filterChewronUp" class="ml-auto" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-                                                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-                                                </svg>
-                                                <svg id="filterChewronDown" class="ml-auto d-none" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-                                                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-                                                </svg>
-                                            </div>
-                                            <div id="filtersDropdownBody" class=" text-dark dropdown-body d-none container-fluid">
-                                                <div class="row w-100 m-0">
-                                                    <div class="col-12 p-0 m-0">
-                                                        <h6>Price range</h5>
-                                                    </div>
-                                                    <div class="col-5 p-0 m-0">
-                                                        <input id="price-from" class="w-100" type="text" placeholder="from">
-                                                    </div>
-                                                    <div class="col-2  p-0 m-0 d-flex justify-content-center align-items-center">-</div>
-                                                    <div class="col-5  p-0 m-0">
-                                                        <input id="price-to" class="w-100" type="text" placeholder="To">
-                                                    </div>
-
-                                                    <div class="container-fluid col-12 col-md-4 p-0 col-lg-12">
-                                                        <div class="p-0 m-0">
-                                                            <h6>Producer</h6>
-                                                        </div>
-                                                        <div class="p-0 m-0 mb-2 d-flex align-items-center" >
-                                                            <input id="customCheckbox1" type="checkbox">
-                                                            <label for="customCheckbox1">Custom Checkbox</label>
-                                                        </div>
-                                                        
-                                                        <div class="p-0 m-0 mb-2 d-flex align-items-center">
-                                                            <input id="customCheckbox2" type="checkbox">
-                                                            <label for="customCheckbox2">Custom Checkbox</label>
-                                                        </div>
-                                                        
-                                                        <div class="p-0 m-0 mb-2 d-flex align-items-center">
-                                                            <input id="customCheckbox3" type="checkbox">
-                                                            <label for="customCheckbox3">Custom Checkbox</label>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="container-fluid col-12 col-md-4 p-0 col-lg-12">
-                                                        <div class="row w-100 m-0">
-                                                            <div class="col-12 p-0 m-0">
-                                                                <h6>Avaible in saloon</h6>
-                                                            </div>
-
-                                                            <div class="col-12 p-0 m-0">
-                                                                <select name="availible" id="">
-                                                                    <option value="selectSaoon">Select saloon</option>
-                                                                    <option value="selectSaoon">Select saloon</option>
-                                                                    <option value="selectSaoon">Select saloon</option>
-                                                                    <option value="selectSaoon">Select saloon</option>
-                                                                    <option value="selectSaoon">Select saloon</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="container-fluid col-12 col-md-4 p-0 col-lg-12">
-                                                        
-                                                            <div class=" p-0 m-0 d-flex align-items-center">
-                                                                <h6>Other options</h6>
-                                                            </div>
-
-                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-                                                                <input id="customCheckbox4" type="checkbox">
-                                                                <label for="customCheckbox4">Custom Checkbox</label>
-                                                            </div>
-
-                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-                                                                <input id="customCheckbox5" type="checkbox">
-                                                                <label for="customCheckbox5">Custom Checkbox</label>
-                                                            </div>
-
-                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-                                                                <input id="customCheckbox6" type="checkbox">
-                                                                <label for="customCheckbox6">Custom Checkbox</label>
-                                                            </div>
-
-                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-                                                                <input id="customCheckbox7" type="checkbox">
-                                                                <label for="customCheckbox7">Custom Checkbox</label>
-                                                            </div>
-
-                                                            <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-                                                                <input id="customCheckbox8" type="checkbox">
-                                                                <label for="customCheckbox8">Custom Checkbox</label>
-                                                            </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -570,6 +440,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-<script src="./script.js" ></script>
+<script src="./product.js" ></script>
 </body>
 </html>

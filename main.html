@@ -34,8 +34,8 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             PRODUCTS
-                        </a>
-                        <div class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
+                        </a> 
+                        <div id="menuCategories" class="dropdown-menu border-0 rounded-0    " aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text-grey" href="#">CATEGORY 1</a>
                             <a class="dropdown-item text-grey" href="#">CATEGORY 2</a>
                             <a class="dropdown-item text-grey" href="#">CATEGORY 3</a>
@@ -46,8 +46,8 @@
         </nav>
         <div class="container-fluid col-sm-12 col-lg-2 col-xl-1 p-0 m-0 d-flex hidden">
             <div class="row w-100 m-0">
-                <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
-                    <div class="cart-box d-flex align-items-center justify-content-center">
+                <div id="cart" class="col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100  border menu">
+                    <div  class="cart-box d-flex align-items-center justify-content-center">
                         <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
                         <div class="cartCounter">5</div>
                     </div>
@@ -56,46 +56,14 @@
                     <img class="mx-auto" src="svg/user.svg" height="30px" alt="">
                 </div>
                 <div id="search" class=" col-4 bg-white p-0 d-flex align-items-center justify-content-center h-100 w-100 border menu">
+                    
                     <img class="mx-auto" src="svg/search.svg" height="30px" alt="">
+
                 </div>
             </div>
         </div>
         <div id="cartBox" class=" ml-auto col-md-12 col-lg-4 col-xl-3 bg-white py-3  d-none">
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
-                </div>
-                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
-                </div>
-                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-2 p-0 m-0">
-                    <img class="p-0 m-0" src="assets\img\7a67c57a311acdbd258694542cf442d6.png" width="60px" alt="">
-                </div>
-                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">Motorcycle helmet</div>
-                <div class="col-2 p-0 m-0 d-flex align-items-center">99.99</div>
-                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
-            </div>
-            <hr>
-            <div class="row container-fluid w-100 cart-item  ml-auto mr-0">
-                <div class="col-4 col-sm-4 col-lg-3 p-0 m-0 d-flex justify-content-center text-white">
-                    <button type="button" class="btn btn-primary w-100">Buy</button> 
-                </div>
-                <div class="col-4 col-sm-5 col-lg-6 text-right pr-4 m-0 d-flex align-items-center">Total:</div>
-                <div class="col-2 p-0 m-0 d-flex align-items-center ">299.97</div>
-                <div class="col-2 col-sm-1"></div>                      
-            </div>
+            
             
         </div>
         <div id="searchBox" class=" ml-auto mr-0 col-md-12 col-lg-4 col-xl-3 bg-white py-3 d-none container-fluid">
@@ -187,9 +155,9 @@
                     <div class="col-12 m-0 p-0 text-left text-dark mb-3">
                         <h3>Recommended</h3>
                     </div>
-                    <div class="col-12 container-fluid">
-                        <div class="row w-100 m-0">
-                            <div class="col-12 col-md-4  col-lg-3">
+                    <div  class="col-12 container-fluid">
+                        <div id="recommendedItems" class="row w-100 m-0">
+                            <!-- <div class="col-12 col-md-4  col-lg-3">
                                 <div class="card w-100" >
                                     <img src="assets\img\7a67c57a311acdbd258694542cf442d6.jpg" class="card-img-top" alt="...">
                                     <img src="svg\heart.svg" height="25px" class="card-heart" alt="">
@@ -283,10 +251,13 @@
                                     
                                     </div>
                                 </div>
-                            </div>
+                            </div>    -->
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
                             <div class="col-12 d-flex justify-content-center align-items-center my-5">
-                                <button class="btn btn-primary btn-lg">Load more products</button>
+                                <button id="loadMoreButton" class="btn btn-primary btn-lg">Load more products</button>
                             </div>
+
                         </div>
                     </div>
                     
@@ -604,6 +575,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-<script src="./script.js" ></script>
+<script src="./main.js" ></script>
 </body>
 </html>
