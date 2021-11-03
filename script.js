@@ -94,8 +94,8 @@ const addCategoriesListeners = ()=>{
 
 const generateProducts=()=> {
 
-    let chosenCategory=0
     let categoriesItems = document.getElementById("categories-items");
+    let whereAmI = document.getElementById("whereAmI")
     let price=""
     let photo = ""
     let description=""
@@ -103,14 +103,20 @@ const generateProducts=()=> {
 
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString)
-    console.log(urlParams)
-    chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+
+    const apiSearchParams = new URLSearchParams();
+
+    let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
     let perPage = parseInt(urlParams.get("per-page"))?parseInt(urlParams.get("per-page")):6
-    let page = parseInt(urlParams.get("page"))?parseInt(urlParams.get("per-page")):1
+    let page = parseInt(urlParams.get("page"))?parseInt(urlParams.get("page")):1
 
 
     if(chosenCategory===0){
-        fetch("http://localhost:3000/products")
+        
+        apiSearchParams.set("_page",page)
+        apiSearchParams.set("_limit",perPage)
+        
+        fetch(`http://localhost:3000/products?${apiSearchParams.toString}`)
         .then(res=> res.json())
         .then(data=> {
             data.forEach(item=>{
@@ -142,9 +148,14 @@ const generateProducts=()=> {
                 `
             })
             categoriesItems.innerHTML=output
+            whereAmI.innerText =`Categories`
         })
     }else{
-        fetch(`http://localhost:3000/products?category=${chosenCategory}`)
+        apiSearchParams.set("category",chosenCategory)
+        apiSearchParams.set("_page",page)
+        apiSearchParams.set("_limit",perPage)
+        
+        fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
         .then(res=> res.json())
         .then(data=> {
             data.forEach(item=>{
@@ -175,6 +186,7 @@ const generateProducts=()=> {
                 `
             })
             categoriesItems.innerHTML=output
+            whereAmI.innerText =`Category ${chosenCategory}`
         })
     }
     
@@ -218,7 +230,7 @@ async function generateCategories(){
 async function generateProduct(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString)
-    console.log(urlParams)
+
     let id= parseInt(urlParams.get("product-id"))
 
 
@@ -265,8 +277,7 @@ async function generateProduct(){
             `
         })
         data.photos.forEach((item,index)=>{
-            console.log(item)
-            
+
             if(index===0){
                 productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>`
                 productCarouselInnerTemplate+=
@@ -523,7 +534,6 @@ function generateMainCarousel(){
             </div>
             `
         })
-        console.log(carouselInnerTemplate)
         mainCarousel.innerHTML=carouselInnerTemplate
     })
     
@@ -548,6 +558,27 @@ function generatePagination(){
         let urlTemplate=queryParams.toString()
 
         window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
+    })
+
+    let page = document.getElementById("page")
+    console.log()
+    let paginationItems = Array.from(page.children)
+    
+    paginationItems.forEach((item,idx)=>{
+        if(idx!=0&&idx!=paginationItems.length-1){
+            item.addEventListener("click",()=>{
+
+                const queryString = window.location.search;
+                let queryParams = new URLSearchParams(queryString)
+                queryParams.set("page",item.firstChild.innerText)
+
+                let urlTemplate=queryParams.toString()
+
+                window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
+
+
+            })
+        }
     })
 
 }
