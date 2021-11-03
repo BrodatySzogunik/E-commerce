@@ -104,7 +104,10 @@ const generateProducts=()=> {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString)
     console.log(urlParams)
-    chosenCategory= parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+    chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+    let perPage = parseInt(urlParams.get("per-page"))?parseInt(urlParams.get("per-page")):6
+    let page = parseInt(urlParams.get("page"))?parseInt(urlParams.get("per-page")):1
+
 
     if(chosenCategory===0){
         fetch("http://localhost:3000/products")
@@ -321,10 +324,6 @@ async function generateProduct(){
 }
 
 
-
-
-
-
 // const addCategoriesEventListener=()=>{
 //     [...categoriesDropdownBody.childNodes]. forEach(item=>{
 //         console.log(item)
@@ -350,16 +349,19 @@ let filtersProducerBox = document.getElementById("filtersProducerBox")
     .then(res=>res.json())
     .then(data=>{
         data.forEach(item=>{
-            filtersProducerBox.innerHTML+=
-            `
-            <div class="p-0 m-0 mb-2 d-flex align-items-center">
-                <input id="${item.alias}" type="checkbox">
-                <label for="${item.alias}">${item.name}</label>
-            </div>
-            `
+            let newElement = document.createElement('div')
+            newElement.innerHTML=`
+                <div class="p-0 m-0 mb-2 d-flex align-items-center">
+                    <input id="producer-${item.id}" type="checkbox" value="${item.id}" name="producents">
+                    <label for="producer-${item.id}">${item.name}</label>
+                </div>
+                `
+            filtersProducerBox.appendChild(newElement)
         })
     })
+    
 }
+
 
 async function generateSaloons(){
     
@@ -384,23 +386,54 @@ async function generateOtherCategories(){
                                 <h6>Other options</h6>
                             </div>`
 
-    fetch(`http://localhost:3000/options?category=${chosenCategory}`)
+    await fetch(`http://localhost:3000/options?category=${chosenCategory}`)
     .then(res => res.json())
     .then(data=>{
         data.forEach(item=>{
             if(item.type==="single"){
-                otherOptions.innerHTML+=
+                let newElement = document.createElement('div')
+                newElement.innerHTML=
                 `
                 <div class=" p-0 m-0 mb-2 d-flex align-items-center">
                     <input id="${item.label}" type="checkbox">
                     <label for="${item.label}">${item.label}</label>
                 </div>
                 `
+                otherOptions.appendChild(newElement)
             }
 
         })
     })
+
+
+    let newElement = document.createElement("div")
+    let filterButton = document.createElement("button")
+    filterButton.classList.add('btn','btn-primary')
+    filterButton.innerText="Filter"
+    filterButton.addEventListener('click',()=>{
+        let filterOptions = document.querySelectorAll("input[name='producents']")
+
+        // document.querySelectorAll("input[name='producents']").forEach(item=>console.log(item.checked))
+
+        const queryString = window.location.search;
+        let queryParams = new URLSearchParams(queryString)
+        queryParams.delete("producents")
+        filterOptions.forEach(item=>{
+            if(item.checked){
+                queryParams.append("producents",parseInt(item.value))
+            }
+        })
+        
+
+        let urlTemplate  = queryParams.toString()
+
+        window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
+        
+    })
+    newElement.appendChild(filterButton)
+    otherOptions.appendChild(newElement)
 }
+
 
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
@@ -447,6 +480,55 @@ async function generateCart(){
 }
 
 
+function generateMainCarousel(){
+    const mainCarousel = document.getElementById("main-carousel")
+    let carouselInnerTemplate = ""
+    fetch('http://localhost:3000/slides')
+    .then(res=> res.json())
+    .then(data => {
+        data.forEach((item,index)=>{
+            carouselInnerTemplate+=index===0?
+            `
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row m-0">
+                        <div class="col-lg-6">
+                            <h1>${item.title}</h1>
+                            <h3 class="text-secondary">${item.subtitle}</h3>
+                            <p>${item.description}</p>
+                            <button type="button" class="btn btn-outline-primary float-right">${item.button.label}</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="assets/img/${item.productImage}" class="img-fluid" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `:
+            `
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row m-0">
+                        <div class="col-lg-6">
+                            <h1>${item.title}</h1>
+                            <h3 class="text-secondary">${item.subtitle}</h3>
+                            <p>${item.description}</p>
+                            <button type="button" class="btn btn-outline-primary float-right">${item.button.label}</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="assets/img/${item.productImage}" class="img-fluid" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `
+        })
+        console.log(carouselInnerTemplate)
+        mainCarousel.innerHTML=carouselInnerTemplate
+    })
+    
+}
+
 async function getCategoriesCount(id){
     const categoriesCount = await fetch(`http://localhost:3000/products?category=${id}`)
     .then(res=> res.json())
@@ -455,10 +537,26 @@ async function getCategoriesCount(id){
     return categoriesCount
 }
 
+function generatePagination(){
+    let productsPerPage = document.getElementById("productsPerPage")
+    productsPerPage.addEventListener("change",()=>{
+        const queryString = window.location.search;
+        let queryParams = new URLSearchParams(queryString)
+        queryParams.set("per-page",productsPerPage.value)
+
+
+        let urlTemplate=queryParams.toString()
+
+        window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
+    })
+
+}
+
 
 // generateProduct(1)
 
-
+generatePagination()
+generateMainCarousel()
 generateProducts()
 generateCategories()
 generateProducents()

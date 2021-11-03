@@ -8,7 +8,7 @@ const round =(number,decimalPlaces)=>{
 
 const truncate = (str, max, suffix) => (str.length < max ? str : `${str.substr(0, str.substr(0, max - suffix.length).lastIndexOf(' '))}${suffix}`);
 
-let perPage = 12;
+let onPage = 12;
 
 async function generateCategories(){
 
@@ -105,12 +105,12 @@ const addNavBarLiteners =()=>{
     }
     let loadMoreButton = document.getElementById("loadMoreButton")
     loadMoreButton.addEventListener("click",()=>{
-        perPage+=12
-        generateProducts(perPage)
+        onPage+=12
+        generateProducts(onPage)
 
     })
 
-    const generateProducts=(perPage)=> {
+    const generateProducts=(onPage)=> {
 
         let recommendedItems = document.getElementById("recommendedItems");
         let price=""
@@ -118,39 +118,42 @@ const addNavBarLiteners =()=>{
         let description=""
         let output=""
 
-            fetch(`http://localhost:3000/products?_start=0&_end=${perPage}`)
+            fetch(`http://localhost:3000/products?_start=0&_end=${onPage+1}`)
             .then(res=> res.json())
             .then(data=> {
-                data.forEach(item=>{
-                    price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-                                                <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-                                                `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
-                    
-                    photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
-                    description=truncate(item.description,100,'...')
-                    output+=`
-                    <div class="col-12 col-md-4  col-lg-3">
-                        <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">
-                            <div class="card w-100" >
-                                <div class="w-100">    
-                                    <div class="image-container">
-                                        <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
+                data.forEach((item,idx)=>{
+                    if(idx!=onPage){
+                        price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
+                                                    <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
+                                                    `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
+                        
+                        photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
+                        description=truncate(item.description,100,'...')
+                        output+=`
+                        <div class="col-12 col-md-4  col-lg-3">
+                            <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">
+                                <div class="card w-100" >
+                                    <div class="w-100">    
+                                        <div class="image-container">
+                                            <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
+                                        </div>
+                                    </div>
+                                    <img src="svg\\heart.svg" height="25px" class="card-heart" alt="">
+                                    <div class="card-body">
+                                    <h5 class="card-title">${item.name}</h5>
+                                    <p class="card-text ">${description}</p>
+                                    ${price}
+                                    
                                     </div>
                                 </div>
-                                <img src="svg\\heart.svg" height="25px" class="card-heart" alt="">
-                                <div class="card-body">
-                                <h5 class="card-title">${item.name}</h5>
-                                <p class="card-text ">${description}</p>
-                                ${price}
-                                
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    `
+                            </a>
+                        </div>
+                        `
+                        
+                    }
                 })
                 recommendedItems.innerHTML=output
-                if((data.length<=perPage)&&(perPage!==12)){
+                if((data.length<=onPage)&&(onPage!==12)){
                     loadMoreButton.classList.add("d-none")
                 }
             })
@@ -170,4 +173,4 @@ async function getCategoriesCount(id){
 generateCategories()
 generateCart()
 addNavBarLiteners()
-generateProducts(perPage)
+generateProducts(onPage)
