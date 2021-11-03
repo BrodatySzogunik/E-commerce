@@ -92,7 +92,7 @@ const addCategoriesListeners = ()=>{
 
 
 
-const generateProducts=()=> {
+async function generateProducts(){
 
     let categoriesItems = document.getElementById("categories-items");
     let whereAmI = document.getElementById("whereAmI")
@@ -116,18 +116,18 @@ const generateProducts=()=> {
         apiSearchParams.set("_page",page)
         apiSearchParams.set("_limit",perPage)
         
-        fetch(`http://localhost:3000/products?${apiSearchParams.toString}`)
+        await fetch(`http://localhost:3000/products?${apiSearchParams.toString}`)
         .then(res=> res.json())
         .then(data=> {
             data.forEach(item=>{
-                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
+                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
+                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.priceDiscounted}" data-qty="1" class="card-cart" alt=""></p>`:
+                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.price}" data-qty="1" class="card-cart" alt=""></p>`
                 
                 photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
                 description=truncate(item.description,100,'...')
                 output+=`
-                <div class="col-12 col-md-6  col-lg-4">
+                <div class="col-12 col-md-6 col-lg-4 productCard">
                     <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">
                         <div class="card w-100" >
                             <div class="w-100">    
@@ -155,18 +155,18 @@ const generateProducts=()=> {
         apiSearchParams.set("_page",page)
         apiSearchParams.set("_limit",perPage)
         
-        fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
+        await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
         .then(res=> res.json())
         .then(data=> {
             data.forEach(item=>{
-                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
+                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
+                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.priceDiscounted}" data-qty="1" class="card-cart" alt=""></p>`:
+                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.price}" data-qty="1" class="card-cart" alt=""></p>`
                 
                 photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
                 description=truncate(item.description,100,'...')
                 output+=`
-                <div class="col-12 col-md-6  col-lg-4">
+                <div class="col-12 col-md-6  col-lg-4 productCard">
                     <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">  
                         <div class="card w-100" >
                             <div class="w-100">    
@@ -174,11 +174,12 @@ const generateProducts=()=> {
                                     <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
                                 </div>
                             </div>
+                            
                             <div class="card-body">
+                            <p class="text-dark fs-small">${item.id}</p>
                             <h5 class="card-title">${item.name}</h5>
                             <p class="card-text ">${description}</p>
-                            ${price}
-                            
+                            ${price}                          
                             </div>
                         </div>
                     </a>    
@@ -189,6 +190,7 @@ const generateProducts=()=> {
             whereAmI.innerText =`Category ${chosenCategory}`
         })
     }
+    generateCardListeners()
     
 }
 
@@ -221,10 +223,6 @@ async function generateCategories(){
     })
     
 }
-
-
-
-
 
 
 async function generateProduct(){
@@ -333,6 +331,38 @@ async function generateProduct(){
             `   
     })
 }
+
+async function addItemToCart(data){
+    const payload = {
+        method:"POST",
+        body:JSON.stringify({
+            productId:parseInt(data.id),
+            price:parseInt(data.price),
+            qty:parseInt(data.qty)
+        })
+    }
+    try{
+        await fetch("http://localhost:3000/cart",payload)
+    }catch(e){
+        console.log(e)
+    }
+}
+
+const generateCardListeners=()=>{
+    const categoriesItems= document.getElementsByClassName("productCard");
+    const ItemCards= Array.from(categoriesItems)
+    ItemCards.forEach(item=>{
+        item.addEventListener("click",(event)=>{
+            if(event.target.classList.contains("card-cart")){
+                event.preventDefault()
+                addItemToCart(event.target.dataset)
+                // console.log(event.target.dataset.id)
+            }
+        })
+    })
+
+}
+
 
 
 // const addCategoriesEventListener=()=>{
@@ -596,4 +626,5 @@ generateOtherCategories()
 generateCart()
 addNavBarLiteners()
 addCategoriesListeners()
+
 
