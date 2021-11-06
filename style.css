@@ -101,7 +101,7 @@ p {
   height: 56px !important;
 }
 
-.cartCounter {
+.cartCounter,.productCounter {
   background-color: #55b1bc;
   border-radius: 100%;
   width: 20px;
@@ -234,6 +234,17 @@ label {
   cursor: pointer;
 }
 
+.card-heart-fav{
+ 
+
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  filter: invert(19%) sepia(32%) saturate(7344%) hue-rotate(354deg) brightness(111%) contrast(143%);
+  display: block;
+  cursor: pointer;
+}
+
 .card-cart {
   position: absolute;
   bottom: 15px;
@@ -338,6 +349,8 @@ a {
   background-color:transparent !important;
 
 }
+
+
 
 
 @media screen and (max-width: 992px) {

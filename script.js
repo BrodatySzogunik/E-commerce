@@ -104,20 +104,35 @@ async function generateProducts(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString)
 
+    
     const apiSearchParams = new URLSearchParams();
 
     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
     let perPage = parseInt(urlParams.get("per-page"))?parseInt(urlParams.get("per-page")):6
     let page = parseInt(urlParams.get("page"))?parseInt(urlParams.get("page")):1
+    let producents = urlParams.getAll("producents")
+
+    const favorites = await fetch("http://localhost:3000/favorites")
+                            .then(res=>res.json())
+                            .then(data=>{return data})
+    const favoritesArray = favorites.map((item)=>{
+        return item.id
+    })
+
+    apiSearchParams.set("_page",page)
+    apiSearchParams.set("_limit",perPage)
+    producents.forEach(item=> apiSearchParams.append("producer",Number(item)))
 
 
     if(chosenCategory===0){
         
-        apiSearchParams.set("_page",page)
-        apiSearchParams.set("_limit",perPage)
+        
+        producents
         
         await fetch(`http://localhost:3000/products?${apiSearchParams.toString}`)
-        .then(res=> res.json())
+        .then(res=>{
+            res.headers.forEach(function(val, key) { console.log(key + ' -> ' + val); })
+            return res.json()})
         .then(data=> {
             data.forEach(item=>{
                 price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
@@ -135,7 +150,7 @@ async function generateProducts(){
                                     <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
                                 </div>
                             </div>
-                            <img src="svg\\heart.svg" height="25px" class="card-heart" alt="">
+                            <img src="svg\\heart.svg" height="25px" data-id="${item.id}" class="${favoritesArray.includes(item.id)?"card-heart-fav":"card-heart"}" alt="">
                             <div class="card-body">
                             <h5 class="card-title">${item.name}</h5>
                             <p class="card-text ">${description}</p>
@@ -152,8 +167,7 @@ async function generateProducts(){
         })
     }else{
         apiSearchParams.set("category",chosenCategory)
-        apiSearchParams.set("_page",page)
-        apiSearchParams.set("_limit",perPage)
+        
         
         await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
         .then(res=> res.json())
@@ -174,7 +188,7 @@ async function generateProducts(){
                                     <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
                                 </div>
                             </div>
-                            
+                            <img src="svg\\heart.svg" height="25px" data-id="${item.id}" class="${favoritesArray.includes(item.id)?"card-heart-fav":"card-heart"}" alt="">
                             <div class="card-body">
                             <p class="text-dark fs-small">${item.id}</p>
                             <h5 class="card-title">${item.name}</h5>
@@ -335,10 +349,16 @@ async function generateProduct(){
 async function addItemToCart(data){
     const payload = {
         method:"POST",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
         body:JSON.stringify({
-            productId:parseInt(data.id),
-            price:parseInt(data.price),
-            qty:parseInt(data.qty)
+            productId:Number(data.id),
+            price:Number(data.price),
+            qty:1,
+            name:"name",
+            thumbnail:"something.jpg"
         })
     }
     try{
@@ -346,6 +366,7 @@ async function addItemToCart(data){
     }catch(e){
         console.log(e)
     }
+    await generateCart()
 }
 
 const generateCardListeners=()=>{
@@ -356,28 +377,101 @@ const generateCardListeners=()=>{
             if(event.target.classList.contains("card-cart")){
                 event.preventDefault()
                 addItemToCart(event.target.dataset)
-                // console.log(event.target.dataset.id)
+            }
+            if(event.target.classList.contains("card-heart")||event.target.classList.contains("card-heart-fav")){
+                event.preventDefault()
+                if(event.target.classList.contains("card-heart-fav")){
+                    // removeItemFromFav(event.target.dataset)
+                    event.target.classList.remove("card-heart-fav")
+                    event.target.classList.add("card-heart")
+                }else{
+                    // addItemToFav(event.target.dataset)
+                    event.target.classList.add("card-heart-fav")
+                    event.target.classList.remove("card-heart")
+                }
+                
             }
         })
     })
 
 }
 
+async function addItemToFav(data){
+    const payload = {
+        method:"POST",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify({
+            id:Number(data.id),
+        })
+    }
+    try{
+        await fetch("http://localhost:3000/favorites",payload)
+    }catch(e){
+        console.log(e)
+    }
+
+}
+
+async function removeItemFromFav(data){
+    const payload = {
+        method:"DELETE",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json',
+        },
+    }
+    try{
+        await fetch(`http://localhost:3000/favorites/${data.id}`,payload)
+    }catch(e){
+        console.log(e)
+    }
+
+}
 
 
-// const addCategoriesEventListener=()=>{
-//     [...categoriesDropdownBody.childNodes]. forEach(item=>{
-//         console.log(item)
-//         item.addEventListener('click',()=>{
-//             console.log("clicked")
-//             chosenCategory=item.id;
-//             generateProducts()
-//         })
-//     })
-// }
+const generateCartListeners=()=>{
+    const cartButtons= Array.from(document.getElementsByClassName("cartButton"));
+
+    cartButtons.forEach(item=>{
+        item.addEventListener("click",async function(){
+
+                // removeItemFromCart(item.dataset.id.split(","))
+                console.log(item.dataset.id.split(","))
+                item.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
 
 
-// addCategoriesEventListener()
+
+
+        })
+    })
+
+}
+
+async function removeItemFromCart(id){
+    
+  
+        console.log(id)
+        const payload = {
+            method:"DELETE",
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            }
+        }
+        try{
+            await fetch(`http://localhost:3000/cart/${id}`,payload)
+        }catch(e){
+            console.log(e)
+        }
+        await generateCart()
+        
+
+    
+}
+
 
 async function generateProducents(){
     
@@ -480,14 +574,33 @@ async function generateCart(){
     let cartBox = document.getElementById("cartBox")
     let cart = document.getElementById("cart")
     let total=0;
-    
+    let cartBoxTemplate=""
+
+
     cartBox.innerHTML=""
-    fetch("http://localhost:3000/cart")
+    await fetch("http://localhost:3000/cart")
     .then(res=>res.json())
     .then(data=>{
-        data.forEach(item=>{
+        console.log(data)
+        const cartMap = new Map()
+
+        data.forEach((item)=>{
+            if(cartMap.get(item.productId)){
+                console.log("podwuny")
+                cartMap.get(item.productId).price+=item.priceDiscounted?(item.priceDiscounted*item.qty):(item.price*item.qty)
+                cartMap.get(item.productId).qty+=item.qty
+                cartMap.get(item.productId).id.push(item.id)
+            }else{
+            cartMap.set(item.productId,{name:item.name,thumbnail:item.thumbnail,qty:item.qty,price:item.priceDiscounted?(item.priceDiscounted*item.qty):(item.price*item.qty),id:[item.id]})
+            }
+        })
+
+        console.log(cartMap);
+
+
+        cartMap.forEach(item=>{
             total+=item.price
-            cartBox.innerHTML+=`<div class="row container-fluid w-100 cart-item  px-0 ml-auto mr-0">
+            cartBoxTemplate+=`<div class="row container-fluid w-100 cart-item  px-0 ml-auto mr-0">
             <div class="col-2 p-0 m-0">
                 <div class="w-100">    
                     <div class="image-container">
@@ -496,13 +609,22 @@ async function generateCart(){
                 </div>
             </div>
             <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">${item.name}</div>
-            <div class="col-2 p-0 m-0 d-flex align-items-center">${item.price}</div>
-            <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" src="svg/delete.svg" height="20px" alt=""></div>
+            <div class="col-2 p-0 m-0 d-flex align-items-center">${round(item.price,2)}</div>
+            <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" data-id="${item.id}" src="svg/delete.svg" height="20px" alt=""></div>
             </div>
             <hr>
             `
         })
-        cartBox.innerHTML+=`<div class="row container-fluid w-100 cart-item  ml-auto mr-0">
+        if(total===0){
+            cartBoxTemplate=
+            `<div class="row container-fluid w-100 cart-item  px-0 ml-auto mr-0">
+            <div class="col-12 p-0 m-0 d-flex align-items-center justify-content-center"><p class="fs-bigger text-dark">Cart is empty<p></div>
+            </div>
+            <hr>
+            `
+
+        }else{
+        cartBoxTemplate+=`<div class="row container-fluid w-100 cart-item  ml-auto mr-0">
         <div class="col-4 col-sm-4 col-lg-3 p-0 m-0 d-flex justify-content-center text-white">
             <button type="button" class="btn btn-primary w-100">Buy</button> 
         </div>
@@ -510,6 +632,8 @@ async function generateCart(){
         <div class="col-2 p-0 m-0 d-flex align-items-center ">${round(total,2)}</div>
         <div class="col-2 col-sm-1"></div>              
         </div>`
+        }
+        cartBox.innerHTML = cartBoxTemplate
         cart.innerHTML=
         `
         <div  class="cart-box d-flex align-items-center justify-content-center">
@@ -518,6 +642,7 @@ async function generateCart(){
         </div>
         `
     })
+    generateCartListeners()
 }
 
 
@@ -587,7 +712,7 @@ function generatePagination(){
 
         let urlTemplate=queryParams.toString()
 
-        window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
+        window.location.search=`${urlTemplate}`
     })
 
     let page = document.getElementById("page")
@@ -604,7 +729,7 @@ function generatePagination(){
 
                 let urlTemplate=queryParams.toString()
 
-                window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
+                window.location.search=`${urlTemplate}`
 
 
             })

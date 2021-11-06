@@ -28,6 +28,7 @@ async function generateCategories(){
     })
     
 }
+
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
     let cart = document.getElementById("cart")
