@@ -107,11 +107,19 @@ async function generateProducts(){
     
     const apiSearchParams = new URLSearchParams();
 
-    let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
-    let perPage = parseInt(urlParams.get("per-page"))?parseInt(urlParams.get("per-page")):6
-    let page = parseInt(urlParams.get("page"))?parseInt(urlParams.get("page")):1
-    let producents = urlParams.getAll("producents")
+    let producents = document.querySelectorAll("input[name='producents']")
+    let otherCategories = document.querySelectorAll("input[name='otherCategories']")
+    let perPageSelect = document.getElementById("productsPerPage")
 
+    producents.forEach(item=>console.log(item.value,item.checked))
+
+
+    let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+
+    let page = parseInt(urlParams.get("page"))?parseInt(urlParams.get("page")):1
+
+    let perPage = Number(perPageSelect.value)!==NaN?Number(perPageSelect.value):6
+    console.log(Number(perPageSelect.value))
     const favorites = await fetch("http://localhost:3000/favorites")
                             .then(res=>res.json())
                             .then(data=>{return data})
@@ -121,19 +129,28 @@ async function generateProducts(){
 
     apiSearchParams.set("_page",page)
     apiSearchParams.set("_limit",perPage)
-    producents.forEach(item=> apiSearchParams.append("producer",Number(item)))
+    producents.forEach(item=> {
+        if(item.checked){
+            apiSearchParams.append("producer",Number(item.value))
+        }
+    })
+
+    otherCategories.forEach(item=> {
+        if(item.checked){
+            apiSearchParams.append("options",Number(item.value))
+        }
+    })
+    if(chosenCategory!=0){
+        apiSearchParams.set("category",chosenCategory)
+    }
 
 
-    if(chosenCategory===0){
-        
-        
-        producents
-        
-        await fetch(`http://localhost:3000/products?${apiSearchParams.toString}`)
+        await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
         .then(res=>{
-            res.headers.forEach(function(val, key) { console.log(key + ' -> ' + val); })
+            generatePagination(Math.ceil(Number(res.headers.get("X-Total-Count"))/perPage))
             return res.json()})
         .then(data=> {
+            
             data.forEach(item=>{
                 price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
                                             <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.priceDiscounted}" data-qty="1" class="card-cart" alt=""></p>`:
@@ -165,45 +182,6 @@ async function generateProducts(){
             categoriesItems.innerHTML=output
             whereAmI.innerText =`Categories`
         })
-    }else{
-        apiSearchParams.set("category",chosenCategory)
-        
-        
-        await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
-        .then(res=> res.json())
-        .then(data=> {
-            data.forEach(item=>{
-                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
-                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.priceDiscounted}" data-qty="1" class="card-cart" alt=""></p>`:
-                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.price}" data-qty="1" class="card-cart" alt=""></p>`
-                
-                photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
-                description=truncate(item.description,100,'...')
-                output+=`
-                <div class="col-12 col-md-6  col-lg-4 productCard">
-                    <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">  
-                        <div class="card w-100" >
-                            <div class="w-100">    
-                                <div class="image-container">
-                                    <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
-                                </div>
-                            </div>
-                            <img src="svg\\heart.svg" height="25px" data-id="${item.id}" class="${favoritesArray.includes(item.id)?"card-heart-fav":"card-heart"}" alt="">
-                            <div class="card-body">
-                            <p class="text-dark fs-small">${item.id}</p>
-                            <h5 class="card-title">${item.name}</h5>
-                            <p class="card-text ">${description}</p>
-                            ${price}                          
-                            </div>
-                        </div>
-                    </a>    
-                </div>
-                `
-            })
-            categoriesItems.innerHTML=output
-            whereAmI.innerText =`Category ${chosenCategory}`
-        })
-    }
     generateCardListeners()
     
 }
@@ -381,11 +359,11 @@ const generateCardListeners=()=>{
             if(event.target.classList.contains("card-heart")||event.target.classList.contains("card-heart-fav")){
                 event.preventDefault()
                 if(event.target.classList.contains("card-heart-fav")){
-                    // removeItemFromFav(event.target.dataset)
+                    removeItemFromFav(event.target.dataset)
                     event.target.classList.remove("card-heart-fav")
                     event.target.classList.add("card-heart")
                 }else{
-                    // addItemToFav(event.target.dataset)
+                    addItemToFav(event.target.dataset)
                     event.target.classList.add("card-heart-fav")
                     event.target.classList.remove("card-heart")
                 }
@@ -438,7 +416,6 @@ const generateCartListeners=()=>{
     cartButtons.forEach(item=>{
         item.addEventListener("click",async function(){
 
-                // removeItemFromCart(item.dataset.id.split(","))
                 console.log(item.dataset.id.split(","))
                 item.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
 
@@ -473,14 +450,114 @@ async function removeItemFromCart(id){
 }
 
 
-async function generateProducents(){
+// async function generateProducents(){
     
 
-let filtersProducerBox = document.getElementById("filtersProducerBox")
+// let filtersProducerBox = document.getElementById("filtersProducerBox")
+//     filtersProducerBox.innerHTML=`<div class="p-0 m-0">
+//                                     <h6>Producer</h6>
+//                                 </div>`;
+//     fetch('http://localhost:3000/producers')
+//     .then(res=>res.json())
+//     .then(data=>{
+//         data.forEach(item=>{
+//             let newElement = document.createElement('div')
+//             newElement.innerHTML=`
+//                 <div class="p-0 m-0 mb-2 d-flex align-items-center">
+//                     <input id="producer-${item.id}" type="checkbox" value="${item.id}" name="producents">
+//                     <label for="producer-${item.id}">${item.name}</label>
+//                 </div>
+//                 `
+//             filtersProducerBox.appendChild(newElement)
+//         })
+//     })
+    
+// }
+
+
+// async function generateSaloons(){
+    
+//     let selectSaloon = document.getElementById("selectSaloon")
+//     fetch("http://localhost:3000/saloons")
+//     .then(res => res.json())
+//     .then(data=>{
+//         data.forEach(item=>{
+//             selectSaloon.innerHTML+=`<option value="${item.name}">${item.name}</option>`
+//         })
+//     })
+
+// }
+
+// async function generateOtherCategories(){
+//     const queryString = window.location.search;
+//     const urlParams = new URLSearchParams(queryString)
+//     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+
+//     let otherOptions = document.getElementById("otherOptions")
+//     otherOptions.innerHTML=` <div class=" p-0 m-0 d-flex align-items-center">
+//                                 <h6>Other options</h6>
+//                             </div>`
+
+//     await fetch(`http://localhost:3000/options?category=${chosenCategory}`)
+//     .then(res => res.json())
+//     .then(data=>{
+//         data.forEach(item=>{
+//             if(item.type==="single"){
+//                 let newElement = document.createElement('div')
+//                 newElement.innerHTML=
+//                 `
+//                 <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+//                     <input id="${item.label}" type="checkbox" name="otherCategories">
+//                     <label for="${item.label}">${item.label}</label>
+//                 </div>
+//                 `
+//                 otherOptions.appendChild(newElement)
+//             }
+
+//         })
+//     })
+
+
+//     let newElement = document.createElement("div")
+//     let filterButton = document.createElement("button")
+//     filterButton.classList.add('btn','btn-primary')
+//     filterButton.innerText="Filter"
+//     filterButton.addEventListener('click',()=>{
+//         let filterOptions = document.querySelectorAll("input[name='producents']")
+
+//         // document.querySelectorAll("input[name='producents']").forEach(item=>console.log(item.checked))
+
+//         const queryString = window.location.search;
+//         let queryParams = new URLSearchParams(queryString)
+//         queryParams.delete("producents")
+//         filterOptions.forEach(item=>{
+//             if(item.checked){
+//                 queryParams.append("producents",parseInt(item.value))
+//             }
+//         })
+        
+
+//         let urlTemplate  = queryParams.toString()
+
+//         window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
+        
+//     })
+//     newElement.appendChild(filterButton)
+//     otherOptions.appendChild(newElement)
+// }
+
+
+async function generateFilters(){
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString)
+    let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+
+    let filtersProducerBox = document.getElementById("filtersProducerBox")
     filtersProducerBox.innerHTML=`<div class="p-0 m-0">
                                     <h6>Producer</h6>
                                 </div>`;
-    fetch('http://localhost:3000/producers')
+    await fetch('http://localhost:3000/producers')
     .then(res=>res.json())
     .then(data=>{
         data.forEach(item=>{
@@ -494,33 +571,20 @@ let filtersProducerBox = document.getElementById("filtersProducerBox")
             filtersProducerBox.appendChild(newElement)
         })
     })
-    
-}
 
-
-async function generateSaloons(){
-    
     let selectSaloon = document.getElementById("selectSaloon")
-    fetch("http://localhost:3000/saloons")
+    await fetch("http://localhost:3000/saloons")
     .then(res => res.json())
     .then(data=>{
         data.forEach(item=>{
             selectSaloon.innerHTML+=`<option value="${item.name}">${item.name}</option>`
         })
     })
-
-}
-
-async function generateOtherCategories(){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString)
-    let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
-
+    
     let otherOptions = document.getElementById("otherOptions")
     otherOptions.innerHTML=` <div class=" p-0 m-0 d-flex align-items-center">
                                 <h6>Other options</h6>
                             </div>`
-
     await fetch(`http://localhost:3000/options?category=${chosenCategory}`)
     .then(res => res.json())
     .then(data=>{
@@ -530,7 +594,7 @@ async function generateOtherCategories(){
                 newElement.innerHTML=
                 `
                 <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-                    <input id="${item.label}" type="checkbox">
+                    <input id="otherCategory-${item.id}" value="${item.id}" type="checkbox" name="otherCategories">
                     <label for="${item.label}">${item.label}</label>
                 </div>
                 `
@@ -539,36 +603,26 @@ async function generateOtherCategories(){
 
         })
     })
-
-
-    let newElement = document.createElement("div")
-    let filterButton = document.createElement("button")
-    filterButton.classList.add('btn','btn-primary')
-    filterButton.innerText="Filter"
-    filterButton.addEventListener('click',()=>{
-        let filterOptions = document.querySelectorAll("input[name='producents']")
-
-        // document.querySelectorAll("input[name='producents']").forEach(item=>console.log(item.checked))
-
-        const queryString = window.location.search;
-        let queryParams = new URLSearchParams(queryString)
-        queryParams.delete("producents")
-        filterOptions.forEach(item=>{
-            if(item.checked){
-                queryParams.append("producents",parseInt(item.value))
-            }
-        })
-        
-
-        let urlTemplate  = queryParams.toString()
-
-        window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
-        
-    })
-    newElement.appendChild(filterButton)
-    otherOptions.appendChild(newElement)
+    
+    generateFiltersListeners()
 }
 
+function generateFiltersListeners(){
+    let producents = document.querySelectorAll("input[name='producents']")
+    let otherCategories = document.querySelectorAll("input[name='otherCategories']")
+
+    producents.forEach(item=>{
+        item.addEventListener('change',()=>{
+            generateProducts()
+        })
+    })
+    otherCategories.forEach(item=>{
+        item.addEventListener('change',()=>{
+            generateProducts()
+        })
+    })
+
+}
 
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
@@ -605,6 +659,7 @@ async function generateCart(){
                 <div class="w-100">    
                     <div class="image-container">
                         <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
+                        <div class="productCounter">${item.qty}x</div>
                     </div>
                 </div>
             </div>
@@ -702,36 +757,55 @@ async function getCategoriesCount(id){
     return categoriesCount
 }
 
-function generatePagination(){
+function generatePagination(numberOfPages){
+    let paginationContainers = document.querySelectorAll(".pagination")
+    let paginationTemplate=""
+
+    let idx = 1
+
+         paginationTemplate+=
+         `
+         <li class="page-item">
+            <a class="page-link pagination-item" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        `
+        do{
+            paginationTemplate+=`<li class="page-item page-number"><p class="page-link pagination-item">${idx}</p></li>`
+            idx++
+        }while(idx<=numberOfPages)
+        paginationTemplate+=
+        `
+        <li class="page-item">
+            <a class="page-link pagination-item" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+        `
+
+    paginationContainers.forEach(item=>{
+        
+        item.innerHTML=paginationTemplate
+    })
+                                              
+    generatePaginationListeners()
+}
+
+
+function generatePaginationListeners(){
     let productsPerPage = document.getElementById("productsPerPage")
     productsPerPage.addEventListener("change",()=>{
-        const queryString = window.location.search;
-        let queryParams = new URLSearchParams(queryString)
-        queryParams.set("per-page",productsPerPage.value)
-
-
-        let urlTemplate=queryParams.toString()
-
-        window.location.search=`${urlTemplate}`
+        generateProducts()
     })
 
     let page = document.getElementById("page")
-    console.log()
     let paginationItems = Array.from(page.children)
     
     paginationItems.forEach((item,idx)=>{
         if(idx!=0&&idx!=paginationItems.length-1){
             item.addEventListener("click",()=>{
-
-                const queryString = window.location.search;
-                let queryParams = new URLSearchParams(queryString)
-                queryParams.set("page",item.firstChild.innerText)
-
-                let urlTemplate=queryParams.toString()
-
-                window.location.search=`${urlTemplate}`
-
-
+                
             })
         }
     })
@@ -741,13 +815,15 @@ function generatePagination(){
 
 // generateProduct(1)
 
-generatePagination()
+
+generateFilters()
+
 generateMainCarousel()
 generateProducts()
 generateCategories()
-generateProducents()
-generateSaloons()
-generateOtherCategories()
+// generateProducents()
+// generateSaloons()
+// generateOtherCategories()
 generateCart()
 addNavBarLiteners()
 addCategoriesListeners()
