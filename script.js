@@ -110,7 +110,9 @@ async function generateProducts(){
     let producents = document.querySelectorAll("input[name='producents']")
     let otherCategories = document.querySelectorAll("input[name='otherCategories']")
     let perPageSelect = document.getElementById("productsPerPage")
+    let pageCounter = document.querySelector(".page-number.active")
 
+    console.log(pageCounter.firstChild.innerText)
     producents.forEach(item=>console.log(item.value,item.checked))
 
 
@@ -144,10 +146,17 @@ async function generateProducts(){
         apiSearchParams.set("category",chosenCategory)
     }
 
+    await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
+    .then(res=>{
+        generatePagination(Math.ceil(Number(res.headers.get("X-Total-Count"))/perPage))
+    }
+    )
 
         await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
         .then(res=>{
             generatePagination(Math.ceil(Number(res.headers.get("X-Total-Count"))/perPage))
+            let pageCounter = document.querySelector(".page-number.active")
+            console.log(pageCounter.firstChild.innerText)
             return res.json()})
         .then(data=> {
             
@@ -772,7 +781,11 @@ function generatePagination(numberOfPages){
         </li>
         `
         do{
-            paginationTemplate+=`<li class="page-item page-number"><p class="page-link pagination-item">${idx}</p></li>`
+            if(idx===1){
+                paginationTemplate+=`<li class="page-item page-number active"><p class="page-link pagination-item">${idx}</p></li>`    
+            }else{
+                paginationTemplate+=`<li class="page-item page-number"><p class="page-link pagination-item">${idx}</p></li>`
+            }
             idx++
         }while(idx<=numberOfPages)
         paginationTemplate+=
@@ -805,7 +818,13 @@ function generatePaginationListeners(){
     paginationItems.forEach((item,idx)=>{
         if(idx!=0&&idx!=paginationItems.length-1){
             item.addEventListener("click",()=>{
-                
+                paginationItems.forEach(element=>{
+                    if(element.classList.contains("active")){
+                        element.classList.remove("active")
+                    }
+                })
+                item.classList.add("active")
+                generateProducts()
             })
         }
     })
