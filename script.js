@@ -185,7 +185,7 @@ async function generateProducts(){
             categoriesItems.innerHTML=output
             whereAmI.innerText =`Categories`
         })
-    generateCardListeners()
+    
     
 }
 
@@ -351,29 +351,57 @@ async function addItemToCart(data){
 }
 
 const generateCardListeners=()=>{
-    const categoriesItems= document.getElementsByClassName("productCard");
-    const ItemCards= Array.from(categoriesItems)
-    ItemCards.forEach(item=>{
-        item.addEventListener("click",(event)=>{
-            if(event.target.classList.contains("card-cart")){
-                event.preventDefault()
-                addItemToCart(event.target.dataset)
+    // const categoriesItems= document.getElementsByClassName("productCard");
+    const categoriesItems = document.getElementById("categories-items")
+
+    categoriesItems.addEventListener('click',(event)=>{
+
+        if(event.target.classList.contains("card-cart")){
+            event.preventDefault()
+            addItemToCart(event.target.dataset)
+        }
+        if(event.target.classList.contains("card-heart")||event.target.classList.contains("card-heart-fav")){
+            event.preventDefault()
+            if(event.target.classList.contains("card-heart-fav")){
+                removeItemFromFav(event.target.dataset)
+                event.target.classList.remove("card-heart-fav")
+                event.target.classList.add("card-heart")
+            }else{
+                addItemToFav(event.target.dataset)
+                event.target.classList.add("card-heart-fav")
+                event.target.classList.remove("card-heart")
             }
-            if(event.target.classList.contains("card-heart")||event.target.classList.contains("card-heart-fav")){
-                event.preventDefault()
-                if(event.target.classList.contains("card-heart-fav")){
-                    removeItemFromFav(event.target.dataset)
-                    event.target.classList.remove("card-heart-fav")
-                    event.target.classList.add("card-heart")
-                }else{
-                    addItemToFav(event.target.dataset)
-                    event.target.classList.add("card-heart-fav")
-                    event.target.classList.remove("card-heart")
-                }
-                
-            }
-        })
+            
+        }
+
     })
+
+
+
+
+
+    // const ItemCards= Array.from(categoriesItems)
+    // ItemCards.forEach(item=>{
+    //     item.addEventListener("click",(event)=>{
+    //         if(event.target.classList.contains("card-cart")){
+    //             event.preventDefault()
+    //             addItemToCart(event.target.dataset)
+    //         }
+    //         if(event.target.classList.contains("card-heart")||event.target.classList.contains("card-heart-fav")){
+    //             event.preventDefault()
+    //             if(event.target.classList.contains("card-heart-fav")){
+    //                 removeItemFromFav(event.target.dataset)
+    //                 event.target.classList.remove("card-heart-fav")
+    //                 event.target.classList.add("card-heart")
+    //             }else{
+    //                 addItemToFav(event.target.dataset)
+    //                 event.target.classList.add("card-heart-fav")
+    //                 event.target.classList.remove("card-heart")
+    //             }
+                
+    //         }
+    //     })
+    // })
 
 }
 
@@ -415,19 +443,13 @@ async function removeItemFromFav(data){
 
 const generateCartListeners=()=>{
     const cartButtons= Array.from(document.getElementsByClassName("cartButton"));
+    const cartBox = document.getElementById("cartBox")
 
-    cartButtons.forEach(item=>{
-        item.addEventListener("click",async function(){
-
-                // console.log(item.dataset.id.split(","))
-                item.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
-
-
-
-
-        })
+    cartBox.addEventListener('click',(event)=>{
+        if(event.target.classList.contains("cartButton")){
+            event.target.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
+        }
     })
-
 }
 
 async function removeItemFromCart(id){
@@ -607,25 +629,31 @@ async function generateFilters(){
         })
     })
     
-    generateFiltersListeners()
+    
 }
 
 function generateFiltersListeners(){
-    let producents = document.querySelectorAll("input[name='producents']")
-    let otherCategories = document.querySelectorAll("input[name='otherCategories']")
 
-    producents.forEach(item=>{
-        item.addEventListener('change',()=>{
+    const filtersDropdownBody = document.getElementById("filtersDropdownBody")
+
+    filtersDropdownBody.addEventListener('change',(event)=>{
+        if((event.target.name==="producents")||(event.target.name==="producents")){
             generateQueryString()
             generateProducts()
-        })
+        }
+        
     })
-    otherCategories.forEach(item=>{
-        item.addEventListener('change',()=>{
-            generateQueryString()
-            generateProducts()
-        })
-    })
+    // producents.forEach(item=>{
+    //     item.addEventListener('change',()=>{
+    //         
+    //     })
+    // })
+    // otherCategories.forEach(item=>{
+    //     item.addEventListener('change',()=>{
+    //         generateQueryString()
+    //         generateProducts()
+    //     })
+    // })
 
 }
 
@@ -742,7 +770,7 @@ async function generateCart(){
         </div>
         `
     })
-    generateCartListeners()
+    
 }
 
 
@@ -901,5 +929,6 @@ generateCategories()
 generateCart()
 addNavBarLiteners()
 addCategoriesListeners()
-
-
+generateCartListeners()
+generateCardListeners()
+generateFiltersListeners()
