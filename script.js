@@ -107,21 +107,37 @@ async function generateProducts(){
     
     const apiSearchParams = new URLSearchParams();
 
-    let producents = document.querySelectorAll("input[name='producents']")
-    let otherCategories = document.querySelectorAll("input[name='otherCategories']")
-    let perPageSelect = document.getElementById("productsPerPage")
-    let pageCounter = document.querySelector(".page-number.active")
 
-    console.log(pageCounter.firstChild.innerText)
-    producents.forEach(item=>console.log(item.value,item.checked))
-
-
+    let producents = urlParams.getAll("producer")
+    let otherCategories = urlParams.getAll("options")
     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+    let page = urlParams.get("page")?Number(urlParams.get("page")):1
+    let perPage = urlParams.get("per-page")?Number(urlParams.get("per-page")):6
 
-    let page = parseInt(urlParams.get("page"))?parseInt(urlParams.get("page")):1
 
-    let perPage = Number(perPageSelect.value)!==NaN?Number(perPageSelect.value):6
-    console.log(Number(perPageSelect.value))
+    console.log(perPage)
+    console.log(page)
+    console.log(producents)
+    console.log(otherCategories)    
+    console.log(chosenCategory)
+
+    if(chosenCategory!==0){
+        apiSearchParams.set("category",chosenCategory)
+    }
+    apiSearchParams.set("_page",page)
+    apiSearchParams.set("_limit",perPage)
+    producents.forEach(item=> {
+        apiSearchParams.append("producer",Number(item))
+    })
+
+    otherCategories.forEach(item=> {
+            apiSearchParams.append("options",Number(item))
+    })
+    if(chosenCategory!=0){
+        apiSearchParams.set("category",chosenCategory)
+    }
+
+    
     const favorites = await fetch("http://localhost:3000/favorites")
                             .then(res=>res.json())
                             .then(data=>{return data})
@@ -129,34 +145,11 @@ async function generateProducts(){
         return item.id
     })
 
-    apiSearchParams.set("_page",page)
-    apiSearchParams.set("_limit",perPage)
-    producents.forEach(item=> {
-        if(item.checked){
-            apiSearchParams.append("producer",Number(item.value))
-        }
-    })
 
-    otherCategories.forEach(item=> {
-        if(item.checked){
-            apiSearchParams.append("options",Number(item.value))
-        }
-    })
-    if(chosenCategory!=0){
-        apiSearchParams.set("category",chosenCategory)
-    }
-
-    await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
-    .then(res=>{
-        generatePagination(Math.ceil(Number(res.headers.get("X-Total-Count"))/perPage))
-    }
-    )
 
         await fetch(`http://localhost:3000/products?${apiSearchParams.toString()}`)
         .then(res=>{
-            generatePagination(Math.ceil(Number(res.headers.get("X-Total-Count"))/perPage))
-            let pageCounter = document.querySelector(".page-number.active")
-            console.log(pageCounter.firstChild.innerText)
+            generatePagination(Math.ceil(res.headers.get("X-Total-Count")/perPage))
             return res.json()})
         .then(data=> {
             
@@ -178,6 +171,7 @@ async function generateProducts(){
                             </div>
                             <img src="svg\\heart.svg" height="25px" data-id="${item.id}" class="${favoritesArray.includes(item.id)?"card-heart-fav":"card-heart"}" alt="">
                             <div class="card-body">
+                            <p class="fs-small text-dark">${item.id}</p>
                             <h5 class="card-title">${item.name}</h5>
                             <p class="card-text ">${description}</p>
                             ${price}
@@ -226,112 +220,112 @@ async function generateCategories(){
 }
 
 
-async function generateProduct(){
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString)
+// async function generateProduct(){
+//     const queryString = window.location.search;
+//     const urlParams = new URLSearchParams(queryString)
 
-    let id= parseInt(urlParams.get("product-id"))
+//     let id= parseInt(urlParams.get("product-id"))
 
 
-    let productCarouselIndicator = document.getElementById("productCarouselIndicator")
-    let productCarouselInner = document.getElementById("productCarouselInner")
-    let productBody = document.getElementById("productBody")
-    let productSpec = document.getElementById("productSpec")
-    let sizesTemplate=""
-    let optionsTemplate=""
-    let productSpecTemplate=""
-    let productCarouselIndicatorTemplate=""
-    let productCarouselInnerTemplate=""
-    let price=""
-    await fetch(`http://localhost:3000/products/${id}`)
-    .then(res=>res.json())
-    .then(data=>{
-        price=data.priceDiscounted?`<p class="price-striked">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-                                            <p class="fs-bigger">${data.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-                                            `<p class="normal-price fs-bigger">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
+//     let productCarouselIndicator = document.getElementById("productCarouselIndicator")
+//     let productCarouselInner = document.getElementById("productCarouselInner")
+//     let productBody = document.getElementById("productBody")
+//     let productSpec = document.getElementById("productSpec")
+//     let sizesTemplate=""
+//     let optionsTemplate=""
+//     let productSpecTemplate=""
+//     let productCarouselIndicatorTemplate=""
+//     let productCarouselInnerTemplate=""
+//     let price=""
+//     await fetch(`http://localhost:3000/products/${id}`)
+//     .then(res=>res.json())
+//     .then(data=>{
+//         price=data.priceDiscounted?`<p class="price-striked">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
+//                                             <p class="fs-bigger">${data.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
+//                                             `<p class="normal-price fs-bigger">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
                 
-        data.option[1].values.forEach(item=>{
-           sizesTemplate+=
-            `
-            <option value="${item}">${item}</option>
-            `
-        })
-        data.option[0].values.forEach(item=>{
-            optionsTemplate+=
-            `
-            <option value="${item}">${item}</option>
-            `
+//         data.option[1].values.forEach(item=>{
+//            sizesTemplate+=
+//             `
+//             <option value="${item}">${item}</option>
+//             `
+//         })
+//         data.option[0].values.forEach(item=>{
+//             optionsTemplate+=
+//             `
+//             <option value="${item}">${item}</option>
+//             `
           
-        })
-        data.specification.forEach(item=>{
-            productSpecTemplate+=
-            `
-            <div class="col-12 container-fluid   spec-item  productSpec">
-                <div class="row m-0 p-0 w-100 ">
-                    <div class="col-0 col-md-2"></div>
-                    <div class="col-4 d-flex align-items-center p-0 "><h6 class="py-2 m-0">${item.name}</h6></div>
-                    <div class="col-8 col-md-6 d-flex align-items-center  p-0"><p>${item.value}</p></div>
-                </div>
-            </div>
-            `
-        })
-        data.photos.forEach((item,index)=>{
+//         })
+//         data.specification.forEach(item=>{
+//             productSpecTemplate+=
+//             `
+//             <div class="col-12 container-fluid   spec-item  productSpec">
+//                 <div class="row m-0 p-0 w-100 ">
+//                     <div class="col-0 col-md-2"></div>
+//                     <div class="col-4 d-flex align-items-center p-0 "><h6 class="py-2 m-0">${item.name}</h6></div>
+//                     <div class="col-8 col-md-6 d-flex align-items-center  p-0"><p>${item.value}</p></div>
+//                 </div>
+//             </div>
+//             `
+//         })
+//         data.photos.forEach((item,index)=>{
 
-            if(index===0){
-                productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>`
-                productCarouselInnerTemplate+=
-                `
-                <div class="carousel-item active ">
-                  <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
-                </div>
-                `
-            }else{
-                productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class=""></li>`
-                productCarouselInnerTemplate+=
-                `
-                <div class="carousel-item">
-                  <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
-                </div>
-                `
-            }
-        })
+//             if(index===0){
+//                 productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>`
+//                 productCarouselInnerTemplate+=
+//                 `
+//                 <div class="carousel-item active ">
+//                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
+//                 </div>
+//                 `
+//             }else{
+//                 productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class=""></li>`
+//                 productCarouselInnerTemplate+=
+//                 `
+//                 <div class="carousel-item">
+//                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
+//                 </div>
+//                 `
+//             }
+//         })
         
         
-        productCarouselIndicator.innerHTML=productCarouselIndicatorTemplate
-        productCarouselInner.innerHTML=productCarouselInnerTemplate
-        productSpec.innerHTML=productSpecTemplate
-        productBody.innerHTML=
-            `
-            ${data.new?`<div class="col-4 col-sm-3 col-md-2 col-xl-2 bg-success d-flex align-items-center justify-content-center px-3 py-2  m-0 text-white rounded "><h5 class="p-0 m-0">NEW</h5></div>
-            `:``}
-            <h3 class="col-12 p-0 m-0 mt-5">${data.name}</h3>
-            <div class="col-12 p-0 my-3">${price}</div>
-            <p class="col-12 p-0 m-0 mb-4">${data.description}</p>
-            <h6 class="col-6   col-xl-4 p-0 m-0 mb-1">Size</h6>
-            <h6 class="col-6   col-xl-4 m-0 pl-2 mb-1">Color</h6>
-            <div class="col-0  col-xl-4"></div>
-            <h6 class="col-6   col-xl-4 p-0 m-0 ">
-                <select id="productSizes" name="size">
-                ${sizesTemplate}
-                </select>
-            </h6>
-            <h6  class="col-6  col-xl-4 p-0 m-0 pl-2">
-                <select id="productColours" name="color">
-                ${optionsTemplate}
-                </select>
-            </h6>
-            <div class="col-0 col-xl-4"></div>
-            <div class="col-12 p-0">
-                <hr class="mx-0 p-0">
-            </div>
-            <div class=" col-10 col-lg-4 col-xl-5 pr-2 p-0 m-0">
-                <button type="button" class="btn btn-primary btn-lg w-100">Add to cart</button>
-            </div>
-            <div class="col-2 col-lg-2 col-xl-1 p-0 m-0  d-flex align-items-center"> <input class="w-100  rounded border-1" type="number" value="1"></div>
+//         productCarouselIndicator.innerHTML=productCarouselIndicatorTemplate
+//         productCarouselInner.innerHTML=productCarouselInnerTemplate
+//         productSpec.innerHTML=productSpecTemplate
+//         productBody.innerHTML=
+//             `
+//             ${data.new?`<div class="col-4 col-sm-3 col-md-2 col-xl-2 bg-success d-flex align-items-center justify-content-center px-3 py-2  m-0 text-white rounded "><h5 class="p-0 m-0">NEW</h5></div>
+//             `:``}
+//             <h3 class="col-12 p-0 m-0 mt-5">${data.name}</h3>
+//             <div class="col-12 p-0 my-3">${price}</div>
+//             <p class="col-12 p-0 m-0 mb-4">${data.description}</p>
+//             <h6 class="col-6   col-xl-4 p-0 m-0 mb-1">Size</h6>
+//             <h6 class="col-6   col-xl-4 m-0 pl-2 mb-1">Color</h6>
+//             <div class="col-0  col-xl-4"></div>
+//             <h6 class="col-6   col-xl-4 p-0 m-0 ">
+//                 <select id="productSizes" name="size">
+//                 ${sizesTemplate}
+//                 </select>
+//             </h6>
+//             <h6  class="col-6  col-xl-4 p-0 m-0 pl-2">
+//                 <select id="productColours" name="color">
+//                 ${optionsTemplate}
+//                 </select>
+//             </h6>
+//             <div class="col-0 col-xl-4"></div>
+//             <div class="col-12 p-0">
+//                 <hr class="mx-0 p-0">
+//             </div>
+//             <div class=" col-10 col-lg-4 col-xl-5 pr-2 p-0 m-0">
+//                 <button type="button" class="btn btn-primary btn-lg w-100">Add to cart</button>
+//             </div>
+//             <div class="col-2 col-lg-2 col-xl-1 p-0 m-0  d-flex align-items-center"> <input class="w-100  rounded border-1" type="number" value="1"></div>
 
-            `   
-    })
-}
+//             `   
+//     })
+// }
 
 async function addItemToCart(data){
     const payload = {
@@ -425,7 +419,7 @@ const generateCartListeners=()=>{
     cartButtons.forEach(item=>{
         item.addEventListener("click",async function(){
 
-                console.log(item.dataset.id.split(","))
+                // console.log(item.dataset.id.split(","))
                 item.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
 
 
@@ -439,7 +433,7 @@ const generateCartListeners=()=>{
 async function removeItemFromCart(id){
     
   
-        console.log(id)
+        // console.log(id)
         const payload = {
             method:"DELETE",
             headers:{
@@ -622,14 +616,58 @@ function generateFiltersListeners(){
 
     producents.forEach(item=>{
         item.addEventListener('change',()=>{
+            generateQueryString()
             generateProducts()
         })
     })
     otherCategories.forEach(item=>{
         item.addEventListener('change',()=>{
+            generateQueryString()
             generateProducts()
         })
     })
+
+}
+
+
+
+function generateQueryString(){
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString)
+    let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+
+    let producents = document.querySelectorAll("input[name='producents']")
+    let otherCategories = document.querySelectorAll("input[name='otherCategories']")
+    let productsPerPage = document.getElementById("productsPerPage")
+    let page = document.querySelector(".pagination")
+    let pageNumber = page.querySelector('.active')?Number(page.querySelector('.active').firstChild.innerText):1
+
+    const urlNewParams = new URLSearchParams()
+
+
+    if(chosenCategory!==0){
+        urlNewParams.append("category",chosenCategory)
+    }
+    urlNewParams.append("page",pageNumber)
+
+    if(Number(productsPerPage.value)){
+        urlNewParams.append("per-page",Number(productsPerPage.value))
+    }
+    
+    
+    producents.forEach(item=>{
+        if(item.checked){
+            urlNewParams.append("producer",item.value)
+        }
+    })
+    otherCategories.forEach(item =>{
+        if(item.checked){
+            urlNewParams.append("options",item.value)
+        }
+    })
+
+    window.history.replaceState({},'',`categories.html?${urlNewParams}`)
 
 }
 
@@ -644,12 +682,11 @@ async function generateCart(){
     await fetch("http://localhost:3000/cart")
     .then(res=>res.json())
     .then(data=>{
-        console.log(data)
         const cartMap = new Map()
 
         data.forEach((item)=>{
             if(cartMap.get(item.productId)){
-                console.log("podwuny")
+ 
                 cartMap.get(item.productId).price+=item.priceDiscounted?(item.priceDiscounted*item.qty):(item.price*item.qty)
                 cartMap.get(item.productId).qty+=item.qty
                 cartMap.get(item.productId).id.push(item.id)
@@ -658,7 +695,6 @@ async function generateCart(){
             }
         })
 
-        console.log(cartMap);
 
 
         cartMap.forEach(item=>{
@@ -766,12 +802,18 @@ async function getCategoriesCount(id){
     return categoriesCount
 }
 
+
 function generatePagination(numberOfPages){
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString)
+    const activeItem = Number(urlParams.get("page"))
     let paginationContainers = document.querySelectorAll(".pagination")
+    // let numberOfPages = paginationContainers[0].dataset.numberOfPages
+    console.log(numberOfPages)
     let paginationTemplate=""
 
     let idx = 1
-
          paginationTemplate+=
          `
          <li class="page-item">
@@ -780,14 +822,16 @@ function generatePagination(numberOfPages){
             </a>
         </li>
         `
-        do{
-            if(idx===1){
-                paginationTemplate+=`<li class="page-item page-number active"><p class="page-link pagination-item">${idx}</p></li>`    
-            }else{
-                paginationTemplate+=`<li class="page-item page-number"><p class="page-link pagination-item">${idx}</p></li>`
+        for(let idx=activeItem-1;idx<activeItem+2;idx++){
+            if(idx>0&&idx<=numberOfPages){
+                if(idx===activeItem){
+                    paginationTemplate+=`<li class="page-item page-number active"><p class="page-link pagination-item">${idx}</p></li>`
+                }else{
+                    paginationTemplate+=`<li class="page-item page-number"><p class="page-link pagination-item">${idx}</p></li>`
+                }   
             }
-            idx++
-        }while(idx<=numberOfPages)
+        }
+
         paginationTemplate+=
         `
         <li class="page-item">
@@ -797,35 +841,45 @@ function generatePagination(numberOfPages){
         </li>
         `
 
-    paginationContainers.forEach(item=>{
         
+
+
+
+    paginationContainers.forEach(item=>{
         item.innerHTML=paginationTemplate
     })
-                                              
-    generatePaginationListeners()
+    generatePaginationListeners()                                
 }
 
 
-function generatePaginationListeners(){
+function generatePerPageListeners(){
     let productsPerPage = document.getElementById("productsPerPage")
     productsPerPage.addEventListener("change",()=>{
+        generateQueryString()
         generateProducts()
+        // generateProducts()
+        // generatePagination()
     })
 
+}
+
+function generatePaginationListeners(){
     let page = document.getElementById("page")
-    let paginationItems = Array.from(page.children)
+    // let paginationItems = Array.from(page.children)
     
-    paginationItems.forEach((item,idx)=>{
-        if(idx!=0&&idx!=paginationItems.length-1){
-            item.addEventListener("click",()=>{
-                paginationItems.forEach(element=>{
-                    if(element.classList.contains("active")){
-                        element.classList.remove("active")
-                    }
-                })
-                item.classList.add("active")
-                generateProducts()
-            })
+    page.addEventListener('click',(event)=>{
+        // console.log(event.target.parentElement)
+        
+        Array.from(page.children).forEach(item=>{
+            if((item.classList.contains("page-number"))&&(item.classList.contains("active"))){
+                item.classList.remove("active")
+                
+            }
+        })
+        event.target.parentElement.classList.add("active")
+        if(event.target.classList.contains("pagination-item")){
+            generateQueryString()
+            generateProducts()
         }
     })
 
@@ -836,9 +890,10 @@ function generatePaginationListeners(){
 
 
 generateFilters()
-
+generatePerPageListeners()
 generateMainCarousel()
 generateProducts()
+generatePagination()
 generateCategories()
 // generateProducents()
 // generateSaloons()
