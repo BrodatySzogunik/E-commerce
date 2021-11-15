@@ -172,6 +172,5 @@ async function getCategoriesCount(id){
 
 
 generateCategories()
-// generateCart()
 addNavBarLiteners()
 generateProducts(onPage)

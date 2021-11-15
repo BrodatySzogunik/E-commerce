@@ -114,13 +114,6 @@ async function generateProducts(){
     let page = urlParams.get("page")?Number(urlParams.get("page")):1
     let perPage = urlParams.get("per-page")?Number(urlParams.get("per-page")):6
 
-
-    // console.log(perPage)
-    // console.log(page)
-    // console.log(producents)
-    // console.log(otherCategories)    
-    // console.log(chosenCategory)
-
     if(chosenCategory!==0){
         apiSearchParams.set("category",chosenCategory)
     }
@@ -219,114 +212,6 @@ async function generateCategories(){
     
 }
 
-
-// async function generateProduct(){
-//     const queryString = window.location.search;
-//     const urlParams = new URLSearchParams(queryString)
-
-//     let id= parseInt(urlParams.get("product-id"))
-
-
-//     let productCarouselIndicator = document.getElementById("productCarouselIndicator")
-//     let productCarouselInner = document.getElementById("productCarouselInner")
-//     let productBody = document.getElementById("productBody")
-//     let productSpec = document.getElementById("productSpec")
-//     let sizesTemplate=""
-//     let optionsTemplate=""
-//     let productSpecTemplate=""
-//     let productCarouselIndicatorTemplate=""
-//     let productCarouselInnerTemplate=""
-//     let price=""
-//     await fetch(`http://localhost:3000/products/${id}`)
-//     .then(res=>res.json())
-//     .then(data=>{
-//         price=data.priceDiscounted?`<p class="price-striked">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-//                                             <p class="fs-bigger">${data.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-//                                             `<p class="normal-price fs-bigger">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
-                
-//         data.option[1].values.forEach(item=>{
-//            sizesTemplate+=
-//             `
-//             <option value="${item}">${item}</option>
-//             `
-//         })
-//         data.option[0].values.forEach(item=>{
-//             optionsTemplate+=
-//             `
-//             <option value="${item}">${item}</option>
-//             `
-          
-//         })
-//         data.specification.forEach(item=>{
-//             productSpecTemplate+=
-//             `
-//             <div class="col-12 container-fluid   spec-item  productSpec">
-//                 <div class="row m-0 p-0 w-100 ">
-//                     <div class="col-0 col-md-2"></div>
-//                     <div class="col-4 d-flex align-items-center p-0 "><h6 class="py-2 m-0">${item.name}</h6></div>
-//                     <div class="col-8 col-md-6 d-flex align-items-center  p-0"><p>${item.value}</p></div>
-//                 </div>
-//             </div>
-//             `
-//         })
-//         data.photos.forEach((item,index)=>{
-
-//             if(index===0){
-//                 productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>`
-//                 productCarouselInnerTemplate+=
-//                 `
-//                 <div class="carousel-item active ">
-//                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
-//                 </div>
-//                 `
-//             }else{
-//                 productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class=""></li>`
-//                 productCarouselInnerTemplate+=
-//                 `
-//                 <div class="carousel-item">
-//                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
-//                 </div>
-//                 `
-//             }
-//         })
-        
-        
-//         productCarouselIndicator.innerHTML=productCarouselIndicatorTemplate
-//         productCarouselInner.innerHTML=productCarouselInnerTemplate
-//         productSpec.innerHTML=productSpecTemplate
-//         productBody.innerHTML=
-//             `
-//             ${data.new?`<div class="col-4 col-sm-3 col-md-2 col-xl-2 bg-success d-flex align-items-center justify-content-center px-3 py-2  m-0 text-white rounded "><h5 class="p-0 m-0">NEW</h5></div>
-//             `:``}
-//             <h3 class="col-12 p-0 m-0 mt-5">${data.name}</h3>
-//             <div class="col-12 p-0 my-3">${price}</div>
-//             <p class="col-12 p-0 m-0 mb-4">${data.description}</p>
-//             <h6 class="col-6   col-xl-4 p-0 m-0 mb-1">Size</h6>
-//             <h6 class="col-6   col-xl-4 m-0 pl-2 mb-1">Color</h6>
-//             <div class="col-0  col-xl-4"></div>
-//             <h6 class="col-6   col-xl-4 p-0 m-0 ">
-//                 <select id="productSizes" name="size">
-//                 ${sizesTemplate}
-//                 </select>
-//             </h6>
-//             <h6  class="col-6  col-xl-4 p-0 m-0 pl-2">
-//                 <select id="productColours" name="color">
-//                 ${optionsTemplate}
-//                 </select>
-//             </h6>
-//             <div class="col-0 col-xl-4"></div>
-//             <div class="col-12 p-0">
-//                 <hr class="mx-0 p-0">
-//             </div>
-//             <div class=" col-10 col-lg-4 col-xl-5 pr-2 p-0 m-0">
-//                 <button type="button" class="btn btn-primary btn-lg w-100">Add to cart</button>
-//             </div>
-//             <div class="col-2 col-lg-2 col-xl-1 p-0 m-0  d-flex align-items-center"> <input class="w-100  rounded border-1" type="number" value="1"></div>
-
-//             `   
-//     })
-// }
-
 async function addItemToCart(data){
     const payload = {
         method:"POST",
@@ -375,34 +260,6 @@ const generateCardListeners=()=>{
         }
 
     })
-
-
-
-
-
-    // const ItemCards= Array.from(categoriesItems)
-    // ItemCards.forEach(item=>{
-    //     item.addEventListener("click",(event)=>{
-    //         if(event.target.classList.contains("card-cart")){
-    //             event.preventDefault()
-    //             addItemToCart(event.target.dataset)
-    //         }
-    //         if(event.target.classList.contains("card-heart")||event.target.classList.contains("card-heart-fav")){
-    //             event.preventDefault()
-    //             if(event.target.classList.contains("card-heart-fav")){
-    //                 removeItemFromFav(event.target.dataset)
-    //                 event.target.classList.remove("card-heart-fav")
-    //                 event.target.classList.add("card-heart")
-    //             }else{
-    //                 addItemToFav(event.target.dataset)
-    //                 event.target.classList.add("card-heart-fav")
-    //                 event.target.classList.remove("card-heart")
-    //             }
-                
-    //         }
-    //     })
-    // })
-
 }
 
 async function addItemToFav(data){
@@ -473,103 +330,6 @@ async function removeItemFromCart(id){
 
     
 }
-
-
-// async function generateProducents(){
-    
-
-// let filtersProducerBox = document.getElementById("filtersProducerBox")
-//     filtersProducerBox.innerHTML=`<div class="p-0 m-0">
-//                                     <h6>Producer</h6>
-//                                 </div>`;
-//     fetch('http://localhost:3000/producers')
-//     .then(res=>res.json())
-//     .then(data=>{
-//         data.forEach(item=>{
-//             let newElement = document.createElement('div')
-//             newElement.innerHTML=`
-//                 <div class="p-0 m-0 mb-2 d-flex align-items-center">
-//                     <input id="producer-${item.id}" type="checkbox" value="${item.id}" name="producents">
-//                     <label for="producer-${item.id}">${item.name}</label>
-//                 </div>
-//                 `
-//             filtersProducerBox.appendChild(newElement)
-//         })
-//     })
-    
-// }
-
-
-// async function generateSaloons(){
-    
-//     let selectSaloon = document.getElementById("selectSaloon")
-//     fetch("http://localhost:3000/saloons")
-//     .then(res => res.json())
-//     .then(data=>{
-//         data.forEach(item=>{
-//             selectSaloon.innerHTML+=`<option value="${item.name}">${item.name}</option>`
-//         })
-//     })
-
-// }
-
-// async function generateOtherCategories(){
-//     const queryString = window.location.search;
-//     const urlParams = new URLSearchParams(queryString)
-//     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
-
-//     let otherOptions = document.getElementById("otherOptions")
-//     otherOptions.innerHTML=` <div class=" p-0 m-0 d-flex align-items-center">
-//                                 <h6>Other options</h6>
-//                             </div>`
-
-//     await fetch(`http://localhost:3000/options?category=${chosenCategory}`)
-//     .then(res => res.json())
-//     .then(data=>{
-//         data.forEach(item=>{
-//             if(item.type==="single"){
-//                 let newElement = document.createElement('div')
-//                 newElement.innerHTML=
-//                 `
-//                 <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-//                     <input id="${item.label}" type="checkbox" name="otherCategories">
-//                     <label for="${item.label}">${item.label}</label>
-//                 </div>
-//                 `
-//                 otherOptions.appendChild(newElement)
-//             }
-
-//         })
-//     })
-
-
-//     let newElement = document.createElement("div")
-//     let filterButton = document.createElement("button")
-//     filterButton.classList.add('btn','btn-primary')
-//     filterButton.innerText="Filter"
-//     filterButton.addEventListener('click',()=>{
-//         let filterOptions = document.querySelectorAll("input[name='producents']")
-
-//         // document.querySelectorAll("input[name='producents']").forEach(item=>console.log(item.checked))
-
-//         const queryString = window.location.search;
-//         let queryParams = new URLSearchParams(queryString)
-//         queryParams.delete("producents")
-//         filterOptions.forEach(item=>{
-//             if(item.checked){
-//                 queryParams.append("producents",parseInt(item.value))
-//             }
-//         })
-        
-
-//         let urlTemplate  = queryParams.toString()
-
-//         window.location.href=`http://localhost:5500/categories.html?${urlTemplate}`
-        
-//     })
-//     newElement.appendChild(filterButton)
-//     otherOptions.appendChild(newElement)
-// }
 
 
 async function generateFilters(){
@@ -826,8 +586,6 @@ function generatePagination(numberOfPages){
     const urlParams = new URLSearchParams(queryString)
     const activeItem = Number(urlParams.get("page"))
     let paginationContainers = document.querySelectorAll(".pagination")
-    // let numberOfPages = paginationContainers[0].dataset.numberOfPages
-    // console.log(numberOfPages)
     let paginationTemplate=""
 
 
@@ -885,8 +643,6 @@ function generatePerPageListeners(){
     productsPerPage.addEventListener("change",()=>{
         generateQueryString()
         generateProducts()
-        // generateProducts()
-        // generatePagination()
     })
 
 }
@@ -898,7 +654,6 @@ function generatePaginationListeners(){
 
     Array.from(paginationContainers).forEach(item=>{
         item.addEventListener('click',(event)=>{
-            // console.log(event.target)
             if(!event.target.parentElement.classList.contains('active')){
             Array.from(paginationContainers).forEach(item=>{
                 Array.from(item.children).forEach(element=>{
@@ -909,12 +664,6 @@ function generatePaginationListeners(){
                 })
             })
             if(event.target.classList.contains('number-of-page')){
-                // console.log(event.target.innerText)
-                // Array.from(paginationContainers).forEach(item=>{
-                //     Array.from(item.children).forEach(element=>{
-                //         console.log(element.firstChild)
-                //     })
-                // })
 
                 paginationContainers.forEach(item=>{
                     Array.from(item.children).forEach(element=>{
@@ -952,42 +701,13 @@ function generatePaginationListeners(){
         })
     })
 
-
-
-    // let page = document.getElementById("page")
-
-    // // let paginationItems = Array.from(page.children)
-    
-    // page.addEventListener('click',(event)=>{
-    //     // console.log(event.target.parentElement)
-        
-    //     Array.from(page.children).forEach(item=>{
-    //         if((item.classList.contains("page-number"))&&(item.classList.contains("active"))){
-    //             item.classList.remove("active")
-                
-    //         }
-    //     })
-    //     event.target.parentElement.classList.add("active")
-    //     if(event.target.classList.contains("pagination-item")){
-    //         generateQueryString()
-    //         generateProducts()
-    //     }
-    // })
-
 }
-
-
-// generateProduct(1)
-
 
 generateFilters()
 generatePerPageListeners()
 generateMainCarousel()
 generateProducts()
 generateCategories()
-// generateProducents()
-// generateSaloons()
-// generateOtherCategories()
 generateCart()
 addNavBarLiteners()
 addCategoriesListeners()

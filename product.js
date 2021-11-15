@@ -348,8 +348,6 @@ const generateCartListeners=()=>{
 
     cartButtons.forEach(item=>{
         item.addEventListener("click",async function(){
-
-                // removeItemFromCart(item.dataset.id.split(","))
                 console.log(item.dataset.id.split(","))
                 item.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
 
@@ -391,115 +389,6 @@ async function removeItemFromCart(id){
     return categoriesCount
 }
 
-
-
-// async function generateProduct(){
-//     const queryString = window.location.search;
-//     const urlParams = new URLSearchParams(queryString)
-//     console.log(urlParams)
-//     let id= parseInt(urlParams.get("product-id"))
-
-
-//     let productCarouselIndicator = document.getElementById("productCarouselIndicator")
-//     let productCarouselInner = document.getElementById("productCarouselInner")
-//     let productBody = document.getElementById("productBody")
-//     let productSpec = document.getElementById("productSpec")
-//     let sizesTemplate=""
-//     let optionsTemplate=""
-//     let productSpecTemplate=""
-//     let productCarouselIndicatorTemplate=""
-//     let productCarouselInnerTemplate=""
-//     let price=""
-//     await fetch(`http://localhost:3000/products/${id}`)
-//     .then(res=>res.json())
-//     .then(data=>{
-//         price=data.priceDiscounted?`<p class="price-striked">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-//                                             <p class="fs-bigger">${data.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-//                                             `<p class="normal-price fs-bigger">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
-                
-//         data.option[1].values.forEach(item=>{
-//            sizesTemplate+=
-//             `
-//             <option value="${item}">${item}</option>
-//             `
-//         })
-//         data.option[0].values.forEach(item=>{
-//             optionsTemplate+=
-//             `
-//             <option value="${item}">${item}</option>
-//             `
-          
-//         })
-//         data.specification.forEach(item=>{
-//             productSpecTemplate+=
-//             `
-//             <div class="col-12 container-fluid   spec-item  productSpec">
-//                 <div class="row m-0 p-0 w-100 ">
-//                     <div class="col-0 col-md-2"></div>
-//                     <div class="col-4 d-flex align-items-center p-0 "><h6 class="py-2 m-0">${item.name}</h6></div>
-//                     <div class="col-8 col-md-6 d-flex align-items-center  p-0"><p>${item.value}</p></div>
-//                 </div>
-//             </div>
-//             `
-//         })
-//         data.photos.forEach((item,index)=>{
-//             console.log(item)
-            
-//             if(index===0){
-//                 productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class="active"></li>`
-//                 productCarouselInnerTemplate+=
-//                 `
-//                 <div class="carousel-item active ">
-//                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
-//                 </div>
-//                 `
-//             }else{
-//                 productCarouselIndicatorTemplate+=`<li class="carousel-indicator" data-target="#carouselExampleIndicators" data-slide-to="${index}" class=""></li>`
-//                 productCarouselInnerTemplate+=
-//                 `
-//                 <div class="carousel-item">
-//                   <img src="assets\\img\\${item}" class="d-block w-100 py-auto" alt="...">
-//                 </div>
-//                 `
-//             }
-//         })
-        
-        
-//         productCarouselIndicator.innerHTML=productCarouselIndicatorTemplate
-//         productCarouselInner.innerHTML=productCarouselInnerTemplate
-//         productSpec.innerHTML=productSpecTemplate
-//         productBody.innerHTML=
-//             `
-//             ${data.new?`<div class="col-4 col-sm-3 col-md-2 col-xl-2 bg-success d-flex align-items-center justify-content-center px-3 py-2  m-0 text-white rounded "><h5 class="p-0 m-0">NEW</h5></div>
-//             `:``}
-//             <h3 class="col-12 p-0 m-0 mt-5">${data.name}</h3>
-//             <div class="col-12 p-0 my-3">${price}</div>
-//             <p class="col-12 p-0 m-0 mb-4">${data.description}</p>
-//             <h6 class="col-6   col-xl-4 p-0 m-0 mb-1">Size</h6>
-//             <h6 class="col-6   col-xl-4 m-0 pl-2 mb-1">Color</h6>
-//             <div class="col-0  col-xl-4"></div>
-//             <h6 class="col-6   col-xl-4 p-0 m-0 ">
-//                 <select id="productSizes" name="size">
-//                 ${sizesTemplate}
-//                 </select>
-//             </h6>
-//             <h6  class="col-6  col-xl-4 p-0 m-0 pl-2">
-//                 <select id="productColours" name="color">
-//                 ${optionsTemplate}
-//                 </select>
-//             </h6>
-//             <div class="col-0 col-xl-4"></div>
-//             <div class="col-12 p-0">
-//                 <hr class="mx-0 p-0">
-//             </div>
-//             <div class=" col-10 col-lg-4 col-xl-5 pr-2 p-0 m-0">
-//                 <button type="button" class="btn btn-primary btn-lg w-100">Add to cart</button>
-//             </div>
-//             <div class="col-2 col-lg-2 col-xl-1 p-0 m-0  d-flex align-items-center"> <input class="w-100  rounded border-1" type="number" value="1"></div>
-
-//             `   
-//     })
-// }
 
 const generateProducts=()=> {
 
