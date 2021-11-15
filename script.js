@@ -668,9 +668,9 @@ function generateQueryString(){
     }
     urlNewParams.append("page",pageNumber)
 
-    if(Number(productsPerPage.value)){
-        urlNewParams.append("per-page",Number(productsPerPage.value))
-    }
+
+    urlNewParams.append("per-page",Number(productsPerPage.value)?Number(productsPerPage.value):6)
+   
     
     
     producents.forEach(item=>{
@@ -898,7 +898,7 @@ function generatePaginationListeners(){
 
     Array.from(paginationContainers).forEach(item=>{
         item.addEventListener('click',(event)=>{
-            console.log(event.target)
+            // console.log(event.target)
             if(!event.target.parentElement.classList.contains('active')){
             Array.from(paginationContainers).forEach(item=>{
                 Array.from(item.children).forEach(element=>{
@@ -909,7 +909,21 @@ function generatePaginationListeners(){
                 })
             })
             if(event.target.classList.contains('number-of-page')){
-                event.target.parentElement.classList.add('active')
+                // console.log(event.target.innerText)
+                // Array.from(paginationContainers).forEach(item=>{
+                //     Array.from(item.children).forEach(element=>{
+                //         console.log(element.firstChild)
+                //     })
+                // })
+
+                paginationContainers.forEach(item=>{
+                    Array.from(item.children).forEach(element=>{
+                        
+                        if(element.firstChild.innerText===event.target.innerText){
+                            element.classList.add('active')
+                        }
+                    })
+                })
                 generateQueryString()
                 generateProducts()
             }
@@ -981,3 +995,4 @@ generateCartListeners()
 generateCardListeners()
 generateFiltersListeners()
 generatePaginationListeners()
+generateQueryString()
