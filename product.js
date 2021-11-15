@@ -214,28 +214,32 @@ async function generateProduct(){
 }
 
 async function addItemToCart(data,itemQty,size,color){
-    const payload = {
-        method:"POST",
-        headers:{
-            'Accept':'application/json',
-            'Content-Type':'application/json'
-        },
-        body:JSON.stringify({
-            productId:Number(data.id),
-            price:Number(data.price),
-            qty:itemQty,
-            name:"name",
-            thumbnail:"something.jpg",
-            size:size,
-            color:color
-        })
+    if(itemQty>0){
+        const payload = {
+            method:"POST",
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                productId:Number(data.id),
+                price:Number(data.price),
+                qty:itemQty,
+                name:"name",
+                thumbnail:"something.jpg",
+                size:size,
+                color:color
+            })
+        }
+        try{
+            await fetch("http://localhost:3000/cart",payload)
+        }catch(e){
+            console.log(e)
+        }
+        await generateCart()
+    }else{
+        throw new Error("Niepoprawna ilość produktów")
     }
-    try{
-        await fetch("http://localhost:3000/cart",payload)
-    }catch(e){
-        console.log(e)
-    }
-    await generateCart()
 }
 
 const generateAddToCartLisener = ()=>{
@@ -247,8 +251,15 @@ const generateAddToCartLisener = ()=>{
     let itemQtyCount
     addToCartButton.addEventListener("click",(event)=>{
         itemQtyCount = Number(itemQty.value)
+        try{
         addItemToCart(event.target.dataset,itemQtyCount,itemSize.value,itemColor.value)
-    })
+        }catch(e){
+            console.log(e)
+            addToCartButton.classList.remove('btn-primary')
+            addToCartButton.classList.add('btn-danger')
+            addToCartButton.innerHTML=`Add to cart<span class="fs-small">${e}</span>`
+        }
+})
 }
 
 

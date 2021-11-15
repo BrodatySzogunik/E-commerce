@@ -115,11 +115,11 @@ async function generateProducts(){
     let perPage = urlParams.get("per-page")?Number(urlParams.get("per-page")):6
 
 
-    console.log(perPage)
-    console.log(page)
-    console.log(producents)
-    console.log(otherCategories)    
-    console.log(chosenCategory)
+    // console.log(perPage)
+    // console.log(page)
+    // console.log(producents)
+    // console.log(otherCategories)    
+    // console.log(chosenCategory)
 
     if(chosenCategory!==0){
         apiSearchParams.set("category",chosenCategory)
@@ -643,17 +643,6 @@ function generateFiltersListeners(){
         }
         
     })
-    // producents.forEach(item=>{
-    //     item.addEventListener('change',()=>{
-    //         
-    //     })
-    // })
-    // otherCategories.forEach(item=>{
-    //     item.addEventListener('change',()=>{
-    //         generateQueryString()
-    //         generateProducts()
-    //     })
-    // })
 
 }
 
@@ -838,24 +827,34 @@ function generatePagination(numberOfPages){
     const activeItem = Number(urlParams.get("page"))
     let paginationContainers = document.querySelectorAll(".pagination")
     // let numberOfPages = paginationContainers[0].dataset.numberOfPages
-    console.log(numberOfPages)
+    // console.log(numberOfPages)
     let paginationTemplate=""
 
-    let idx = 1
+
          paginationTemplate+=
          `
          <li class="page-item">
-            <a class="page-link pagination-item" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
+            <a class="page-link pagination-item page-first" href="#" aria-label="Previous">
+            <span aria-hidden="true" class="page-first">&laquo;</span>
             </a>
         </li>
         `
         for(let idx=activeItem-1;idx<activeItem+2;idx++){
             if(idx>0&&idx<=numberOfPages){
                 if(idx===activeItem){
-                    paginationTemplate+=`<li class="page-item page-number active"><p class="page-link pagination-item">${idx}</p></li>`
+                    if(idx===numberOfPages){
+                        paginationTemplate+=`<li id="lastPage" class="page-item page-number active "><p class="page-link pagination-item number-of-page">${idx}</p></li>`
+                    }else{
+                        paginationTemplate+=`<li class="page-item page-number active"><p class="page-link pagination-item number-of-page">${idx}</p></li>`
+                    }
+                    
                 }else{
-                    paginationTemplate+=`<li class="page-item page-number"><p class="page-link pagination-item">${idx}</p></li>`
+                    if(idx===numberOfPages){
+                        paginationTemplate+=`<li id="lastPage" class="page-item page-number "><p class="page-link pagination-item number-of-page">${idx}</p></li>`
+                    }else{
+                        paginationTemplate+=`<li class="page-item page-number"><p class="page-link pagination-item number-of-page">${idx}</p></li>`
+                    }
+                    
                 }   
             }
         }
@@ -863,8 +862,8 @@ function generatePagination(numberOfPages){
         paginationTemplate+=
         `
         <li class="page-item">
-            <a class="page-link pagination-item" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
+            <a class="page-link pagination-item page-last" href="#" aria-label="Next" data-lastpage="${numberOfPages}">
+            <span aria-hidden="true" class="page-last" data-lastpage="${numberOfPages}">&raquo;</span>
             </a>
         </li>
         `
@@ -876,12 +875,13 @@ function generatePagination(numberOfPages){
     paginationContainers.forEach(item=>{
         item.innerHTML=paginationTemplate
     })
-    generatePaginationListeners()                                
+                                    
 }
 
 
 function generatePerPageListeners(){
     let productsPerPage = document.getElementById("productsPerPage")
+
     productsPerPage.addEventListener("change",()=>{
         generateQueryString()
         generateProducts()
@@ -892,24 +892,73 @@ function generatePerPageListeners(){
 }
 
 function generatePaginationListeners(){
-    let page = document.getElementById("page")
-    // let paginationItems = Array.from(page.children)
-    
-    page.addEventListener('click',(event)=>{
-        // console.log(event.target.parentElement)
-        
-        Array.from(page.children).forEach(item=>{
-            if((item.classList.contains("page-number"))&&(item.classList.contains("active"))){
-                item.classList.remove("active")
+    let paginationContainers = document.querySelectorAll(".pagination")
+
+    console.log(Array.from(paginationContainers))
+
+    Array.from(paginationContainers).forEach(item=>{
+        item.addEventListener('click',(event)=>{
+            console.log(event.target)
+            if(!event.target.parentElement.classList.contains('active')){
+            Array.from(paginationContainers).forEach(item=>{
+                Array.from(item.children).forEach(element=>{
+                    if(element.classList.contains('active')){
+                        element.remove('active')
+                    }
+                    
+                })
+            })
+            if(event.target.classList.contains('number-of-page')){
+                event.target.parentElement.classList.add('active')
+                generateQueryString()
+                generateProducts()
+            }
+            if(event.target.classList.contains('page-first')){
+                event.preventDefault()
+                generateQueryString()
+                generateProducts()
                 
             }
-        })
-        event.target.parentElement.classList.add("active")
-        if(event.target.classList.contains("pagination-item")){
-            generateQueryString()
-            generateProducts()
+            if(event.target.classList.contains('page-last')){
+                console.log(event.target)
+                event.preventDefault()
+                item.getElementsByClassName
+                
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString)
+
+                urlParams.set('page',Number(event.target.dataset.lastpage))
+
+                window.history.replaceState({},'',`categories.html?${urlParams}`)
+                generateProducts()
+                
+            }
         }
+
+        })
     })
+
+
+
+    // let page = document.getElementById("page")
+
+    // // let paginationItems = Array.from(page.children)
+    
+    // page.addEventListener('click',(event)=>{
+    //     // console.log(event.target.parentElement)
+        
+    //     Array.from(page.children).forEach(item=>{
+    //         if((item.classList.contains("page-number"))&&(item.classList.contains("active"))){
+    //             item.classList.remove("active")
+                
+    //         }
+    //     })
+    //     event.target.parentElement.classList.add("active")
+    //     if(event.target.classList.contains("pagination-item")){
+    //         generateQueryString()
+    //         generateProducts()
+    //     }
+    // })
 
 }
 
@@ -921,7 +970,6 @@ generateFilters()
 generatePerPageListeners()
 generateMainCarousel()
 generateProducts()
-generatePagination()
 generateCategories()
 // generateProducents()
 // generateSaloons()
@@ -932,3 +980,4 @@ addCategoriesListeners()
 generateCartListeners()
 generateCardListeners()
 generateFiltersListeners()
+generatePaginationListeners()
