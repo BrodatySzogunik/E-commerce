@@ -280,35 +280,6 @@ async function addItemToCart(data,itemQty,size,color){
 }
 
 
-// async function addItemToCart(data,itemQty,size,color){
-//     if(itemQty>0){
-//         const payload = {
-//             method:"POST",
-//             headers:{
-//                 'Accept':'application/json',
-//                 'Content-Type':'application/json'
-//             },
-//             body:JSON.stringify({
-//                 productId:Number(data.id),
-//                 price:Number(data.price),
-//                 qty:itemQty,
-//                 name:"name",
-//                 thumbnail:"something.jpg",
-//                 size:size,
-//                 color:color
-//             })
-//         }
-//         try{
-//             await fetch("http://localhost:3000/cart",payload)
-//         }catch(e){
-//             console.log(e)
-//         }
-//         await generateCart()
-//     }else{
-//         throw new Error("Niepoprawna ilość produktów")
-//     }
-// }
-
 const generateAddToCartLisener = ()=>{
     const addToCartButton = document.getElementById("addToCartButton")
     const itemQty = document.getElementById("itemQty")

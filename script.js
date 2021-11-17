@@ -467,7 +467,7 @@ function generateFiltersListeners(){
     const filtersDropdownBody = document.getElementById("filtersDropdownBody")
 
     filtersDropdownBody.addEventListener('change',(event)=>{
-        if((event.target.name==="producents")||(event.target.name==="producents")){
+        if((event.target.name==="producents")||(event.target.name==="otherCategories")){
             generateQueryString()
             generateProducts()
         }
