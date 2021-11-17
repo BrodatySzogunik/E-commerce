@@ -213,9 +213,47 @@ async function generateProduct(){
     generateAddToCartLisener()
 }
 
+
 async function addItemToCart(data,itemQty,size,color){
-    if(itemQty>0){
-        const payload = {
+    const cartBox = document.getElementById("cartBox")
+    let existInCart = false
+    let prevItemQty
+    let payload
+    let cartPositionId
+    let uri
+
+
+    console.log(Array.from(cartBox.children))
+    Array.from(cartBox.children).forEach(item=>{
+        console.log(Number(item.dataset.id),Number(data.id))
+        if(Number(item.dataset.productid) === Number(data.id)){
+            existInCart=true
+            cartPositionId = item.dataset.id
+            prevItemQty=Number(item.dataset.qty)
+        }
+    })
+    
+    if(existInCart){
+        uri = `http://localhost:3000/cart/${cartPositionId}`
+        payload = {
+        method:"PATCH",
+        headers:{
+            'Accept':'application/json',
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+            productId:Number(data.id),
+            price:Number(data.price),
+            qty:prevItemQty+itemQty,
+            name:"name",
+            thumbnail:"something.jpg",
+            size:size,
+            color:color
+        })
+        }
+    }else{
+        uri = `http://localhost:3000/cart`
+        payload = {
             method:"POST",
             headers:{
                 'Accept':'application/json',
@@ -230,17 +268,46 @@ async function addItemToCart(data,itemQty,size,color){
                 size:size,
                 color:color
             })
-        }
-        try{
-            await fetch("http://localhost:3000/cart",payload)
-        }catch(e){
-            console.log(e)
-        }
-        await generateCart()
-    }else{
-        throw new Error("Niepoprawna ilość produktów")
+            }
     }
+
+    try{
+        await fetch(uri,payload)
+    }catch(e){
+        console.log(e)
+    }
+    await generateCart()
 }
+
+
+// async function addItemToCart(data,itemQty,size,color){
+//     if(itemQty>0){
+//         const payload = {
+//             method:"POST",
+//             headers:{
+//                 'Accept':'application/json',
+//                 'Content-Type':'application/json'
+//             },
+//             body:JSON.stringify({
+//                 productId:Number(data.id),
+//                 price:Number(data.price),
+//                 qty:itemQty,
+//                 name:"name",
+//                 thumbnail:"something.jpg",
+//                 size:size,
+//                 color:color
+//             })
+//         }
+//         try{
+//             await fetch("http://localhost:3000/cart",payload)
+//         }catch(e){
+//             console.log(e)
+//         }
+//         await generateCart()
+//     }else{
+//         throw new Error("Niepoprawna ilość produktów")
+//     }
+// }
 
 const generateAddToCartLisener = ()=>{
     const addToCartButton = document.getElementById("addToCartButton")
@@ -269,45 +336,32 @@ const generateAddToCartLisener = ()=>{
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
     let cart = document.getElementById("cart")
-    let total=0;
+    let total=0
+    let totalItems=0
     let cartBoxTemplate=""
-
 
     cartBox.innerHTML=""
     await fetch("http://localhost:3000/cart")
     .then(res=>res.json())
     .then(data=>{
-        console.log(data)
-        const cartMap = new Map()
-
-        data.forEach((item)=>{
-            if(cartMap.get(item.productId)){
-                console.log("podwuny")
-                cartMap.get(item.productId).price+=item.priceDiscounted?(item.priceDiscounted*item.qty):(item.price*item.qty)
-                cartMap.get(item.productId).qty+=item.qty
-                cartMap.get(item.productId).id.push(item.id)
-            }else{
-            cartMap.set(item.productId,{name:item.name,thumbnail:item.thumbnail,qty:item.qty,price:item.priceDiscounted?(item.priceDiscounted*item.qty):(item.price*item.qty),id:[item.id]})
-            }
-        })
-
-        console.log(cartMap);
-
-
-        cartMap.forEach(item=>{
+        
+        data.forEach(item=>{
+            totalItems+=Number(item.qty)
             total+=item.price
-            cartBoxTemplate+=`<div class="row container-fluid w-100 cart-item  px-0 ml-auto mr-0">
-            <div class="col-2 p-0 m-0">
-                <div class="w-100">    
-                    <div class="image-container">
-                        <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
-                        <div class="productCounter">${item.qty}x</div>
+            cartBoxTemplate+=
+            `
+            <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-productId="${item.productId}" data-qty="${item.qty}">
+                <div class="col-2 p-0 m-0">
+                    <div class="w-100">    
+                        <div class="image-container">
+                            <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
+                            <div class="productCounter">${item.qty}x</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">${item.name}</div>
-            <div class="col-2 p-0 m-0 d-flex align-items-center">${round(item.price,2)}</div>
-            <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" data-id="${item.id}" src="svg/delete.svg" height="20px" alt=""></div>
+                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">${item.name}</div>
+                <div class="col-2 p-0 m-0 d-flex align-items-center">${round(item.price,2)}</div>
+                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" data-id="${item.id}" src="svg/delete.svg" height="20px" alt=""></div>
             </div>
             <hr>
             `
@@ -335,28 +389,22 @@ async function generateCart(){
         `
         <div  class="cart-box d-flex align-items-center justify-content-center">
             <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
-            <div class="cartCounter">${data.length}</div>
+            <div class="cartCounter">${Number(totalItems)}</div>
         </div>
         `
     })
-    generateCartListeners()
+    
 }
 
 
 const generateCartListeners=()=>{
-    const cartButtons= Array.from(document.getElementsByClassName("cartButton"));
+    const cartBox = document.getElementById("cartBox")
 
-    cartButtons.forEach(item=>{
-        item.addEventListener("click",async function(){
-                console.log(item.dataset.id.split(","))
-                item.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
-
-
-
-
-        })
+    cartBox.addEventListener('click',(event)=>{
+        if(event.target.classList.contains("cartButton")){
+            event.target.dataset.id.split(",").forEach(item=>removeItemFromCart(item))
+        }
     })
-
 }
 
 async function removeItemFromCart(id){
@@ -478,3 +526,4 @@ generateCategories()
 generateCart()
 addNavBarLiteners()
 addCategoriesListeners()
+generateCartListeners()

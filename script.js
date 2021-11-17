@@ -94,8 +94,11 @@ const addCategoriesListeners = ()=>{
 
 async function generateProducts(){
 
-    let categoriesItems = document.getElementById("categories-items");
-    let whereAmI = document.getElementById("whereAmI")
+    const categoriesItems = document.getElementById("categories-items")
+    const whereAmI = document.getElementById("whereAmI")
+    const paginationContainers = document.querySelectorAll(".pagination")
+    const perPageContainer = document.getElementById('productsPerPage')
+
     let price=""
     let photo = ""
     let description=""
@@ -113,6 +116,15 @@ async function generateProducts(){
     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
     let page = urlParams.get("page")?Number(urlParams.get("page")):1
     let perPage = urlParams.get("per-page")?Number(urlParams.get("per-page")):6
+
+    
+
+    if(urlParams.get('price_gte')!==null){
+        apiSearchParams.set('price_gte',urlParams.get('price_gte'))
+    }
+    if(urlParams.get('price_lte')!==null){
+        apiSearchParams.set('price_lte',urlParams.get('price_lte'))
+    }
 
     if(chosenCategory!==0){
         apiSearchParams.set("category",chosenCategory)
@@ -145,36 +157,46 @@ async function generateProducts(){
             generatePagination(Math.ceil(res.headers.get("X-Total-Count")/perPage))
             return res.json()})
         .then(data=> {
-            
-            data.forEach(item=>{
-                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
-                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.priceDiscounted}" data-qty="1" class="card-cart" alt=""></p>`:
-                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.price}" data-qty="1" class="card-cart" alt=""></p>`
-                
-                photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
-                description=truncate(item.description,100,'...')
-                output+=`
-                <div class="col-12 col-md-6 col-lg-4 productCard">
-                    <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">
-                        <div class="card w-100" >
-                            <div class="w-100">    
-                                <div class="image-container">
-                                    <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
-                                </div>
-                            </div>
-                            <img src="svg\\heart.svg" height="25px" data-id="${item.id}" class="${favoritesArray.includes(item.id)?"card-heart-fav":"card-heart"}" alt="">
-                            <div class="card-body">
-                            <p class="fs-small text-dark">${item.id}</p>
-                            <h5 class="card-title">${item.name}</h5>
-                            <p class="card-text ">${description}</p>
-                            ${price}
-                            
-                            </div>
-                        </div>
-                    </a>
+            if(data.length===0){
+                output=
+                `
+                <div class="col-12 d-flex justify-content-center pt-5">
+                    <h3 class="text-dark">Nothing to display :< </h3>
                 </div>
                 `
-            })
+                paginationContainers.forEach(item=>{item.classList.add('d-none')})
+                perPageContainer.classList.add('d-none')
+            }else{
+                data.forEach(item=>{
+                    price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
+                                                <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.priceDiscounted}" data-qty="1" class="card-cart" alt=""></p>`:
+                                                `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.price}" data-qty="1" class="card-cart" alt=""></p>`
+                    
+                    photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
+                    description=truncate(item.description,100,'...')
+                    output+=`
+                    <div class="col-12 col-md-6 col-lg-4 productCard">
+                        <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">
+                            <div class="card w-100" >
+                                <div class="w-100">    
+                                    <div class="image-container">
+                                        <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
+                                    </div>
+                                </div>
+                                <img src="svg\\heart.svg" height="25px" data-id="${item.id}" class="${favoritesArray.includes(item.id)?"card-heart-fav":"card-heart"}" alt="">
+                                <div class="card-body">
+                                <p class="fs-small text-dark">${item.id}</p>
+                                <h5 class="card-title">${item.name}</h5>
+                                <p class="card-text ">${description}</p>
+                                ${price}
+                                
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    `
+                })
+            }
             categoriesItems.innerHTML=output
             whereAmI.innerText =`Categories`
         })
@@ -213,8 +235,28 @@ async function generateCategories(){
 }
 
 async function addItemToCart(data){
-    const payload = {
-        method:"POST",
+    const cartBox = document.getElementById("cartBox")
+    let existInCart = false
+    let itemQty
+    let payload
+    let cartPositionId
+    let uri
+
+
+    console.log(Array.from(cartBox.children))
+    Array.from(cartBox.children).forEach(item=>{
+        console.log(Number(item.dataset.id),Number(data.id))
+        if(Number(item.dataset.productid) === Number(data.id)){
+            existInCart=true
+            cartPositionId = item.dataset.id
+            itemQty=Number(item.dataset.qty)
+        }
+    })
+    
+    if(existInCart){
+        uri = `http://localhost:3000/cart/${cartPositionId}`
+        payload = {
+        method:"PATCH",
         headers:{
             'Accept':'application/json',
             'Content-Type':'application/json'
@@ -222,13 +264,31 @@ async function addItemToCart(data){
         body:JSON.stringify({
             productId:Number(data.id),
             price:Number(data.price),
-            qty:1,
+            qty:itemQty+Number(data.qty),
             name:"name",
             thumbnail:"something.jpg"
         })
+        }
+    }else{
+        uri = `http://localhost:3000/cart`
+        payload = {
+            method:"POST",
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                productId:Number(data.id),
+                price:Number(data.price),
+                qty:1,
+                name:"name",
+                thumbnail:"something.jpg"
+            })
+            }
     }
+
     try{
-        await fetch("http://localhost:3000/cart",payload)
+        await fetch(uri,payload)
     }catch(e){
         console.log(e)
     }
@@ -236,7 +296,6 @@ async function addItemToCart(data){
 }
 
 const generateCardListeners=()=>{
-    // const categoriesItems= document.getElementsByClassName("productCard");
     const categoriesItems = document.getElementById("categories-items")
 
     categoriesItems.addEventListener('click',(event)=>{
@@ -259,6 +318,21 @@ const generateCardListeners=()=>{
             
         }
 
+    })
+}
+
+const generatePriceListeners=()=>{
+    const priceFrom = document.getElementById("price-from")
+    const priceTo =document.getElementById("price-to")
+
+    priceFrom.addEventListener('input',()=>{
+        generateQueryString()
+        generateProducts()
+    })
+
+    priceTo.addEventListener('input',()=>{
+        generateQueryString()
+        generateProducts()
     })
 }
 
@@ -299,7 +373,6 @@ async function removeItemFromFav(data){
 
 
 const generateCartListeners=()=>{
-    const cartButtons= Array.from(document.getElementsByClassName("cartButton"));
     const cartBox = document.getElementById("cartBox")
 
     cartBox.addEventListener('click',(event)=>{
@@ -310,9 +383,6 @@ const generateCartListeners=()=>{
 }
 
 async function removeItemFromCart(id){
-    
-  
-        // console.log(id)
         const payload = {
             method:"DELETE",
             headers:{
@@ -419,6 +489,9 @@ function generateQueryString(){
     let productsPerPage = document.getElementById("productsPerPage")
     let page = document.querySelector(".pagination")
     let pageNumber = page.querySelector('.active')?Number(page.querySelector('.active').firstChild.innerText):1
+    const priceFrom = document.getElementById("price-from")
+    const priceTo =document.getElementById("price-to")
+
 
     const urlNewParams = new URLSearchParams()
 
@@ -444,6 +517,14 @@ function generateQueryString(){
         }
     })
 
+    if(Number(priceFrom.value)!==0){
+        urlNewParams.append("price_gte",Number(priceFrom.value))
+    }
+
+    if(Number(priceTo.value)!==0){
+        urlNewParams.append("price_lte",Number(priceTo.value))
+    }
+
     window.history.replaceState({},'',`categories.html?${urlNewParams}`)
 
 }
@@ -451,43 +532,32 @@ function generateQueryString(){
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
     let cart = document.getElementById("cart")
-    let total=0;
+    let total=0
+    let totalItems=0
     let cartBoxTemplate=""
-
 
     cartBox.innerHTML=""
     await fetch("http://localhost:3000/cart")
     .then(res=>res.json())
     .then(data=>{
-        const cartMap = new Map()
-
-        data.forEach((item)=>{
-            if(cartMap.get(item.productId)){
- 
-                cartMap.get(item.productId).price+=item.priceDiscounted?(item.priceDiscounted*item.qty):(item.price*item.qty)
-                cartMap.get(item.productId).qty+=item.qty
-                cartMap.get(item.productId).id.push(item.id)
-            }else{
-            cartMap.set(item.productId,{name:item.name,thumbnail:item.thumbnail,qty:item.qty,price:item.priceDiscounted?(item.priceDiscounted*item.qty):(item.price*item.qty),id:[item.id]})
-            }
-        })
-
-
-
-        cartMap.forEach(item=>{
+        
+        data.forEach(item=>{
+            totalItems+=Number(item.qty)
             total+=item.price
-            cartBoxTemplate+=`<div class="row container-fluid w-100 cart-item  px-0 ml-auto mr-0">
-            <div class="col-2 p-0 m-0">
-                <div class="w-100">    
-                    <div class="image-container">
-                        <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
-                        <div class="productCounter">${item.qty}x</div>
+            cartBoxTemplate+=
+            `
+            <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-productId="${item.productId}" data-qty="${item.qty}">
+                <div class="col-2 p-0 m-0">
+                    <div class="w-100">    
+                        <div class="image-container">
+                            <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
+                            <div class="productCounter">${item.qty}x</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">${item.name}</div>
-            <div class="col-2 p-0 m-0 d-flex align-items-center">${round(item.price,2)}</div>
-            <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" data-id="${item.id}" src="svg/delete.svg" height="20px" alt=""></div>
+                <div class="col-6 col-sm-7 text-left p-0 m-0 d-flex align-items-center">${item.name}</div>
+                <div class="col-2 p-0 m-0 d-flex align-items-center">${round(item.price,2)}</div>
+                <div class="col-2 col-sm-1 p-0 m-0 d-flex align-items-center"><img class="mx-auto cartButton" data-id="${item.id}" src="svg/delete.svg" height="20px" alt=""></div>
             </div>
             <hr>
             `
@@ -515,7 +585,7 @@ async function generateCart(){
         `
         <div  class="cart-box d-flex align-items-center justify-content-center">
             <img class="mx-auto " src="svg/shopping-basket.svg" height="30px" alt="" >
-            <div class="cartCounter">${data.length}</div>
+            <div class="cartCounter">${Number(totalItems)}</div>
         </div>
         `
     })
@@ -588,15 +658,21 @@ function generatePagination(numberOfPages){
     let paginationContainers = document.querySelectorAll(".pagination")
     let paginationTemplate=""
 
-
-         paginationTemplate+=
-         `
-         <li class="page-item">
-            <a class="page-link pagination-item page-first" href="#" aria-label="Previous">
-            <span aria-hidden="true" class="page-first">&laquo;</span>
-            </a>
-        </li>
-        `
+        if(activeItem === 1){
+            paginationTemplate+=
+            `
+            <li class="page-item">
+                <span aria-hidden="true" class="page-link pagination-item page-first disabled">&laquo;</span>
+            </li>
+            `
+        }else{
+            paginationTemplate+=
+            `
+            <li class="page-item">
+                <span aria-hidden="true" class="page-link pagination-item page-first">&laquo;</span>
+            </li>
+            `
+        }
         for(let idx=activeItem-1;idx<activeItem+2;idx++){
             if(idx>0&&idx<=numberOfPages){
                 if(idx===activeItem){
@@ -616,15 +692,23 @@ function generatePagination(numberOfPages){
                 }   
             }
         }
+        if(activeItem === numberOfPages){
+                paginationTemplate+=
+            `
+            <li class="page-item">
+                <span aria-hidden="true" class="page-link pagination-item page-last disabled" data-lastpage="${numberOfPages}">&raquo;</span>
+            </li>
+            `
 
-        paginationTemplate+=
-        `
-        <li class="page-item">
-            <a class="page-link pagination-item page-last" href="#" aria-label="Next" data-lastpage="${numberOfPages}">
-            <span aria-hidden="true" class="page-last" data-lastpage="${numberOfPages}">&raquo;</span>
-            </a>
-        </li>
-        `
+        }else{
+                paginationTemplate+=
+            `
+            <li class="page-item">
+                <span aria-hidden="true" class="page-link pagination-item page-last" data-lastpage="${numberOfPages}">&raquo;</span>
+            </li>
+            `
+        }
+        
 
         
 
@@ -642,6 +726,12 @@ function generatePerPageListeners(){
 
     productsPerPage.addEventListener("change",()=>{
         generateQueryString()
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString)
+
+        urlParams.set('page',1)
+
+        window.history.replaceState({},'',`categories.html?${urlParams}`)
         generateProducts()
     })
 
@@ -654,7 +744,7 @@ function generatePaginationListeners(){
 
     Array.from(paginationContainers).forEach(item=>{
         item.addEventListener('click',(event)=>{
-            if(!event.target.parentElement.classList.contains('active')){
+            if((!event.target.parentElement.classList.contains('active'))&&(!event.target.classList.contains('disabled'))){
             Array.from(paginationContainers).forEach(item=>{
                 Array.from(item.children).forEach(element=>{
                     if(element.classList.contains('active')){
@@ -676,14 +766,16 @@ function generatePaginationListeners(){
                 generateQueryString()
                 generateProducts()
             }
-            if(event.target.classList.contains('page-first')){
+            if(event.target.classList.contains('page-first')||event.target.classList.contains('page-last')){
+                event.preventDefault()
+            }
+            if(event.target.classList.contains('page-first')&&!event.target.classList.contains('disabled')){
                 event.preventDefault()
                 generateQueryString()
                 generateProducts()
                 
             }
-            if(event.target.classList.contains('page-last')){
-                console.log(event.target)
+            if(event.target.classList.contains('page-last')&&!event.target.classList.contains('disabled')){
                 event.preventDefault()
                 item.getElementsByClassName
                 
@@ -715,4 +807,5 @@ generateCartListeners()
 generateCardListeners()
 generateFiltersListeners()
 generatePaginationListeners()
+generatePriceListeners()
 generateQueryString()

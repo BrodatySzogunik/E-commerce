@@ -101,6 +101,12 @@ p {
   height: 56px !important;
 }
 
+#cartBox{
+  max-height: 300px;
+  overflow: hidden;
+  overflow-y: scroll;
+} 
+
 .cartCounter,.productCounter {
   background-color: #55b1bc;
   border-radius: 100%;
@@ -361,6 +367,11 @@ a {
   .contact {
     width: 75%;
   }
+  #cartBox{
+    max-height: 500px;
+    overflow: hidden;
+    overflow-y: scroll;
+  } 
 }
 
 @media screen and (max-width: 767px) {
