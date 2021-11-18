@@ -217,7 +217,7 @@ async function generateBreadCrump(){
     })
 
     const breadCrump = document.getElementById("breadCrump")
-    breadCrump.innerHTML=`<a href="http://localhost:5500/main.html">Home</a>&nbsp/&nbsp<span class="text-dark"><a href="http://localhost:5500/categories.html?category=${chosenCategory}"><span class="text-dark">${categoryName}</span></a>`
+    breadCrump.innerHTML=`<a href="http://localhost:5500/main.html">Home</a>&nbsp/&nbsp<span class="text-dark"><a href="http://localhost:5500/categories.html?category=${chosenCategory}"><span class="text-dark">${categoryName!=undefined?categoryName:"Products"}</span></a>`
     
 }
 

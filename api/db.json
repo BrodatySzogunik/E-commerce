@@ -1,0 +1,2032 @@
+{
+  "cart": [],
+  "favorites": [
+    {
+      "id": 4
+    },
+    {
+      "id": 32
+    },
+    {
+      "id": 36
+    },
+    {
+      "id": 27
+    },
+    {
+      "id": 29
+    },
+    {
+      "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Helmets",
+      "alias": "helmets"
+    },
+    {
+      "id": 2,
+      "name": "Road gear",
+      "alias": "road-gear"
+    },
+    {
+      "id": 3,
+      "name": "Off-road",
+      "alias": "off-road"
+    }
+  ],
+  "producers": [
+    {
+      "id": 1,
+      "name": "Nike"
+    },
+    {
+      "id": 2,
+      "name": "Adidas"
+    },
+    {
+      "id": 3,
+      "name": "Biedronka"
+    }
+  ],
+  "saloons": [
+    {
+      "id": 1,
+      "name": "Opole"
+    },
+    {
+      "id": 2,
+      "name": "Wrocław"
+    },
+    {
+      "id": 3,
+      "name": "Łódź"
+    },
+    {
+      "id": 4,
+      "name": "Sosnowiec"
+    }
+  ],
+  "options": [
+    {
+      "id": 1,
+      "category": [
+        1
+      ],
+      "label": "Full face",
+      "type": "single"
+    },
+    {
+      "id": 2,
+      "category": [
+        1
+      ],
+      "label": "Modular",
+      "type": "single"
+    },
+    {
+      "id": 3,
+      "category": [
+        1
+      ],
+      "label": "Open face",
+      "type": "single"
+    },
+    {
+      "id": 4,
+      "category": [
+        1
+      ],
+      "label": "Motocross / Enduro",
+      "type": "single"
+    },
+    {
+      "id": 5,
+      "category": [
+        1
+      ],
+      "label": "Trial",
+      "type": "single"
+    },
+    {
+      "id": 6,
+      "category": [
+        2
+      ],
+      "label": "Leather",
+      "type": "single"
+    },
+    {
+      "id": 7,
+      "category": [
+        2
+      ],
+      "label": "Waterproof",
+      "type": "single"
+    },
+    {
+      "id": 8,
+      "category": [
+        2
+      ],
+      "label": "Outlet",
+      "type": "single"
+    },
+    {
+      "id": 9,
+      "category": [
+        2
+      ],
+      "label": "For winter",
+      "type": "single"
+    },
+    {
+      "id": 10,
+      "category": [
+        2
+      ],
+      "label": "Removable lining",
+      "type": "single"
+    },
+    {
+      "id": 11,
+      "category": [
+        2
+      ],
+      "label": "1 Piece",
+      "type": "single"
+    },
+    {
+      "id": 12,
+      "category": [
+        2
+      ],
+      "label": "2 Piece",
+      "type": "single"
+    },
+    {
+      "id": 13,
+      "category": [
+        2
+      ],
+      "label": "Sport / racing",
+      "type": "single"
+    },
+    {
+      "id": 14,
+      "category": [
+        2
+      ],
+      "label": "High visibility",
+      "type": "single"
+    },
+    {
+      "id": 15,
+      "category": [
+        2
+      ],
+      "label": "Scooter / Urban",
+      "type": "single"
+    },
+    {
+      "id": 16,
+      "category": [
+        3
+      ],
+      "label": "Unisex",
+      "type": "single"
+    },
+    {
+      "id": 17,
+      "category": [
+        3
+      ],
+      "label": "Child gear",
+      "type": "single"
+    },
+    {
+      "id": 18,
+      "category": [
+        3
+      ],
+      "label": "Waterproof",
+      "type": "single"
+    },
+    {
+      "id": 19,
+      "category": [
+        3
+      ],
+      "label": "For winter",
+      "type": "single"
+    },
+    {
+      "id": 20,
+      "category": [
+        3
+      ],
+      "label": "Removable lining",
+      "type": "single"
+    },
+    {
+      "id": 21,
+      "category": [
+        3
+      ],
+      "label": "Universal size",
+      "type": "single"
+    },
+    {
+      "id": 22,
+      "category": [
+        3
+      ],
+      "label": "High visibility",
+      "type": "single"
+    },
+    {
+      "id": 23,
+      "category": [
+        1,
+        2,
+        3
+      ],
+      "label": "Color",
+      "type": "multi",
+      "values": [
+        "red",
+        "green",
+        "blue",
+        "black"
+      ]
+    },
+    {
+      "id": 24,
+      "category": [
+        1,
+        2,
+        3
+      ],
+      "label": "Size",
+      "type": "multi",
+      "values": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Motorcycle helmet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Motorcycle helmet cheap",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 29.99,
+      "new": false,
+      "option": [
+        6,
+        8,
+        13,
+        14,
+        23,
+        24
+      ],
+      "producer": 2,
+      "saloon": [
+        2,
+        3
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "1.0kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "50cm x 50cm x 50cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Motorcycle helmet expensive",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 999.99,
+      "new": false,
+      "option": [
+        16,
+        18,
+        20,
+        21,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Motorcycle helmet extra special",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 259.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        3
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Motorcycle helmet extreme",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 199.99,
+      "new": false,
+      "option": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        2
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Motorcycle helmet testing",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 99.99,
+      "new": true,
+      "option": [
+        16,
+        17,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Motorcycle helmet with goggles",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 139.99,
+      "new": true,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Motorcycle helmet red",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 99.99,
+      "new": false,
+      "option": [
+        6,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        2
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Motorcycle helmet black",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "new": true,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Motorcycle helmet stylish",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 199.99,
+      "new": true,
+      "option": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        2,
+        4
+      ],
+      "photos": [],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Motorcycle helmet (best one)",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Motorcycle helmet cheapest",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 29.99,
+      "new": false,
+      "option": [
+        6,
+        8,
+        13,
+        14,
+        23,
+        24
+      ],
+      "producer": 2,
+      "saloon": [
+        2,
+        3
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "1.0kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "50cm x 50cm x 50cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Motorcycle helmet wider",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 999.99,
+      "new": false,
+      "option": [
+        16,
+        18,
+        20,
+        21,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Motorcycle helmet bigger",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 259.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        3
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Motorcycle helmet smaller",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 199.99,
+      "new": false,
+      "option": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        2
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Motorcycle helmet without extras",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 99.99,
+      "new": true,
+      "option": [
+        16,
+        17,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Motorcycle helmet with extras",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 139.99,
+      "new": true,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Motorcycle helmet ready",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 99.99,
+      "new": false,
+      "option": [
+        6,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        2
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Motorcycle helmet fine",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "new": true,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Motorcycle helmet styled",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 199.99,
+      "new": true,
+      "option": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        2,
+        4
+      ],
+      "photos": [],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Motorcycle helmet relatively good",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Motorcycle helmet kind off cheap",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 29.99,
+      "new": false,
+      "option": [
+        6,
+        8,
+        13,
+        14,
+        23,
+        24
+      ],
+      "producer": 2,
+      "saloon": [
+        2,
+        3
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "1.0kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "50cm x 50cm x 50cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Motorcycle helmet pretty nice",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 999.99,
+      "new": false,
+      "option": [
+        16,
+        18,
+        20,
+        21,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Motorcycle helmet not to special",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 259.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        3
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Motorcycle helmet extraordinary",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 199.99,
+      "new": false,
+      "option": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        2
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Motorcycle helmet tested",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 99.99,
+      "new": true,
+      "option": [
+        16,
+        17,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Motorcycle helmet without goggles",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 139.99,
+      "new": true,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Motorcycle helmet reddish",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 99.99,
+      "new": false,
+      "option": [
+        6,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        2
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Motorcycle helmet blackened",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "new": true,
+      "option": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Motorcycle helmet typical",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 199.99,
+      "new": true,
+      "option": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        23,
+        24
+      ],
+      "producer": 3,
+      "saloon": [
+        1,
+        2,
+        4
+      ],
+      "photos": [],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "name": "Motorcycle helmet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "name": "Motorcycle helmet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Motorcycle helmet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "name": "Motorcycle helmet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "name": "Motorcycle helmet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Motorcycle helmet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 159.99,
+      "priceDiscounted": 119.99,
+      "new": false,
+      "option": [
+        1,
+        2,
+        3,
+        23,
+        24
+      ],
+      "producer": 1,
+      "saloon": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    }
+  ],
+  "slides": [
+    {
+      "title": "Motorcycle helmet",
+      "subtitle": "Sample subtitle of product slide",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "button": {
+        "label": "View",
+        "url": "/sample-relative-url"
+      },
+      "productImage": "7a67c57a311acdbd258694542cf442d6.png"
+    },
+    {
+      "title": "Some other, interesting product",
+      "subtitle": "And a very interesting subtitle",
+      "description": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+      "button": {
+        "label": "View",
+        "url": "/sample-relative-url-2"
+      },
+      "productImage": "7a67c57a311acdbd258694542cf442d6.png"
+    },
+    {
+      "title": "Motorcycle helmet new one",
+      "subtitle": "Another subtitle for the product",
+      "description": "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
+      "button": {
+        "label": "View",
+        "url": "/sample-relative-url-3"
+      },
+      "productImage": "7a67c57a311acdbd258694542cf442d6.png"
+    }
+  ],
+  "user": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "bootcamp@atos.net"
+  },
+  "videos": []
+}
