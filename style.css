@@ -123,6 +123,42 @@ p {
   font-weight: bolder;
 }
 
+.productSize{
+  background-color: #55b1bc;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -7px;
+  left:-5px ;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+
+.productColor{
+  /* background-color: #55b1bc; */
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -7px;
+  left: 50%; 
+  transform: translateX(-50%) ;                           
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bolder;
+}
+.productColor-red{
+  background-color: red;
+}
+
 .cartButton:hover {
   filter: invert(13%) sepia(97%) saturate(6072%) hue-rotate(359deg)
     brightness(110%) contrast(110%);

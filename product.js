@@ -320,7 +320,6 @@ const generateAddToCartLisener = ()=>{
 
 
 
-
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
     let cart = document.getElementById("cart")
@@ -344,6 +343,8 @@ async function generateCart(){
                         <div class="image-container">
                             <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
                             <div class="productCounter">${item.qty}x</div>
+                            ${item.size?`<div class="productSize">${item.size}</div>`:""}
+                            ${item.color?`<div class="productColor productColor-${item.color}"></div>`:""}
                         </div>
                     </div>
                 </div>
@@ -383,6 +384,7 @@ async function generateCart(){
     })
     
 }
+
 
 
 const generateCartListeners=()=>{

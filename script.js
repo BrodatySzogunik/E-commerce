@@ -1,6 +1,8 @@
 
 'use strict'
 
+// const { url } = require("inspector");
+
 
 
 const round =(number,decimalPlaces)=>{
@@ -24,8 +26,7 @@ const addNavBarLiteners =()=>{
             {
                 cartBox.classList.remove("d-none")
                 searchBox.classList.add('d-none')
-                
-                
+
             }else
             {
                 cartBox.classList.add("d-none")    
@@ -116,7 +117,7 @@ async function generateProducts(){
     let producents = urlParams.getAll("producer")
     let otherCategories = urlParams.getAll("options")
     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
-    let chosenCategoryName
+    let saloon = Number(urlParams.get('saloon'))
     let page = urlParams.get("page")?Number(urlParams.get("page")):1
     let perPage = urlParams.get("per-page")?Number(urlParams.get("per-page")):6
 
@@ -141,6 +142,9 @@ async function generateProducts(){
     })
     if(chosenCategory!=0){
         apiSearchParams.set("category",chosenCategory)
+    }
+    if(saloon!==0){
+        apiSearchParams.set("saloon",saloon)
     }
 
     const favorites = await fetch("http://localhost:3000/favorites")
@@ -449,7 +453,7 @@ async function generateFilters(){
     .then(res => res.json())
     .then(data=>{
         data.forEach(item=>{
-            selectSaloon.innerHTML+=`<option value="${item.name}">${item.name}</option>`
+            selectSaloon.innerHTML+=`<option  value="${item.id}">${item.name}</option>`
         })
     })
     
@@ -479,12 +483,13 @@ async function generateFilters(){
     
 }
 
+
 function generateFiltersListeners(){
 
     const filtersDropdownBody = document.getElementById("filtersDropdownBody")
 
     filtersDropdownBody.addEventListener('change',(event)=>{
-        if((event.target.name==="producents")||(event.target.name==="otherCategories")){
+        if((event.target.name==="producents")||(event.target.name==="otherCategories")||(event.target.name==="availible")){
             generateQueryString()
             generateProducts()
         }
@@ -501,13 +506,14 @@ function generateQueryString(){
     const urlParams = new URLSearchParams(queryString)
     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
 
-    let producents = document.querySelectorAll("input[name='producents']")
-    let otherCategories = document.querySelectorAll("input[name='otherCategories']")
-    let productsPerPage = document.getElementById("productsPerPage")
-    let page = document.querySelector(".pagination")
+    const producents = document.querySelectorAll("input[name='producents']")
+    const otherCategories = document.querySelectorAll("input[name='otherCategories']")
+    const productsPerPage = document.getElementById("productsPerPage")
+    const page = document.querySelector(".pagination")
     let pageNumber = page.querySelector('.active')?Number(page.querySelector('.active').firstChild.innerText):1
     const priceFrom = document.getElementById("price-from")
     const priceTo =document.getElementById("price-to")
+    const selectSaloon = document.getElementById("selectSaloon")
 
 
     const urlNewParams = new URLSearchParams()
@@ -542,9 +548,15 @@ function generateQueryString(){
         urlNewParams.append("price_lte",Number(priceTo.value))
     }
 
+    if(Number(selectSaloon.value)!==0){
+        urlNewParams.set("saloon",Number(selectSaloon.value))
+    }
+
     window.history.replaceState({},'',`categories.html?${urlNewParams}`)
 
 }
+
+
 
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
@@ -569,6 +581,8 @@ async function generateCart(){
                         <div class="image-container">
                             <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
                             <div class="productCounter">${item.qty}x</div>
+                            ${item.size?`<div class="productSize">${item.size}</div>`:""}
+                            ${item.color?`<div class="productColor productColor-${item.color}"></div>`:""}
                         </div>
                     </div>
                 </div>
