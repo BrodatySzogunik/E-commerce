@@ -209,8 +209,25 @@ async function generateProduct(){
             <div class="col-2 col-lg-2 col-xl-1 p-0 m-0  d-flex align-items-center"> <input id="itemQty" class="w-100  rounded border-1" type="number" value="1"></div>
 
             `   
+            generateBreadCrump(data.category,data.name)
     })
     generateAddToCartLisener()
+
+}
+
+async function generateBreadCrump(chosenCategory,productName){
+
+    let categoryName
+
+    await fetch(`http://localhost:3000/categories/${chosenCategory}`)
+    .then(res=>res.json())
+    .then(data=>{
+        categoryName=data.name
+    })
+    console.log(productName)
+    const breadCrump = document.getElementById("breadCrump")
+    breadCrump.innerHTML=`<a href="http://localhost:5500/main.html">Home</a>&nbsp/&nbsp<a href="http://localhost:5500/categories.html?category=${chosenCategory}">${categoryName}</a>&nbsp/&nbsp<span class="text-dark">${productName}</span>`
+    
 }
 
 
@@ -318,7 +335,7 @@ async function generateCart(){
         
         data.forEach(item=>{
             totalItems+=Number(item.qty)
-            total+=item.price
+            total+=item.price*item.qty
             cartBoxTemplate+=
             `
             <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-productId="${item.productId}" data-qty="${item.qty}">
@@ -408,90 +425,6 @@ async function removeItemFromCart(id){
     return categoriesCount
 }
 
-
-const generateProducts=()=> {
-
-    let chosenCategory=0
-    let categoriesItems = document.getElementById("categories-items");
-    let price=""
-    let photo = ""
-    let description=""
-    let output=""
-
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString)
-    console.log(urlParams)
-    chosenCategory= parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
-
-    if(chosenCategory===0){
-        fetch("http://localhost:3000/products")
-        .then(res=> res.json())
-        .then(data=> {
-            data.forEach(item=>{
-                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
-                
-                photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
-                description=truncate(item.description,100,'...')
-                output+=`
-                <div class="col-12 col-md-6  col-lg-4">
-                    <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">
-                        <div class="card w-100" >
-                            <div class="w-100">    
-                                <div class="image-container">
-                                    <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
-                                </div>
-                            </div>
-                            <img src="svg\\heart.svg" height="25px" class="card-heart" alt="">
-                            <div class="card-body">
-                            <h5 class="card-title">${item.name}</h5>
-                            <p class="card-text ">${description}</p>
-                            ${price}
-                            
-                            </div>
-                        </div>
-                </div>
-                `
-            })
-            categoriesItems.innerHTML=output
-        })
-    }else{
-        fetch(`http://localhost:3000/products?category=${chosenCategory}`)
-        .then(res=> res.json())
-        .then(data=> {
-            data.forEach(item=>{
-                price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>
-                                            <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
-                                            `<p class="normal-price fs-bigger">${item.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
-                
-                photo=item.photos[0]?"assets\\img\\"+item.photos[0]:"https://torebki-fabiola.pl/wp-content/uploads/woocommerce-placeholder.png"
-                description=truncate(item.description,100,'...')
-                output+=`
-                <div class="col-12 col-md-6  col-lg-4">
-                    <a class="cardLink text-dark text-decoration-none" href="http://localhost:5500/product.html?product-id=${item.id}">  
-                        <div class="card w-100" >
-                            <div class="w-100">    
-                                <div class="image-container">
-                                    <img src="${photo}" class="card-img-top w-100 h-100" alt="...">
-                                </div>
-                            </div>
-                            <div class="card-body">
-                            <h5 class="card-title">${item.name}</h5>
-                            <p class="card-text ">${description}</p>
-                            ${price}
-                            
-                            </div>
-                        </div>
-                    </a>    
-                </div>
-                `
-            })
-            categoriesItems.innerHTML=output
-        })
-    }
-    
-}
 generateProduct()
 generateCategories()
 generateCart()

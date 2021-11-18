@@ -95,9 +95,11 @@ const addCategoriesListeners = ()=>{
 async function generateProducts(){
 
     const categoriesItems = document.getElementById("categories-items")
-    const whereAmI = document.getElementById("whereAmI")
+    // const whereAmI = document.getElementById("whereAmI")
     const paginationContainers = document.querySelectorAll(".pagination")
     const perPageContainer = document.getElementById('productsPerPage')
+   
+
 
     let price=""
     let photo = ""
@@ -114,10 +116,9 @@ async function generateProducts(){
     let producents = urlParams.getAll("producer")
     let otherCategories = urlParams.getAll("options")
     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+    let chosenCategoryName
     let page = urlParams.get("page")?Number(urlParams.get("page")):1
     let perPage = urlParams.get("per-page")?Number(urlParams.get("per-page")):6
-
-    
 
     if(urlParams.get('price_gte')!==null){
         apiSearchParams.set('price_gte',urlParams.get('price_gte'))
@@ -142,7 +143,6 @@ async function generateProducts(){
         apiSearchParams.set("category",chosenCategory)
     }
 
-    
     const favorites = await fetch("http://localhost:3000/favorites")
                             .then(res=>res.json())
                             .then(data=>{return data})
@@ -198,9 +198,26 @@ async function generateProducts(){
                 })
             }
             categoriesItems.innerHTML=output
-            whereAmI.innerText =`Categories`
+            // whereAmI.innerText =`Categories`
         })
+        generateBreadCrump()
     
+}
+
+async function generateBreadCrump(){
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString)
+    let chosenCategory = urlParams.get('category')
+    let categoryName
+
+    await fetch(`http://localhost:3000/categories/${chosenCategory}`)
+    .then(res=>res.json())
+    .then(data=>{
+        categoryName=data.name
+    })
+
+    const breadCrump = document.getElementById("breadCrump")
+    breadCrump.innerHTML=`<a href="http://localhost:5500/main.html">Home</a>&nbsp/&nbsp<span class="text-dark"><a href="http://localhost:5500/categories.html?category=${chosenCategory}"><span class="text-dark">${categoryName}</span></a>`
     
 }
 
@@ -218,7 +235,7 @@ async function generateCategories(){
         data.forEach(async function(item){
             categoriesCount = await getCategoriesCount(item.id)
             categoriesDropdownBody.innerHTML+=`
-            <a class="text-dark text-decoration-none" href="http://localhost:5500/categories.html?category=${item.id}">
+            <a class="text-dark text-decoration-none" data-categoryId="${item.id}" data-categoryName="${item.name}" href="http://localhost:5500/categories.html?category=${item.id}">
                 <div id="choose-category-${item.id}" class="category-element container-fluid row m-0 border py-2 ">
                     <div class="col-10  col-lg-8 p-0 text-truncate">${item.name}</div>
                     <div class="col-2 col-lg-4 p-0">
@@ -543,7 +560,7 @@ async function generateCart(){
         
         data.forEach(item=>{
             totalItems+=Number(item.qty)
-            total+=item.price
+            total+=item.price*item.qty
             cartBoxTemplate+=
             `
             <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-productId="${item.productId}" data-qty="${item.qty}">
@@ -796,10 +813,11 @@ function generatePaginationListeners(){
 }
 
 generateFilters()
+generateCategories()
 generatePerPageListeners()
 generateMainCarousel()
 generateProducts()
-generateCategories()
+
 generateCart()
 addNavBarLiteners()
 addCategoriesListeners()
