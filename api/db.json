@@ -33,6 +33,26 @@
       "size": "S",
       "color": "black",
       "id": 4
+    },
+    {
+      "productId": 23,
+      "price": 999.99,
+      "qty": 1,
+      "name": "name",
+      "thumbnail": "something.jpg",
+      "size": "S",
+      "color": "red",
+      "id": 5
+    },
+    {
+      "productId": 1,
+      "price": 119.99,
+      "qty": 2,
+      "name": "name",
+      "thumbnail": "something.jpg",
+      "size": "S",
+      "color": "green",
+      "id": 6
     }
   ],
   "favorites": [
