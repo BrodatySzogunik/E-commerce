@@ -234,6 +234,8 @@ async function generateBreadCrump(chosenCategory,productName){
 async function addItemToCart(data,itemQty,size,color){
     const cartBox = document.getElementById("cartBox")
     let existInCart = false
+    let itemSize
+    let itemColor
     let prevItemQty
     let payload
     let cartPositionId
@@ -242,32 +244,53 @@ async function addItemToCart(data,itemQty,size,color){
 
     console.log(Array.from(cartBox.children))
     Array.from(cartBox.children).forEach(item=>{
-        console.log(Number(item.dataset.id),Number(data.id))
-        if(Number(item.dataset.productid) === Number(data.id)){
-            existInCart=true
+        if((Number(item.dataset.item_id) === Number(data.id))&&(item.dataset.size===size)&&(item.dataset.color===color)){
+            existInCart = true
+            itemSize = item.dataset.size
+            itemColor = item.dataset.color
             cartPositionId = item.dataset.id
-            prevItemQty=Number(item.dataset.qty)
+            prevItemQty = Number(item.dataset.qty)
         }
     })
     
     if(existInCart){
+        // if((color!=itemColor)||(size!=itemSize)){
+        //     uri = `http://localhost:3000/cart`
+        //     payload = {
+        //         method:"POST",
+        //         headers:{
+        //             'Accept':'application/json',
+        //             'Content-Type':'application/json'
+        //         },
+        //         body:JSON.stringify({
+        //             productId:Number(data.id),
+        //             price:Number(data.price),
+        //             qty:itemQty,
+        //             name:"name",
+        //             thumbnail:"something.jpg",
+        //             size:size,
+        //             color:color
+        //         })
+        //         }
+        // }else{
         uri = `http://localhost:3000/cart/${cartPositionId}`
         payload = {
-        method:"PATCH",
-        headers:{
-            'Accept':'application/json',
-            'Content-Type':'application/json'
-        },
-        body:JSON.stringify({
-            productId:Number(data.id),
-            price:Number(data.price),
-            qty:prevItemQty+itemQty,
-            name:"name",
-            thumbnail:"something.jpg",
-            size:size,
-            color:color
-        })
-        }
+            method:"PATCH",
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({
+                productId:Number(data.id),
+                price:Number(data.price),
+                qty:prevItemQty+itemQty,
+                name:"name",
+                thumbnail:"something.jpg",
+                size:itemSize,
+                color:itemColor
+            })
+            }
+        // }
     }else{
         uri = `http://localhost:3000/cart`
         payload = {
@@ -319,7 +342,7 @@ const generateAddToCartLisener = ()=>{
 
 
 
-
+ 
 async function generateCart(){
     let cartBox = document.getElementById("cartBox")
     let cart = document.getElementById("cart")
@@ -337,14 +360,14 @@ async function generateCart(){
             total+=item.price*item.qty
             cartBoxTemplate+=
             `
-            <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-productId="${item.productId}" data-qty="${item.qty}">
+            <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-item_id="${item.productId}" data-size="${item.size?item.size:""}" data-color="${item.color?item.color:""}" data-productId="${item.productId}" data-qty="${item.qty}">
                 <div class="col-2 p-0 m-0">
                     <div class="w-100">    
                         <div class="image-container">
                             <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
                             <div class="productCounter">${item.qty}x</div>
                             ${item.size?`<div class="productSize">${item.size}</div>`:""}
-                            ${item.color?`<div class="productColor productColor-${item.color}"></div>`:""}
+                            ${item.color?`<div class="productColor" style="background-color:${item.color}"></div>`:""}
                         </div>
                     </div>
                 </div>

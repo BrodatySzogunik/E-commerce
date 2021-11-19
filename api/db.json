@@ -1,58 +1,54 @@
 {
   "cart": [
     {
-      "productId": 16,
-      "price": 99.99,
-      "qty": 1,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "id": 1
-    },
-    {
-      "productId": 2,
-      "price": 29.99,
-      "qty": 1,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "id": 2
-    },
-    {
-      "productId": 10,
-      "price": 199.99,
-      "qty": 1,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "id": 3
-    },
-    {
       "productId": 6,
       "price": 99.99,
-      "qty": 2,
+      "qty": 3,
       "name": "name",
       "thumbnail": "something.jpg",
       "size": "S",
       "color": "black",
+      "id": 3
+    },
+    {
+      "productId": 2,
+      "price": 29.99,
+      "qty": 3,
+      "name": "name",
+      "thumbnail": "something.jpg",
+      "size": "M",
+      "color": "black",
       "id": 4
     },
     {
-      "productId": 23,
+      "productId": 3,
       "price": 999.99,
       "qty": 1,
       "name": "name",
       "thumbnail": "something.jpg",
-      "size": "S",
-      "color": "red",
+      "size": "M",
+      "color": "black",
       "id": 5
     },
     {
-      "productId": 1,
-      "price": 119.99,
-      "qty": 2,
+      "productId": 5,
+      "price": 199.99,
+      "qty": 1,
       "name": "name",
       "thumbnail": "something.jpg",
-      "size": "S",
-      "color": "green",
+      "size": "M",
+      "color": "black",
       "id": 6
+    },
+    {
+      "productId": 8,
+      "price": 99.99,
+      "qty": 1,
+      "name": "name",
+      "thumbnail": "something.jpg",
+      "size": "M",
+      "color": "black",
+      "id": 7
     }
   ],
   "favorites": [
@@ -73,6 +69,12 @@
     },
     {
       "id": 3
+    },
+    {
+      "id": 1
+    },
+    {
+      "id": 2
     }
   ],
   "categories": [

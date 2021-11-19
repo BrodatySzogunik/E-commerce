@@ -171,6 +171,8 @@ async function generateProducts(){
                 paginationContainers.forEach(item=>{item.classList.add('d-none')})
                 perPageContainer.classList.add('d-none')
             }else{
+                paginationContainers.forEach(item=>{item.classList.remove('d-none')})
+                perPageContainer.classList.remove('d-none')
                 data.forEach(item=>{
                     price=item.priceDiscounted?`<p class="price-striked">${item.price} PLN </p>
                                                 <p class="fs-bigger">${item.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" data-id="${item.id}" data-price="${item.priceDiscounted}" data-qty="1" class="card-cart" alt=""></p>`:
@@ -213,12 +215,13 @@ async function generateBreadCrump(){
     const urlParams = new URLSearchParams(queryString)
     let chosenCategory = urlParams.get('category')
     let categoryName
-
-    await fetch(`http://localhost:3000/categories/${chosenCategory}`)
-    .then(res=>res.json())
-    .then(data=>{
-        categoryName=data.name
-    })
+    if(chosenCategory){
+            await fetch(`http://localhost:3000/categories/${chosenCategory}`)
+        .then(res=>res.json())
+        .then(data=>{
+            categoryName=data.name
+        })
+    }
 
     const breadCrump = document.getElementById("breadCrump")
     breadCrump.innerHTML=`<a href="http://localhost:5500/main.html">Home</a>&nbsp/&nbsp<span class="text-dark"><a href="http://localhost:5500/categories.html?category=${chosenCategory}"><span class="text-dark">${categoryName!=undefined?categoryName:"Products"}</span></a>`
@@ -287,7 +290,9 @@ async function addItemToCart(data){
             price:Number(data.price),
             qty:itemQty+Number(data.qty),
             name:"name",
-            thumbnail:"something.jpg"
+            thumbnail:"something.jpg".toString,
+            size:"M",
+            color:"black"
         })
         }
     }else{
@@ -303,7 +308,9 @@ async function addItemToCart(data){
                 price:Number(data.price),
                 qty:1,
                 name:"name",
-                thumbnail:"something.jpg"
+                thumbnail:"something.jpg",
+                size:"M",
+                color:"black"
             })
             }
     }
@@ -452,6 +459,7 @@ async function generateFilters(){
     await fetch("http://localhost:3000/saloons")
     .then(res => res.json())
     .then(data=>{
+        selectSaloon.innerHTML+=`<option  value="0" selected disabled>Saloon</option>`
         data.forEach(item=>{
             selectSaloon.innerHTML+=`<option  value="${item.id}">${item.name}</option>`
         })
@@ -575,14 +583,14 @@ async function generateCart(){
             total+=item.price*item.qty
             cartBoxTemplate+=
             `
-            <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-productId="${item.productId}" data-qty="${item.qty}">
+            <div class="row container-fluid w-100 cart-item px-0 ml-auto mr-0" data-id="${item.id}" data-item_id="${item.productId}" data-size="${item.size?item.size:""}" data-color="${item.color?item.color:""}" data-productId="${item.productId}" data-qty="${item.qty}">
                 <div class="col-2 p-0 m-0">
                     <div class="w-100">    
                         <div class="image-container">
                             <img src="assets\\img\\${item.thumbnail}" class="cart-img w-100 h-100" alt="...">
                             <div class="productCounter">${item.qty}x</div>
                             ${item.size?`<div class="productSize">${item.size}</div>`:""}
-                            ${item.color?`<div class="productColor productColor-${item.color}"></div>`:""}
+                            ${item.color?`<div class="productColor" style="background-color:${item.color}"></div>`:""}
                         </div>
                     </div>
                 </div>
