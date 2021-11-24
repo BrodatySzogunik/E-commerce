@@ -1,80 +1,42 @@
 {
   "cart": [
     {
-      "productId": 6,
-      "price": 99.99,
-      "qty": 3,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "size": "S",
-      "color": "black",
-      "id": 3
+      "id": 1,
+      "productId": 1,
+      "price": 159.99,
+      "qty": 1,
+      "options": [
+        {
+          "size": "M",
+          "color": "red"
+        }
+      ]
     },
     {
+      "id": 2,
       "productId": 2,
-      "price": 29.99,
+      "price": 19.99,
       "qty": 3,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "size": "M",
-      "color": "black",
-      "id": 4
-    },
-    {
-      "productId": 3,
-      "price": 999.99,
-      "qty": 1,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "size": "M",
-      "color": "black",
-      "id": 5
-    },
-    {
-      "productId": 5,
-      "price": 199.99,
-      "qty": 1,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "size": "M",
-      "color": "black",
-      "id": 6
-    },
-    {
-      "productId": 8,
-      "price": 99.99,
-      "qty": 1,
-      "name": "name",
-      "thumbnail": "something.jpg",
-      "size": "M",
-      "color": "black",
-      "id": 7
+      "options": [
+        {
+          "size": "L",
+          "color": "black"
+        }
+      ]
     }
   ],
   "favorites": [
-    {
-      "id": 4
-    },
-    {
-      "id": 32
-    },
-    {
-      "id": 36
-    },
-    {
-      "id": 27
-    },
-    {
-      "id": 29
-    },
-    {
-      "id": 3
-    },
     {
       "id": 1
     },
     {
       "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
     }
   ],
   "categories": [
@@ -345,20 +307,9 @@
       "price": 159.99,
       "priceDiscounted": 119.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
+      "option": 1,
       "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
@@ -393,19 +344,9 @@
       "category": 2,
       "price": 29.99,
       "new": false,
-      "option": [
-        6,
-        8,
-        13,
-        14,
-        23,
-        24
-      ],
+      "option": 6,
       "producer": 2,
-      "saloon": [
-        2,
-        3
-      ],
+      "saloon": 2,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -439,18 +380,9 @@
       "category": 3,
       "price": 999.99,
       "new": false,
-      "option": [
-        16,
-        18,
-        20,
-        21,
-        23,
-        24
-      ],
+      "option": 16,
       "producer": 3,
-      "saloon": [
-        4
-      ],
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -484,19 +416,9 @@
       "category": 1,
       "price": 259.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        23,
-        24
-      ],
+      "option": 4,
       "producer": 3,
-      "saloon": [
-        3
-      ],
+      "saloon": 3,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -530,21 +452,9 @@
       "category": 2,
       "price": 199.99,
       "new": false,
-      "option": [
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        23,
-        24
-      ],
+      "option": 7,
       "producer": 3,
-      "saloon": [
-        2
-      ],
+      "saloon": 2,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -578,16 +488,9 @@
       "category": 3,
       "price": 99.99,
       "new": true,
-      "option": [
-        16,
-        17,
-        23,
-        24
-      ],
+      "option": 17,
       "producer": 3,
-      "saloon": [
-        1
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -621,23 +524,9 @@
       "category": 1,
       "price": 139.99,
       "new": true,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        23,
-        24
-      ],
+      "option": 8,
       "producer": 3,
-      "saloon": [
-        1,
-        4
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -671,22 +560,9 @@
       "category": 2,
       "price": 99.99,
       "new": false,
-      "option": [
-        6,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        23,
-        24
-      ],
+      "option": 14,
       "producer": 3,
-      "saloon": [
-        1,
-        2
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -720,21 +596,9 @@
       "category": 1,
       "price": 159.99,
       "new": true,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        8,
-        23,
-        24
-      ],
+      "option": 5,
       "producer": 3,
-      "saloon": [
-        1,
-        4
-      ],
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg",
@@ -770,21 +634,9 @@
       "category": 3,
       "price": 199.99,
       "new": true,
-      "option": [
-        16,
-        17,
-        18,
-        19,
-        20,
-        23,
-        24
-      ],
+      "option": 20,
       "producer": 3,
-      "saloon": [
-        1,
-        2,
-        4
-      ],
+      "saloon": 2,
       "photos": [],
       "specification": [
         {
@@ -808,8 +660,7 @@
           "value": "24"
         }
       ]
-    },
-    {
+    },{
       "id": 11,
       "name": "Motorcycle helmet (best one)",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -817,20 +668,9 @@
       "price": 159.99,
       "priceDiscounted": 119.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
+      "option": 3,
       "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "saloon": 3,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
@@ -865,19 +705,9 @@
       "category": 2,
       "price": 29.99,
       "new": false,
-      "option": [
-        6,
-        8,
-        13,
-        14,
-        23,
-        24
-      ],
+      "option": 14,
       "producer": 2,
-      "saloon": [
-        2,
-        3
-      ],
+      "saloon": 3,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -911,18 +741,9 @@
       "category": 3,
       "price": 999.99,
       "new": false,
-      "option": [
-        16,
-        18,
-        20,
-        21,
-        23,
-        24
-      ],
+      "option": 21,
       "producer": 3,
-      "saloon": [
-        4
-      ],
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -956,19 +777,9 @@
       "category": 1,
       "price": 259.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        23,
-        24
-      ],
+      "option": 4,
       "producer": 3,
-      "saloon": [
-        3
-      ],
+      "saloon": 3,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1002,21 +813,9 @@
       "category": 2,
       "price": 199.99,
       "new": false,
-      "option": [
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        23,
-        24
-      ],
+      "option": 12,
       "producer": 3,
-      "saloon": [
-        2
-      ],
+      "saloon": 2,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1050,16 +849,9 @@
       "category": 3,
       "price": 99.99,
       "new": true,
-      "option": [
-        16,
-        17,
-        23,
-        24
-      ],
+      "option": 17,
       "producer": 3,
-      "saloon": [
-        1
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1093,23 +885,9 @@
       "category": 1,
       "price": 139.99,
       "new": true,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        23,
-        24
-      ],
+      "option": 7,
       "producer": 3,
-      "saloon": [
-        1,
-        4
-      ],
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1143,22 +921,9 @@
       "category": 2,
       "price": 99.99,
       "new": false,
-      "option": [
-        6,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        23,
-        24
-      ],
+      "option": 15,
       "producer": 3,
-      "saloon": [
-        1,
-        2
-      ],
+      "saloon": 2,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1192,21 +957,9 @@
       "category": 1,
       "price": 159.99,
       "new": true,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        8,
-        23,
-        24
-      ],
+      "option": 4,
       "producer": 3,
-      "saloon": [
-        1,
-        4
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg",
@@ -1242,21 +995,9 @@
       "category": 3,
       "price": 199.99,
       "new": true,
-      "option": [
-        16,
-        17,
-        18,
-        19,
-        20,
-        23,
-        24
-      ],
+      "option": 19,
       "producer": 3,
-      "saloon": [
-        1,
-        2,
-        4
-      ],
+      "saloon": 1,
       "photos": [],
       "specification": [
         {
@@ -1280,8 +1021,7 @@
           "value": "24"
         }
       ]
-    },
-    {
+    },{
       "id": 21,
       "name": "Motorcycle helmet relatively good",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -1289,20 +1029,9 @@
       "price": 159.99,
       "priceDiscounted": 119.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
+      "option": 2,
       "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "saloon": 2,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
@@ -1337,19 +1066,9 @@
       "category": 2,
       "price": 29.99,
       "new": false,
-      "option": [
-        6,
-        8,
-        13,
-        14,
-        23,
-        24
-      ],
+      "option": 6,
       "producer": 2,
-      "saloon": [
-        2,
-        3
-      ],
+      "saloon": 3,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1383,18 +1102,9 @@
       "category": 3,
       "price": 999.99,
       "new": false,
-      "option": [
-        16,
-        18,
-        20,
-        21,
-        23,
-        24
-      ],
+      "option": 20,
       "producer": 3,
-      "saloon": [
-        4
-      ],
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1428,19 +1138,9 @@
       "category": 1,
       "price": 259.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        23,
-        24
-      ],
+      "option": 1,
       "producer": 3,
-      "saloon": [
-        3
-      ],
+      "saloon": 3,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1474,21 +1174,9 @@
       "category": 2,
       "price": 199.99,
       "new": false,
-      "option": [
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        23,
-        24
-      ],
+      "option": 10,
       "producer": 3,
-      "saloon": [
-        2
-      ],
+      "saloon": 2,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1522,16 +1210,9 @@
       "category": 3,
       "price": 99.99,
       "new": true,
-      "option": [
-        16,
-        17,
-        23,
-        24
-      ],
+      "option": 16,
       "producer": 3,
-      "saloon": [
-        1
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1565,23 +1246,9 @@
       "category": 1,
       "price": 139.99,
       "new": true,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        23,
-        24
-      ],
+      "option": 1,
       "producer": 3,
-      "saloon": [
-        1,
-        4
-      ],
+      "saloon": 1,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1615,22 +1282,9 @@
       "category": 2,
       "price": 99.99,
       "new": false,
-      "option": [
-        6,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        23,
-        24
-      ],
+      "option": 6,
       "producer": 3,
-      "saloon": [
-        1,
-        2
-      ],
+      "saloon": 2,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
@@ -1664,21 +1318,9 @@
       "category": 1,
       "price": 159.99,
       "new": true,
-      "option": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        8,
-        23,
-        24
-      ],
+      "option": 1,
       "producer": 3,
-      "saloon": [
-        1,
-        4
-      ],
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg",
@@ -1714,21 +1356,9 @@
       "category": 3,
       "price": 199.99,
       "new": true,
-      "option": [
-        16,
-        17,
-        18,
-        19,
-        20,
-        23,
-        24
-      ],
+      "option": 20,
       "producer": 3,
-      "saloon": [
-        1,
-        2,
-        4
-      ],
+      "saloon": 4,
       "photos": [],
       "specification": [
         {
@@ -1755,26 +1385,15 @@
     },
     {
       "id": 31,
-      "name": "Motorcycle helmet",
+      "name": "Motorcycle helmet (same one)",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "category": 1,
-      "price": 159.99,
+      "price": 129.99,
       "priceDiscounted": 119.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
-      "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "option": 13,
+      "producer": 2,
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
@@ -1804,28 +1423,15 @@
     },
     {
       "id": 32,
-      "name": "Motorcycle helmet",
+      "name": "Motorcycle helmet cheapest one",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "category": 1,
-      "price": 159.99,
-      "priceDiscounted": 119.99,
+      "category": 2,
+      "price": 29.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
-      "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "option": 19,
+      "producer": 3,
+      "saloon": 2,
       "photos": [
-        "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
       "specification": [
@@ -1839,42 +1445,29 @@
         },
         {
           "name": "Weight",
-          "value": "2.2kg"
+          "value": "1.0kg"
         },
         {
           "name": "Dimensions",
-          "value": "40cm x 40cm x 40cm"
+          "value": "50cm x 50cm x 50cm"
         },
         {
           "name": "Warranty",
-          "value": "24"
+          "value": "36"
         }
       ]
     },
     {
       "id": 33,
-      "name": "Motorcycle helmet",
+      "name": "Motorcycle helmet wider one",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "category": 1,
-      "price": 159.99,
-      "priceDiscounted": 119.99,
+      "category": 3,
+      "price": 899.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
+      "option": 22,
       "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "saloon": 2,
       "photos": [
-        "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
       "specification": [
@@ -1902,28 +1495,15 @@
     },
     {
       "id": 34,
-      "name": "Motorcycle helmet",
+      "name": "Motorcycle helmet bigger one",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "category": 1,
-      "price": 159.99,
-      "priceDiscounted": 119.99,
+      "price": 229.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
-      "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "option": 9,
+      "producer": 2,
+      "saloon": 4,
       "photos": [
-        "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
       "specification": [
@@ -1951,26 +1531,230 @@
     },
     {
       "id": 35,
-      "name": "Motorcycle helmet",
+      "name": "Motorcycle helmet smaller",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 199.99,
+      "new": false,
+      "option": 17,
+      "producer": 1,
+      "saloon": 3,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "name": "Motorcycle helmet without extras",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 139.99,
+      "new": true,
+      "option": 12,
+      "producer": 2,
+      "saloon": 2,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "name": "Motorcycle helmet with extra options",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 179.99,
+      "new": true,
+      "option": 8,
+      "producer": 2,
+      "saloon": 1,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "name": "Motorcycle helmet ready to use",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 99.99,
+      "new": false,
+      "option": 20,
+      "producer": 1,
+      "saloon": 3,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "Motorcycle helmet fine",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "category": 1,
       "price": 159.99,
+      "new": true,
+      "option": 5,
+      "producer": 1,
+      "saloon": 2,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg",
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Motorcycle helmet cool styled",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 89.99,
+      "new": true,
+      "option": 17,
+      "producer": 2,
+      "saloon": 3,
+      "photos": [],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },{
+      "id": 41,
+      "name": "Motorcycle helmet relatively good enough",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 189.99,
       "priceDiscounted": 119.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
-      "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "option": 3,
+      "producer": 2,
+      "saloon": 4,
       "photos": [
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
@@ -1999,31 +1783,306 @@
       ]
     },
     {
-      "id": 36,
-      "name": "Motorcycle helmet",
+      "id": 42,
+      "name": "Motorcycle helmet kind off cheap",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 29.99,
+      "new": false,
+      "option": 7,
+      "producer": 3,
+      "saloon": 1,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "1.0kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "50cm x 50cm x 50cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "36"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "name": "Motorcycle helmet pretty nice one",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 799.99,
+      "new": false,
+      "option": 21,
+      "producer": 1,
+      "saloon": 1,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Motorcycle helmet not to special",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "category": 1,
-      "price": 159.99,
-      "priceDiscounted": 119.99,
+      "price": 289.99,
       "new": false,
-      "option": [
-        1,
-        2,
-        3,
-        23,
-        24
-      ],
+      "option": 2,
       "producer": 1,
-      "saloon": [
-        1,
-        2,
-        3,
-        4
-      ],
+      "saloon": 4,
       "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "name": "Motorcycle helmet extraordinary",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 199.99,
+      "new": false,
+      "option": 11,
+      "producer": 1,
+      "saloon": 3,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "name": "Motorcycle helmet tested",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 79.99,
+      "new": true,
+      "option": 17,
+      "producer": 1,
+      "saloon": 2,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "name": "Motorcycle helmet without goggles",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 189.99,
+      "new": true,
+      "option": 2,
+      "producer": 1,
+      "saloon": 2,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "name": "Motorcycle helmet reddish",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 2,
+      "price": 119.99,
+      "new": false,
+      "option": 7,
+      "producer": 3,
+      "saloon": 3,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg"
+      ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "name": "Motorcycle helmet blackened",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 1,
+      "price": 189.99,
+      "new": true,
+      "option": 8,
+      "producer": 2,
+      "saloon": 1,
+      "photos": [
+        "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg",
         "7a67c57a311acdbd258694542cf442d6.jpg"
       ],
+      "specification": [
+        {
+          "name": "Available sizes",
+          "value": "M, L, XL, XXL"
+        },
+        {
+          "name": "Available colors",
+          "value": "black, red"
+        },
+        {
+          "name": "Weight",
+          "value": "2.2kg"
+        },
+        {
+          "name": "Dimensions",
+          "value": "40cm x 40cm x 40cm"
+        },
+        {
+          "name": "Warranty",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "name": "Motorcycle helmet typical",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "category": 3,
+      "price": 199.99,
+      "new": true,
+      "option": 20,
+      "producer": 3,
+      "saloon": 4,
+      "photos": [],
       "specification": [
         {
           "name": "Available sizes",
@@ -2085,5 +2144,97 @@
     "lastName": "Doe",
     "email": "bootcamp@atos.net"
   },
-  "videos": []
+  "videos": [
+    {
+      "title": "Best motorcycle helmets 2021",
+      "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "url": "https://www.youtube.com/watch?v=KHR_7WknJmw",
+      "thumbnails": [
+        {
+          "quality": "hq",
+          "url": "https://img.youtube.com/vi/KHR_7WknJmw/hqdefault.jpg"
+        },
+        {
+          "quality": "max",
+          "url": "https://img.youtube.com/vi/KHR_7WknJmw/maxresdefault.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Indian Scout Bobber LONG-TERM Review",
+      "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "url": "https://www.youtube.com/watch?v=nbQ8in-Gnmg",
+      "thumbnails": [
+        {
+          "quality": "hq",
+          "url": "https://img.youtube.com/vi/nbQ8in-Gnmg/hqdefault.jpg"
+        },
+        {
+          "quality": "max",
+          "url": "https://img.youtube.com/vi/nbQ8in-Gnmg/maxresdefault.jpg"
+        }
+      ]
+    },
+    {
+      "title": "2022 Indian Chief Test Ride and Review from a Scout Bobber Owner Perspective",
+      "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "url": "https://www.youtube.com/watch?v=cO6vLZjDaLQ",
+      "thumbnails": [
+        {
+          "quality": "hq",
+          "url": "https://img.youtube.com/vi/cO6vLZjDaLQ/hqdefault.jpg"
+        },
+        {
+          "quality": "max",
+          "url": "https://img.youtube.com/vi/cO6vLZjDaLQ/maxresdefault.jpg"
+        }
+      ]
+    },
+    {
+      "title": "A New Indian Motorcycle for Any Rider? | A Full Experience with 2022 Indian Chief!",
+      "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "url": "https://www.youtube.com/watch?v=gIINcmE33gA",
+      "thumbnails": [
+        {
+          "quality": "hq",
+          "url": "https://img.youtube.com/vi/gIINcmE33gA/hqdefault.jpg"
+        },
+        {
+          "quality": "max",
+          "url": "https://img.youtube.com/vi/gIINcmE33gA/maxresdefault.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Keanu Reeves Shows Us His Most Prized Motorcycles | Collected | GQ",
+      "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "url": "https://www.youtube.com/watch?v=O4iGNXsqghs",
+      "thumbnails": [
+        {
+          "quality": "hq",
+          "url": "https://img.youtube.com/vi/O4iGNXsqghs/hqdefault.jpg"
+        },
+        {
+          "quality": "max",
+          "url": "https://img.youtube.com/vi/O4iGNXsqghs/maxresdefault.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Harley-Davidson FXSB Breakout Sound (Barry from UK)",
+      "description": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "url": "https://www.youtube.com/watch?v=AkmK-JG9hKM",
+      "thumbnails": [
+        {
+          "quality": "hq",
+          "url": "https://img.youtube.com/vi/AkmK-JG9hKM/hqdefault.jpg"
+        },
+        {
+          "quality": "max",
+          "url": "https://img.youtube.com/vi/AkmK-JG9hKM/maxresdefault.jpg"
+        }
+      ]
+    }
+  ]
 }
+

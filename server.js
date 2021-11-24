@@ -7,31 +7,7 @@ const middlewares = jsonServer.defaults();
 router.render = (req, res) => {
     let data = res.locals.data;
     if (req.method === 'GET' && req.url.indexOf("/products") === 0) {
-        const queries = req.url.split('?')[1] ? req.url.split('?')[1].split('&') : [];
-        const optionsQuery = queries.find(q => q.includes('options')) ? queries.find(q => q.includes('options')).slice(8) : null;
-        const saloonsQuery = queries.find(q => q.includes('saloons')) ? queries.find(q => q.includes('saloons')).slice(8) : null;
-        const producersQuery = queries.find(q => q.includes('producers')) ? queries.find(q => q.includes('producers')).slice(10) : null;
-
-        const productOptions = optionsQuery ? optionsQuery.split(',').map(id => Number(id)) : [];
-        const productSaloons = saloonsQuery ? saloonsQuery.split(',').map(id => Number(id)) : [];
-        const productProducers = producersQuery ? producersQuery.split(',').map(id => Number(id)) : [];
-
         if(Array.isArray(data)) {
-            if(productOptions.length) {
-                data = data.filter(product => {
-                    return product.option.some(option => productOptions.includes(option));
-                });
-            }
-            if(productSaloons.length) {
-                data = data.filter(product => {
-                    return product.saloon.some(option => productSaloons.includes(option));
-                });
-            }
-            if(productProducers.length) {
-                data = data.filter(product => {
-                    return productProducers.includes(product.producer);
-                });
-            }
             data = data.map(product => {
                 // For the general list of products we don't need the details below, we remove them from the response
                 delete product.option;
@@ -42,12 +18,9 @@ router.render = (req, res) => {
         }
         else {
             const options = router.db.get("options").value();
-            data.option = options.filter(option => option.type === "multi" && data.option.includes(option.id))
+            data.option = options.find(option => data.option === option.id)
             // Remove unneccessary information
-            data.option.map(option => {
-                delete option.categories;
-                return option;
-            });
+            delete data.option.categories;
             delete data.saloon;
             delete data.producer;
         }
@@ -82,7 +55,7 @@ router.render = (req, res) => {
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
-server.use(jsonServer.bodyParser)
+server.use(jsonServer.bodyParser);
 server.use((req, res, next) => {
     if (req.method === 'PATCH' && req.url.indexOf("/favorites") === 0) {
         res.status(405).jsonp({
@@ -105,15 +78,4 @@ server.use(middlewares)
 server.use(router)
 server.listen(3000, () => {
     console.log('JSON Server is running')
-})
-
-function getCurrentDate() {
-    let date = new Date(Number(Date.now()));
-    let year = date.getFullYear();
-    let month = String(date.getMonth() + 1).length === 1 ? `0${(date.getMonth() + 1)}` : (date.getMonth() + 1);
-    let day = String(date.getDate()).length === 1 ? `0${date.getDate()}` : date.getDate();
-    let hours = String(date.getHours()).length === 1 ? `0${date.getHours()}` : date.getHours();
-    let minutes = String(date.getMinutes()).length === 1 ? `0${date.getMinutes()}` : date.getMinutes();
-    let seconds = String(date.getSeconds()).length === 1 ? `0${date.getSeconds()}` : date.getSeconds();
-    return day + "-" + month + "-" + year + " " + hours + ":" + minutes + ":" + seconds;
-}
+});
