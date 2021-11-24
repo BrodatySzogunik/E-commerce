@@ -71,7 +71,7 @@ const addCategoriesListeners = ()=>{
             
         })
 
-        filtersDropdown.addEventListener("click",()=>{
+    filtersDropdown.addEventListener("click",()=>{
             if(filtersDropdownBody.classList.contains("d-none"))
             {
                 filtersDropdownBody.classList.remove("d-none")
@@ -85,6 +85,39 @@ const addCategoriesListeners = ()=>{
             }
             
         })
+    
+    categoriesDropdownBody.addEventListener("click",(event)=>{
+        event.preventDefault()
+        let categoryContainer
+        if(event.target.classList.contains("categories-count")){
+            categoryContainer = event.target.parentElement.parentElement
+        }
+        if(event.target.classList.contains("categories-counter-box")){
+            categoryContainer = event.target.parentElement
+        }
+        if(event.target.classList.contains("text-truncate")){
+            categoryContainer = event.target.parentElement
+        }
+        if(event.target.classList.contains("category-element")){
+            categoryContainer = event.target
+        }
+
+        Array.from(categoryContainer.parentElement.parentElement.children).forEach(item=>{
+            if(Array.from(item.children)[0].classList.contains("category-element-active")){
+                Array.from(item.children)[0].classList.remove("category-element-active");
+                Array.from(item.children)[0].classList.add("category-element");
+            }
+        })
+
+        categoryContainer.classList.remove("category-element")
+        categoryContainer.classList.add("category-element-active")
+        generateFilters();
+        generateQueryString();
+        generateProducts();
+        
+
+    })
+
 }
 
 
@@ -243,10 +276,10 @@ async function generateCategories(){
             categoriesCount = await getCategoriesCount(item.id)
             categoriesDropdownBody.innerHTML+=`
             <a class="text-dark text-decoration-none" data-categoryId="${item.id}" data-categoryName="${item.name}" href="http://localhost:5500/categories.html?category=${item.id}">
-                <div id="choose-category-${item.id}" class="category-element container-fluid row m-0 border py-2 ">
-                    <div class="col-10  col-lg-8 p-0 text-truncate">${item.name}</div>
-                    <div class="col-2 col-lg-4 p-0">
-                    <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold">${categoriesCount}</p>
+                <div id="choose-category-${item.id}" data-categoryId="${item.id}" class="category-element container-fluid row m-0 border py-2 ">
+                    <div class="col-10  col-lg-8 p-0 text-truncate" data-categoryId="${item.id}">${item.name}</div>
+                    <div class="col-2 col-lg-4 p-0 categories-counter-box" data-categoryId="${item.id}">
+                    <p class="categories-count rounded-pill p-0 fs-small text-center text-white m-0 font-weight-bold" data-categoryId="${item.id}">${categoriesCount}</p>
                     </div> 
                 </div>
                 
@@ -435,6 +468,8 @@ async function generateFilters(){
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString)
     let chosenCategory = parseInt(urlParams.get("category"))?parseInt(urlParams.get("category")):0
+    let filters = urlParams.getAll("options")
+    console.log(filters);
 
     let filtersProducerBox = document.getElementById("filtersProducerBox")
     filtersProducerBox.innerHTML=`<div class="p-0 m-0">
@@ -474,15 +509,28 @@ async function generateFilters(){
     .then(data=>{
         data.forEach(item=>{
             if(item.type==="single"){
-                let newElement = document.createElement('div')
-                newElement.innerHTML=
-                `
-                <div class=" p-0 m-0 mb-2 d-flex align-items-center">
-                    <input id="otherCategory-${item.id}" value="${item.id}" type="checkbox" name="otherCategories">
-                    <label for="otherCategory-${item.id}">${item.label}</label>
-                </div>
-                `
-                otherOptions.appendChild(newElement)
+                if(filters.includes(item.id.toString()))
+                {
+                    let newElement = document.createElement('div')
+                    newElement.innerHTML=
+                    `
+                    <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                        <input id="otherCategory-${item.id}" checked value="${item.id}" type="checkbox" name="otherCategories">
+                        <label for="otherCategory-${item.id}">${item.label}</label>
+                    </div>
+                    `
+                    otherOptions.appendChild(newElement)
+                }else{
+                    let newElement = document.createElement('div')
+                    newElement.innerHTML=
+                    `
+                    <div class=" p-0 m-0 mb-2 d-flex align-items-center">
+                        <input id="otherCategory-${item.id}" value="${item.id}" type="checkbox" name="otherCategories">
+                        <label for="otherCategory-${item.id}">${item.label}</label>
+                    </div>
+                    `
+                    otherOptions.appendChild(newElement)
+                }
             }
 
         })
@@ -522,14 +570,17 @@ function generateQueryString(){
     const priceFrom = document.getElementById("price-from")
     const priceTo =document.getElementById("price-to")
     const selectSaloon = document.getElementById("selectSaloon")
+    const category = document.querySelector(".category-element-active")
 
 
     const urlNewParams = new URLSearchParams()
 
-
-    if(chosenCategory!==0){
-        urlNewParams.append("category",chosenCategory)
+    if(category){
+        urlNewParams.set("category",category.dataset.categoryid)
     }
+    // if(chosenCategory!==0){
+    //     urlNewParams.append("category",chosenCategory)
+    // }
     urlNewParams.append("page",pageNumber)
 
 
@@ -547,7 +598,12 @@ function generateQueryString(){
             urlNewParams.append("options",item.value)
         }
     })
-
+    urlParams.getAll("options").forEach(item =>{
+        if(!urlNewParams.getAll("options").includes(item)){
+            urlNewParams.append("options",item)
+        }
+    })
+    
     if(Number(priceFrom.value)!==0){
         urlNewParams.append("price_gte",Number(priceFrom.value))
     }

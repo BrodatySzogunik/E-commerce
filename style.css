@@ -202,6 +202,19 @@ p {
   color: #55b1ba !important;
 }
 
+.category-element-active{
+  border-color: #55b1ba !important;
+  color: #55b1ba !important;
+  
+}
+
+.category-element-active .categories-count {
+  background-color: #55b1ba;
+  max-width: 35px !important;
+}
+
+
+
 #filtersDropdownBody h6 {
   margin-top: 5vh;
 }
