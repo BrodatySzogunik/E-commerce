@@ -173,6 +173,10 @@ p {
   color: #494949;
 }
 
+.pagination:hover{
+  cursor:pointer;
+}
+
 .pagination-item:hover {
   color: #55b1ba;
   border-color: #55b1ba;

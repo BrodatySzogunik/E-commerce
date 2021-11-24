@@ -479,7 +479,7 @@ async function generateFilters(){
                 `
                 <div class=" p-0 m-0 mb-2 d-flex align-items-center">
                     <input id="otherCategory-${item.id}" value="${item.id}" type="checkbox" name="otherCategories">
-                    <label for="${item.label}">${item.label}</label>
+                    <label for="otherCategory-${item.id}">${item.label}</label>
                 </div>
                 `
                 otherOptions.appendChild(newElement)
