@@ -315,9 +315,30 @@ async function generateProducts(onPage) {
             console.log(e)
         }
         await generateCart()
-        
+}
 
-    
+const generateCloseVideoListener=()=>{
+    const videoBox = document.getElementById("videoBox")
+    videoBox.addEventListener("click",(event)=>{
+        console.log(event.target)
+        if(event.target.classList.contains("closeVideoButtonBox")||event.target.classList.contains("closeVideoButton")){
+            videoBox.classList.remove("d-block");
+            videoBox.classList.add("d-none");
+        }
+    })
+}
+
+const generateOpenVideoListener=()=>{
+    const videoCarouselInner = document.getElementById("videoCarouselInner")
+    const videoIFrame = document.getElementById("videoIFrame")
+    const videoBox = document.getElementById("videoBox")
+    videoCarouselInner.addEventListener("click",(event)=>{
+        if(event.target.classList.contains("videoImg")){
+            videoIFrame.src=event.target.dataset.src
+            videoBox.classList.remove("d-none")
+            videoBox.classList.add("d-block")
+        }
+    })
 }
 
     
@@ -348,6 +369,54 @@ async function generateProducts(onPage) {
     }
 
     
+async function generateVideoCarouselInner(){
+    const videoCarouselInner = document.getElementById("videoCarouselInner")
+    
+    let innerTemplate = "";
+    await fetch(`http://localhost:3000/videos`)
+    .then(res=>res.json())
+    .then(data => 
+        {
+            innerTemplate+=
+            `<div class="carousel-item active">
+            <div class="row w-100 m-0 p-0">`
+            let i = 1
+            data.forEach(item=>{
+                innerTemplate+=`
+                <div class="col-6 col-md-3 px-1 m-0 ">
+                    <div class="card w-100" >
+                    <div class="w-100">    
+                        <div class="image-container">
+                            <img src="${item.thumbnails[0].url}" data-src="${item.url}" class="card-img-top w-100 h-100 videoImg" alt="${item.thumbnails[0].url}">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="mt-2">${item.title}</h4>
+                        <p class="card-text mb-2">${item.description}</p>
+                        <div class="w-100 text-right"><a href="${item.url}" class="text-right">EXTERNAL LINK</a></div>
+                    </div>
+                    </div>
+                </div>
+                `
+                if(i%4===0){
+                    innerTemplate+=`
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="row w-100 m-0 p-0">
+                        `
+                }
+                i++;
+            })
+            innerTemplate+=`
+            </div>
+                    </div>
+            `
+            videoCarouselInner.innerHTML= innerTemplate
+        }
+    )
+}
+
 async function getCategoriesCount(id){
     const categoriesCount = await fetch(`http://localhost:3000/products?category=${id}`)
     .then(res=> res.json())
@@ -363,3 +432,6 @@ generateProducts(onPage)
 generateCart()
 generateCardListeners()
 generateCartListeners()
+generateCloseVideoListener()
+generateOpenVideoListener()
+generateVideoCarouselInner()

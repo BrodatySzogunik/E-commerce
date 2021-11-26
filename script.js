@@ -111,8 +111,9 @@ const addCategoriesListeners = ()=>{
 
         categoryContainer.classList.remove("category-element")
         categoryContainer.classList.add("category-element-active")
-        generateFilters();
+        
         generateQueryString();
+        generateFilters();
         generateProducts();
         
 
@@ -161,24 +162,44 @@ async function generateProducts(){
         apiSearchParams.set('price_lte',urlParams.get('price_lte'))
     }
 
+
+    let availiableFilters
+
     if(chosenCategory!==0){
         apiSearchParams.set("category",chosenCategory)
+        availiableFilters = await fetch(`http://localhost:3000/options?category=${chosenCategory}`)
+        .then(res => res.json())
+        .then(data=>{return data})
+
+        availiableFilters = availiableFilters.map(item=>{
+            return item.id
+        })
+        console.log(availiableFilters)
+
+        otherCategories.forEach(item=> {
+            if(availiableFilters.includes(Number(item)))
+            apiSearchParams.append("options",Number(item))
+    })
     }
+
     apiSearchParams.set("_page",page)
     apiSearchParams.set("_limit",perPage)
     producents.forEach(item=> {
         apiSearchParams.append("producer",Number(item))
     })
 
-    otherCategories.forEach(item=> {
-            apiSearchParams.append("options",Number(item))
-    })
+    
+
+
     if(chosenCategory!=0){
         apiSearchParams.set("category",chosenCategory)
     }
     if(saloon!==0){
         apiSearchParams.set("saloon",saloon)
     }
+
+
+    
 
     const favorites = await fetch("http://localhost:3000/favorites")
                             .then(res=>res.json())
@@ -598,12 +619,19 @@ function generateQueryString(){
             urlNewParams.append("options",item.value)
         }
     })
+
     urlParams.getAll("options").forEach(item =>{
-        if(!urlNewParams.getAll("options").includes(item)){
+        if(document.getElementById(`otherCategory-${item}`))
+        {
+            if(document.getElementById(`otherCategory-${item}`).checked&&!urlNewParams.getAll("options").includes(item)){
+                urlNewParams.append("options",item)
+            }
+        }else{
             urlNewParams.append("options",item)
         }
     })
     
+
     if(Number(priceFrom.value)!==0){
         urlNewParams.append("price_gte",Number(priceFrom.value))
     }
@@ -620,6 +648,14 @@ function generateQueryString(){
 
 }
 
+
+// const toogleOption=(optionId)=>{
+//     const queryString = window.location.search;
+//     const urlParams = new URLSearchParams(queryString)
+//     if(urlParams.getAll("options").includes(optionId.toString)){
+//         urlParams.remove("options",)
+//     }
+// }
 
 
 async function generateCart(){

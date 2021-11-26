@@ -1,34 +1,27 @@
 {
   "cart": [
     {
-      "id": 1,
-      "productId": 1,
-      "price": 159.99,
+      "productId": 11,
+      "price": 119.99,
       "qty": 1,
-      "options": [
-        {
-          "size": "M",
-          "color": "red"
-        }
-      ]
+      "name": "name",
+      "thumbnail": "something.jpg",
+      "size": "M",
+      "color": "black",
+      "id": 3
     },
     {
-      "id": 2,
-      "productId": 2,
-      "price": 19.99,
-      "qty": 3,
-      "options": [
-        {
-          "size": "L",
-          "color": "black"
-        }
-      ]
+      "productId": 1,
+      "price": 119.99,
+      "qty": 1,
+      "name": "name",
+      "thumbnail": "something.jpg",
+      "size": "M",
+      "color": "black",
+      "id": 4
     }
   ],
   "favorites": [
-    {
-      "id": 1
-    },
     {
       "id": 2
     },
@@ -660,7 +653,8 @@
           "value": "24"
         }
       ]
-    },{
+    },
+    {
       "id": 11,
       "name": "Motorcycle helmet (best one)",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -1021,7 +1015,8 @@
           "value": "24"
         }
       ]
-    },{
+    },
+    {
       "id": 21,
       "name": "Motorcycle helmet relatively good",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -1744,7 +1739,8 @@
           "value": "24"
         }
       ]
-    },{
+    },
+    {
       "id": 41,
       "name": "Motorcycle helmet relatively good enough",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -2237,4 +2233,3 @@
     }
   ]
 }
-

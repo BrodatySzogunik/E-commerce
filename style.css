@@ -164,6 +164,20 @@ p {
     brightness(110%) contrast(110%);
 }
 
+.closeVideoButton{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(163deg) brightness(105%) contrast(103%);
+  transform: rotate(0deg);
+  transition: ease-in-out 0.4s;
+}
+
+.closeVideoButton:hover{
+  transform: rotate(360deg);
+  transition: ease-in-out 0.4s;
+  filter: invert(13%) sepia(97%) saturate(6072%) hue-rotate(359deg)
+    brightness(110%) contrast(110%);
+  cursor: pointer;
+}
+
 .cart-box {
   width: 30px;
   position: relative;
