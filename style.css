@@ -24,6 +24,15 @@
   border-radius: 5px;
 }
 
+.video-carousel-prev,
+.video-carousel-next
+{
+  margin-top:auto ;
+  margin-bottom:auto ;
+  height: 10px;
+  width: 10px;
+}
+
 .carousel-indicator {
   background-color: #639297 !important;
 }
@@ -177,6 +186,12 @@ p {
     brightness(110%) contrast(110%);
   cursor: pointer;
 }
+/* 
+#cartBox{
+  position: absolute;
+  top:10px;
+  right: 0;
+} */
 
 .cart-box {
   width: 30px;
@@ -381,6 +396,7 @@ a {
 .image-container {
   position: relative;
   padding-bottom: 100%;
+  cursor: pointer;
 }
 
 .price-striked {

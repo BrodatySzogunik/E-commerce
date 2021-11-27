@@ -128,19 +128,18 @@ async function generateProduct(){
                                             <p class="fs-bigger">${data.priceDiscounted} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`:
                                             `<p class="normal-price fs-bigger">${data.price} PLN <img src="svg\\add-to-cart.svg" class="card-cart" alt=""></p>`
                 
-        data.option[1].values.forEach(item=>{
+        data.specification[0].value.split(',').forEach(item=>{
            sizesTemplate+=
             `
-            <option value="${item}">${item}</option>
+            <option value="${item.trim()}">${item.trim()}</option>
             `
         })
-        data.option[0].values.forEach(item=>{
+        data.specification[1].value.split(',').forEach(item=>{
             optionsTemplate+=
-            `
-            <option value="${item}">${item}</option>
-            `
-          
-        })
+             `
+             <option value="${item.trim()}">${item.trim()}</option>
+             `
+         })
         data.specification.forEach(item=>{
             productSpecTemplate+=
             `

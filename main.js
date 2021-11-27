@@ -319,22 +319,35 @@ async function generateProducts(onPage) {
 
 const generateCloseVideoListener=()=>{
     const videoBox = document.getElementById("videoBox")
+    const videoIFrame = document.querySelector("#videoBox iFrame")
+
     videoBox.addEventListener("click",(event)=>{
         console.log(event.target)
         if(event.target.classList.contains("closeVideoButtonBox")||event.target.classList.contains("closeVideoButton")){
+            videoIFrame.src=`https://www.youtube.com/embed/`
             videoBox.classList.remove("d-block");
             videoBox.classList.add("d-none");
         }
     })
 }
 
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 const generateOpenVideoListener=()=>{
     const videoCarouselInner = document.getElementById("videoCarouselInner")
-    const videoIFrame = document.getElementById("videoIFrame")
+    const videoIFrame = document.querySelector("#videoBox iFrame")
     const videoBox = document.getElementById("videoBox")
     videoCarouselInner.addEventListener("click",(event)=>{
         if(event.target.classList.contains("videoImg")){
-            videoIFrame.src=event.target.dataset.src
+            let videoId = getParameterByName("v",event.target.dataset.src)
+            videoIFrame.src=`https://www.youtube.com/embed/${videoId}`
             videoBox.classList.remove("d-none")
             videoBox.classList.add("d-block")
         }
